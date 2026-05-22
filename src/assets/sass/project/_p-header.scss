@@ -1,0 +1,80 @@
+@use '../global' as g;
+
+.p-header {
+  background-color: g.$bg-main;
+  color: g.$bg-color3;
+}
+
+.p-header__nav-list {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: flex-start;
+}
+
+.p-header__nav-list a {
+  color: g.$text-white;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 100%;
+  letter-spacing: 0.68px;
+  transition: opacity 0.3s;
+}
+
+@media (any-hover: hover) {
+  .p-header__nav-list a:hover {
+    opacity: 0.7;
+  }
+}
+
+.p-header__logo {
+  height: auto;
+  left: 50%;
+  position: absolute;
+  top: 100%;
+  transform: translate(-50%, -50%);
+  width: 172px;
+  z-index: 1;
+}
+
+.p-header__logo img {
+  height: auto;
+  object-fit: contain;
+  width: 100%;
+}
+
+.p-header__right {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px 40px;
+  justify-content: flex-end;
+}
+
+.p-header__cta {
+  align-items: center;
+  background-color: g.$bg-white;
+  color: g.$bg-main;
+  display: inline-flex;
+  flex-shrink: 0;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 108%;
+  letter-spacing: 0.72px;
+  gap: 10px;
+  padding: 16px 50px;
+  transition: opacity 0.3s;
+}
+
+@media (any-hover: hover) {
+  .p-header__cta:hover {
+    opacity: 0.85;
+  }
+}
+
+.p-header__cta-icon {
+  flex-shrink: 0;
+  height: 17px;
+  width: 17px;
+}

@@ -1,0 +1,14 @@
+@use "../global" as g;
+
+.l-header {
+  position: relative;
+  z-index: 100;
+}
+
+.l-header__inner {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding-block: 60px;
+  padding-inline: 360px 120px;
+}
