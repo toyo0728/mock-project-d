@@ -1,0 +1,22 @@
+@use '../global' as g;
+
+.l-footer {
+  background-color: g.$bg-main;
+  color: #FFF;
+}
+
+.l-footer__inner {
+  margin-inline: auto;
+  max-width: 1920px;
+  padding-block: 150px 100px;
+  padding-inline: clamp(
+  40px,
+  calc(360px - (1920px - 100vw) * 0.25),
+  360px
+);
+
+  @media (max-width: 1100px) {
+    padding-block: 90px;
+    padding-inline: 25px;
+  }
+}

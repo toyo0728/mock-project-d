@@ -131,7 +131,7 @@ body {
   justify-content: space-between;
   margin-inline: auto;
   max-width: 1920px;
-  padding-block: clamp(32px, 3.125vw, 60px);
+  padding-block: 60px;
   padding-inline: clamp(120px, 18.75vw, 360px) clamp(40px, 6.25vw, 120px);
 }
 
@@ -141,6 +141,18 @@ body {
   top: 68px;
   transform: translateX(-50%);
   z-index: 1;
+}
+
+.l-footer {
+  background-color: #3A4340;
+  color: #FFF;
+}
+
+.l-footer__inner {
+  margin-inline: auto;
+  max-width: 1920px;
+  padding-block: 150px 100px;
+  padding-inline: clamp(40px, 360px - (1920px - 100vw) * 0.25, 360px);
 }
 
 .p-header {
@@ -225,9 +237,210 @@ body {
   width: 100%;
 }
 
+.p-footer__body {
+  align-items: flex-start;
+  display: flex;
+  gap: 40px;
+  justify-content: space-between;
+}
+
+.p-footer__info {
+  flex-shrink: 0;
+}
+
+.p-footer__logo-ja {
+  font-size: 50px;
+  font-weight: 400;
+  line-height: 100%;
+  /* 50px */
+}
+
+.p-footer__logo-en {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 100%;
+  /* 20px */
+  margin-block-start: 17px;
+}
+
+.p-footer__address {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%;
+  margin-block-start: 62px;
+}
+
+.p-footer__tel {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%;
+  margin-block-end: 29.19px;
+  margin-block-start: 37.19px;
+}
+
+.p-footer__tel a {
+  transition: opacity 0.3s;
+}
+
+.p-footer__divider {
+  background-color: #5d6563;
+  border: none;
+  display: none;
+  flex-shrink: 0;
+  height: 1px;
+  margin-block: 48px;
+  max-width: 325px;
+  opacity: 1;
+  width: 100%;
+}
+
+.p-footer__nav-area {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+  margin-block-start: 69px;
+}
+
+.p-footer__nav-list {
+  display: flex;
+}
+
+.p-footer__nav-list--main {
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: flex-end;
+}
+
+.p-footer__nav-list--sub {
+  flex-wrap: wrap;
+  gap: 26px;
+  justify-content: flex-end;
+}
+
+.p-footer__nav-list a {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 100%;
+  /* 16px */
+  transition: opacity 0.3s;
+  white-space: nowrap;
+}
+
+.p-footer__copyright {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 150%;
+  margin-block-start: 40px;
+  text-align: center;
+}
+
 @media (max-width: 1500px) {
   .p-header__logo {
     width: clamp(120px, 11.46vw, 172px);
+  }
+}
+
+@media (max-width: 1100px) {
+  .l-header__inner {
+    height: 260px;
+    padding-block: 70px 60px;
+    padding-inline: 0;
+  }
+
+  .l-header__logo {
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .l-footer__inner {
+    padding-block: 90px;
+    padding-inline: 25px;
+  }
+
+  .p-header__nav {
+    display: none;
+  }
+
+  .p-header__cta {
+    display: none;
+  }
+
+  .p-footer__body {
+    align-items: center;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .p-footer__info {
+    text-align: center;
+    width: 100%;
+  }
+
+  .p-footer__logo-ja {
+    font-size: 42px;
+  }
+
+  .p-footer__logo-en {
+    font-size: 16px;
+    margin-block-start: 8px;
+  }
+
+  .p-footer__address {
+    font-size: 14px;
+    line-height: 150%;
+    margin-block-start: 40px;
+  }
+
+  .p-footer__tel {
+    font-size: 14px;
+    line-height: 150%;
+    margin-block: 8px;
+  }
+
+  .p-footer__divider {
+    display: block;
+  }
+
+  .p-footer__nav-area {
+    align-items: start;
+    display: grid;
+    gap: 0 56px;
+    grid-template-columns: max-content max-content;
+    justify-content: center;
+    margin-block-start: 0;
+    margin-inline: auto;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+
+  .p-footer__nav-list--main {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .p-footer__nav-list--sub {
+    flex-direction: column;
+    gap: 24px;
+    justify-content: flex-start;
+  }
+
+  .p-footer__nav-list a {
+    font-size: 14px;
+    white-space: normal;
+  }
+
+  .p-footer__copyright {
+    font-size: 12px;
+    margin-block-start: 56px;
+  }
+}
+
+@media (max-width: 900px) {
+  .p-header__logo {
+    width: 80px;
   }
 }
 
@@ -238,5 +451,13 @@ body {
 
   .p-header__cta:hover {
     opacity: 0.85;
+  }
+
+  .p-footer__tel a:hover {
+    opacity: 0.7;
+  }
+
+  .p-footer__nav-list a:hover {
+    opacity: 0.7;
   }
 }
