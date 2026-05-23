@@ -11,24 +11,90 @@
   justify-content: space-between;
   margin-inline: auto;
   max-width: 1920px;
-  padding-block: 60px;
-  padding-inline:
-    clamp(120px, 18.75vw, 360px)
-    clamp(40px, 6.25vw, 120px);
 
-    @media (max-width: 1100px) {
-      padding-block: 70px 60px;
-      padding-inline: 0;
-      height: 260px;
-    }
+  @media (min-width: 1101px) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    --header-p-block: clamp(
+      48px,
+      calc(48px + (100vw - 1100px) * 0.014634),
+      60px
+    );
+    padding-block: var(--header-p-block);
+    padding-inline: var(--header-p-start) var(--header-p-end);
+  }
+
+  // 1101px〜1400px：左右余白を抑えてナビ領域を確保
+  @media (min-width: 1101px) and (max-width: 1400px) {
+    --header-p-start: clamp(
+      40px,
+      calc(40px + (100vw - 1100px) * 0.133333),
+      80px
+    );
+    --header-p-end: clamp(
+      16px,
+      calc(16px + (100vw - 1100px) * 0.08),
+      40px
+    );
+    --header-gap: clamp(
+      16px,
+      calc(16px + (100vw - 1100px) * 0.04),
+      28px
+    );
+    --header-logo-w: clamp(
+      110px,
+      calc(110px + (100vw - 1100px) * 0.066667),
+      130px
+    );
+    --header-center-gap: clamp(
+      28px,
+      calc(28px + (100vw - 1100px) * 0.053333),
+      40px
+    );
+  }
+
+  // 1401px〜1920px：デザイン最大値へ
+  @media (min-width: 1401px) {
+    --header-p-start: clamp(
+      80px,
+      calc(80px + (100vw - 1400px) * 0.538462),
+      360px
+    );
+    --header-p-end: clamp(
+      40px,
+      calc(40px + (100vw - 1400px) * 0.153846),
+      120px
+    );
+    --header-gap: clamp(
+      28px,
+      calc(28px + (100vw - 1400px) * 0.023077),
+      40px
+    );
+    --header-logo-w: clamp(
+      130px,
+      calc(130px + (100vw - 1400px) * 0.080769),
+      172px
+    );
+    --header-center-gap: var(--header-gap);
+  }
+
+  @media (max-width: 1100px) {
+    height: 260px;
+    padding-block: 70px 60px;
+    padding-inline: 0;
+  }
 }
 
 .l-header__logo {
   left: 50%;
   position: absolute;
-  top: 68px;
-  transform: translateX(-50%);
   z-index: 1;
+
+  @media (min-width: 1101px) {
+    bottom: 0;
+    top: auto;
+    transform: translate(-50%, 50%);
+  }
 
   @media (max-width: 1100px) {
     top: 50%;
