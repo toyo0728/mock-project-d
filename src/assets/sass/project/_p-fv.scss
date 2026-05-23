@@ -1,0 +1,21 @@
+@use '../global' as g;
+
+.p-fv {
+   position: relative;
+}
+
+.p-fv__image {
+    width: 100%;
+    aspect-ratio: 1920 / 860;
+    margin-inline: auto;
+}
+
+.p-fv__image picture {
+  display: block;
+}
+
+.p-fv__image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}

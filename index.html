@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>高級ヴィラ 刻の標</title>
+    <title>刻の標 | TOKI NO SHIRUBE</title>
     <meta name="description" content="高級ヴィラ 刻の標" />
     <link rel="stylesheet" href="./assets/css/lib/swiper-bundle.min.css?v=1.1.0" />
     <link rel="stylesheet" href="./assets/css/style.css?v=1.1.0" />
@@ -17,7 +17,15 @@
   <body id="top">
     <header class="l-header p-header">
       <div class="l-header__inner">
-        
+        <nav class="p-header__nav p-header__left" aria-label="メインナビゲーション（左）">
+          <ul class="p-header__nav-list">
+            <li><a href="#about">刻の標について</a></li>
+            <li><a href="#villa">ヴィラ</a></li>
+            <li><a href="#dining">お食事</a></li>
+            <li><a href="#surroundings">周辺環境</a></li>
+          </ul>
+        </nav>
+        <h1 class="l-header__logo">
           <a href="#" class="p-header__logo">
             <img
               src="./assets/img/logo.webp"
@@ -27,15 +35,7 @@
               decoding="async"
             />
           </a>
-     
-        <nav class="p-header__nav p-header__left" aria-label="メインナビゲーション（左）">
-          <ul class="p-header__nav-list">
-            <li><a href="#about">刻の標について</a></li>
-            <li><a href="#villa">ヴィラ</a></li>
-            <li><a href="#dining">お食事</a></li>
-            <li><a href="#surroundings">周辺環境</a></li>
-          </ul>
-        </nav>
+        </h1>
         <div class="p-header__right">
           <nav class="p-header__nav p-header__nav--right" aria-label="メインナビゲーション（右）">
             <ul class="p-header__nav-list">
@@ -79,5 +79,21 @@
         </div>
       </div>
     </header>
+    <main class="l-main">
+      <div class="p-fv">
+        <div class="p-fv__image">
+          <picture>
+            <source srcset="./assets/img/fv-pc.webp" media="(min-width: 1100px)" />
+            <img
+              src="./assets/img/fv-sp.webp"
+              alt="fv画像"
+              width="1920"
+              height="860"
+              decoding="async"
+            />
+          </picture>
+        </div>
+      </div>
+    </main>
   </body>
 </html>

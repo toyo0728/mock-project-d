@@ -29,13 +29,11 @@
 }
 
 .p-header__logo {
-  height: auto;
-  left: 50%;
-  position: absolute;
-  top: 100%;
-  transform: translate(-50%, -50%);
   width: 172px;
-  z-index: 1;
+
+  @media (max-width: 1500px) {
+    width: clamp(120px, 11.46vw, 172px);
+  }
 }
 
 .p-header__logo img {
@@ -48,7 +46,7 @@
   align-items: center;
   display: flex;
   flex-wrap: wrap;
-  gap: 24px 40px;
+  gap: 40px;
   justify-content: flex-end;
 }
 
