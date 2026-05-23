@@ -8,9 +8,12 @@
 .p-header__left {
   @media (min-width: 1101px) {
     display: flex;
-    justify-content: flex-end;
     min-width: 0;
     padding-inline-end: calc(var(--header-logo-w) / 2 + var(--header-center-gap, var(--header-gap)));
+  }
+
+  @media (max-width: 1500px) {
+    justify-content: flex-end;
   }
 }
 

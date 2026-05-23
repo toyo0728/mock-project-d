@@ -352,7 +352,6 @@ body {
 
   .p-header__left {
     display: flex;
-    justify-content: flex-end;
     min-width: 0;
     padding-inline-end: calc(var(--header-logo-w) / 2 + var(--header-center-gap, var(--header-gap)));
   }
@@ -411,6 +410,12 @@ body {
     font-size: clamp(16px, 16px + (100vw - 1400px) * 0.003846, 18px);
     padding-block: clamp(14px, 14px + (100vw - 1400px) * 0.003846, 16px);
     padding-inline: clamp(36px, 36px + (100vw - 1400px) * 0.026923, 50px);
+  }
+}
+
+@media (max-width: 1500px) {
+  .p-header__left {
+    justify-content: flex-end;
   }
 }
 
