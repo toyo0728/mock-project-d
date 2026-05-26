@@ -1,7 +1,11 @@
-@use "../global" as v;
+@use "../global" as g;
 
 .l-inner {
   width: min(1720px, 100%);
   margin-inline: auto;
-  padding-inline: 20px;
+  padding-inline: 25px;
+
+  @media (min-width: 900px) {
+    padding-inline: 20px;
+  }
 }

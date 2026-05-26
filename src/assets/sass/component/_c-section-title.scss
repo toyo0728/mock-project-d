@@ -1,0 +1,37 @@
+@use '../global' as g;
+
+.c-section-title {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  line-height: 1;
+  text-align: center;
+}
+
+.c-section-title-ja {
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.c-section-title-en {
+  color: #aaa497;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+@media (min-width: 900px) {
+  .c-section-title {
+    gap: 15px;
+  }
+
+  .c-section-title-ja {
+    font-size: 46px;
+  }
+
+  .c-section-title-en {
+    font-size: 16px;
+  }
+}

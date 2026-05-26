@@ -1,0 +1,30 @@
+@use '../global' as g;
+
+.l-dining {
+  background-color: g.$bg-white;
+  color: g.$text-black;
+  padding-block: 70px;
+
+  @media (min-width: 900px) {
+    padding-block: 100px 150px;
+  }
+}
+
+.l-dining__inner {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+  margin-inline: auto;
+  max-width: 1920px;
+
+  @media (min-width: 1200px) {
+    gap: 80px;
+    padding-block: 100px 150px;
+    padding-inline: 120px;
+  }
+
+  @media (min-width: 900px) {
+    padding-inline: 60px;
+  }
+}

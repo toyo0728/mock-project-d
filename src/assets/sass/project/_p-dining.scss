@@ -1,24 +1,8 @@
 @use '../global' as g;
 
-.p-dining {
-  background-color: g.$bg-white;
-  color: g.$text-black;
-}
-
-.p-dining__inner {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  gap: 56px;
-  margin-inline: auto;
-  max-width: 1920px;
-  padding-block: 70px;
-  padding-inline: 25px;
-}
-
 .p-dining__body {
   margin-inline: auto;
-  max-width: 325px;
+  max-width: min(500px, calc(100% - 40px));
   width: 100%;
 }
 
@@ -102,7 +86,6 @@
 
 .p-dining__buttons {
   display: flex;
-  gap: 12px;
   justify-content: space-between;
   width: 100%;
 }
@@ -143,12 +126,9 @@
   display: none;
 }
 
+// 900px以上
+
 @media (min-width: 900px) {
-  .p-dining__inner {
-    gap: 80px;
-    padding-block: 100px 150px;
-    padding-inline: 120px;
-  }
 
   .p-dining__body {
     display: flex;
@@ -161,7 +141,7 @@
   .p-dining__lead {
     align-items: center;
     flex-direction: row;
-    gap: 140px;
+    gap: 70px;
   }
 
   .p-dining__media {
@@ -238,5 +218,12 @@
     height: 100%;
     object-fit: cover;
     width: 100%;
+  }
+}
+
+// 1200px以上
+@media (min-width: 1200px) {
+  .p-dining__lead {
+    gap: 140px;
   }
 }
