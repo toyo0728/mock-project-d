@@ -1,0 +1,242 @@
+@use '../global' as g;
+
+.p-dining {
+  background-color: g.$bg-white;
+  color: g.$text-black;
+}
+
+.p-dining__inner {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+  margin-inline: auto;
+  max-width: 1920px;
+  padding-block: 70px;
+  padding-inline: 25px;
+}
+
+.p-dining__body {
+  margin-inline: auto;
+  max-width: 325px;
+  width: 100%;
+}
+
+.p-dining__lead {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.p-dining__media {
+  width: 100%;
+}
+
+.p-dining__main-image {
+  aspect-ratio: 325 / 190;
+  overflow: hidden;
+  width: 100%;
+}
+
+.p-dining__main-image img {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.p-dining__thumbs {
+  display: flex;
+  justify-content: space-between;
+  margin-block-start: 12px;
+  width: 100%;
+}
+
+.p-dining__thumbs-item {
+  aspect-ratio: 100 / 74;
+  flex: 0 0 100px;
+  max-width: 100px;
+  overflow: hidden;
+  width: 30.77%;
+}
+
+.p-dining__thumbs-item img {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.p-dining__lead-content {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 100%;
+}
+
+.p-dining__text-block {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+.p-dining__text {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.p-dining__notes {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.p-dining__notes li + li {
+  margin-block-start: 2px;
+}
+
+.p-dining__buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.p-dining__btn {
+  align-items: center;
+  border: 1px solid transparent;
+  display: inline-flex;
+  flex-shrink: 0;
+  font-size: 14px;
+  font-weight: 400;
+  justify-content: center;
+  letter-spacing: 0.56px;
+  line-height: 1.5;
+  padding: 12px 28px;
+  transition: opacity 0.3s;
+  white-space: nowrap;
+}
+
+.p-dining__btn--dinner {
+  background-color: #c0d2cc;
+  border-color: #b7c6c1;
+}
+
+.p-dining__btn--breakfast {
+  background-color: #e9ddc3;
+  border-color: #c8c1b4;
+  width: 157px;
+}
+
+@media (any-hover: hover) {
+  .p-dining__btn:hover {
+    opacity: 0.85;
+  }
+}
+
+.p-dining__gallery {
+  display: none;
+}
+
+@media (min-width: 900px) {
+  .p-dining__inner {
+    gap: 80px;
+    padding-block: 100px 150px;
+    padding-inline: 120px;
+  }
+
+  .p-dining__body {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    margin-inline: 0;
+    max-width: none;
+  }
+
+  .p-dining__lead {
+    align-items: center;
+    flex-direction: row;
+    gap: 140px;
+  }
+
+  .p-dining__media {
+    flex-shrink: 0;
+    max-width: 765px;
+    width: min(765px, 54%);
+  }
+
+  .p-dining__main-image {
+    aspect-ratio: 765 / 450;
+  }
+
+  .p-dining__thumbs {
+    display: none;
+  }
+
+  .p-dining__lead-content {
+    align-items: flex-start;
+    flex: 1;
+    gap: 60px;
+    justify-content: center;
+    max-width: 542px;
+    min-width: 0;
+  }
+
+  .p-dining__text-block {
+    gap: 40px;
+  }
+
+  .p-dining__text {
+    font-size: 16px;
+  }
+
+  .p-dining__notes {
+    font-size: 15px;
+  }
+
+  .p-dining__notes li + li {
+    margin-block-start: 8px;
+  }
+
+  .p-dining__buttons {
+    flex-direction: column;
+    gap: 32px;
+    justify-content: flex-start;
+    width: auto;
+  }
+
+  .p-dining__btn {
+    font-size: 16px;
+    letter-spacing: 0.64px;
+    padding: 16px 60px;
+    width: 257px;
+  }
+
+  .p-dining__btn--breakfast {
+    width: 257px;
+  }
+
+  .p-dining__gallery {
+    display: grid;
+    gap: 68px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: 100%;
+  }
+
+  .p-dining__gallery-item {
+    aspect-ratio: 515 / 360;
+    overflow: hidden;
+  }
+
+  .p-dining__gallery-item img {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+  }
+}
