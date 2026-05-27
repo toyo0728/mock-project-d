@@ -163,8 +163,20 @@
                   </ul>
                 </div>
                 <div class="p-dining__buttons">
-                  <a href="#" class="p-dining__btn p-dining__btn--dinner">Dinner Menu</a>
-                  <a href="#" class="p-dining__btn p-dining__btn--breakfast">Breakfast</a>
+                  <button
+                    type="button"
+                    class="p-dining__btn p-dining__btn--dinner"
+                    data-modal-open="dinner-menu"
+                  >
+                    Dinner Menu
+                  </button>
+                  <button
+                    type="button"
+                    class="p-dining__btn p-dining__btn--breakfast"
+                    data-modal-open="breakfast-menu"
+                  >
+                    Breakfast
+                  </button>
                 </div>
               </div>
             </div>
@@ -206,7 +218,7 @@
     </main>
 
     <footer class="l-footer p-footer">
-      <div class="l-footer__inner l-inner">
+      <div class="l-footer__inner">
         <div class="p-footer__body">
           <div class="p-footer__info">
             <p class="p-footer__logo-ja">刻の標</p>
@@ -244,5 +256,187 @@
         </p>
       </div>
     </footer>
+
+    <!-- Dinner Menu Modal -->
+    <div
+      id="dinner-menu"
+      class="p-modal p-modal--dinner"
+      aria-hidden="true"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Dinner Menu"
+    >
+      <div class="p-modal__overlay" data-modal-close></div>
+      <div class="p-modal__container">
+        <div class="p-modal__inner">
+          <p class="p-modal__title">Dinner Menu</p>
+          <div class="p-modal__menu">
+            <div class="p-modal__menu-item">
+              <p class="p-modal__menu-heading">アミューズ</p>
+              <p class="p-modal__menu-text">森の香りの一口前菜（季節野菜／柑橘）</p>
+            </div>
+            <div class="p-modal__menu-item">
+              <p class="p-modal__menu-heading">前菜</p>
+              <p class="p-modal__menu-text">
+                鮮魚のカルパッチョ　柚子とハーブ<br />焼き野菜のマリネ　木の実のアクセント
+              </p>
+            </div>
+            <div class="p-modal__menu-item">
+              <p class="p-modal__menu-heading">スープ</p>
+              <p class="p-modal__menu-text">きのこのポタージュ　黒胡椒とオイル</p>
+            </div>
+            <div class="p-modal__menu-item">
+              <p class="p-modal__menu-heading">魚料理</p>
+              <p class="p-modal__menu-text">白身魚の炭火焼き　山椒バターソース<br />旬の青菜添え</p>
+            </div>
+            <div class="p-modal__menu-item">
+              <p class="p-modal__menu-heading">肉料理</p>
+              <p class="p-modal__menu-text">
+                国産牛のロースト　赤ワインソース<br />季節の根菜グリル
+              </p>
+            </div>
+            <div class="p-modal__menu-item">
+              <p class="p-modal__menu-heading">Rice &amp; Small Plates</p>
+              <p class="p-modal__menu-text">
+                土鍋ごはん（季節の炊き込み）<br />小鉢二種／香の物／留椀
+              </p>
+            </div>
+            <div class="p-modal__menu-item">
+              <p class="p-modal__menu-heading">デザート</p>
+              <p class="p-modal__menu-text">ほうじ茶のプリン　黒蜜<br />季節の果実</p>
+            </div>
+          </div>
+          <button type="button" class="p-modal__close" data-modal-close aria-label="閉じる">
+            <svg
+              width="30"
+              height="30"
+              viewBox="0 0 30 30"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <line
+                x1="2"
+                y1="2"
+                x2="28"
+                y2="28"
+                stroke="#202524"
+                stroke-width="1.5"
+                stroke-linecap="round"
+              />
+              <line
+                x1="28"
+                y1="2"
+                x2="2"
+                y2="28"
+                stroke="#202524"
+                stroke-width="1.5"
+                stroke-linecap="round"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Breakfast Menu Modal -->
+    <div
+      id="breakfast-menu"
+      class="p-modal p-modal--breakfast"
+      aria-hidden="true"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Breakfast Menu"
+    >
+      <div class="p-modal__overlay" data-modal-close></div>
+
+      <div class="p-modal__container">
+        <div class="p-modal__inner">
+          <p class="p-modal__title">Breakfast Menu</p>
+
+          <div class="p-modal__menu p-modal__menu--tight">
+            <div class="p-modal__menu-item">
+              <p class="p-modal__menu-heading">Main Plate</p>
+
+              <p class="p-modal__menu-text p-modal__menu-text-break">
+                <span class="u-desktop">
+                  バタートースト（厚切り）<br />
+                  季節のスープ（野菜のポタージュ／ミネストローネ など）<br />
+                </span>
+
+                <span class="u-mobile">
+                  バタートースト<br />
+                  季節のスープ<br />
+                  （野菜のポタージュ／ミネストローネ など）<br />
+                </span>
+
+                卵料理（オムレツ or スクランブル）<br />
+                季節野菜のグリル
+              </p>
+            </div>
+
+            <div class="p-modal__menu-item p-modal__menu-item--micro">
+              <p class="p-modal__menu-heading">Side</p>
+
+              <p class="p-modal__menu-text">
+                ヨーグルトと季節の果実<br />
+                自家製ジャム（柑橘／ベリー など）
+              </p>
+            </div>
+
+            <div class="p-modal__menu-item p-modal__menu-item--micro">
+              <p class="p-modal__menu-heading">Drink</p>
+
+              <p class="p-modal__menu-text">
+                ドリップコーヒー／和紅茶／ハーブティー<br />
+                （＋100%ジュース：りんご or みかん）
+              </p>
+            </div>
+          </div>
+
+          <div class="p-modal__image" aria-hidden="true">
+            <img
+              src="./assets/img/break-fast-modal.webp"
+              alt="朝食の画像"
+              width="400"
+              height="300"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+
+          <button type="button" class="p-modal__close" data-modal-close aria-label="閉じる">
+            <svg
+              width="30"
+              height="30"
+              viewBox="0 0 30 30"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <line
+                x1="2"
+                y1="2"
+                x2="28"
+                y2="28"
+                stroke="#202524"
+                stroke-width="1.5"
+                stroke-linecap="round"
+              />
+              <line
+                x1="28"
+                y1="2"
+                x2="2"
+                y2="28"
+                stroke="#202524"
+                stroke-width="1.5"
+                stroke-linecap="round"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <script src="./assets/js/script.js"></script>
   </body>
 </html>

@@ -1,0 +1,234 @@
+@use '../global' as g;
+
+.p-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  inset: 0;
+  position: fixed;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+
+  &.is-open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+.p-modal__overlay {
+  background-color: rgba(g.$bg-main, 0.6);
+  cursor: pointer;
+  inset: 0;
+  position: absolute;
+}
+
+.p-modal__container {
+  max-height: 90svh;
+  overflow-y: auto;
+  position: relative;
+  width: min(600px, calc(100% - 48px));
+  z-index: 1;
+  padding: 16px 14px;
+  background: #fff;
+
+  @media (min-width: 900px) {
+    padding: 40px 20px;
+  }
+}
+
+.p-modal__inner {
+  background-color: #fff;
+  border: 1px solid #c5a761;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  padding: 60px 24px 50px;
+  position: relative;
+
+  @media (min-width: 900px) {
+    gap: 48px;
+    padding: 80px 156px 50px;
+  }
+}
+
+.p-modal__title {
+  font-family: g.$font-jp;
+  font-size: clamp(32px, 6vw, 46px);
+  font-weight: 500;
+  line-height: 1;
+  color: g.$text-black;
+  white-space: nowrap;
+}
+
+.p-modal__menu {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  width: 100%;
+}
+
+.p-modal__menu--tight {
+  gap: 16px;
+}
+
+.p-modal__menu--desktop {
+  display: flex;
+}
+
+.p-modal__menu--mobile {
+  display: none;
+}
+
+.p-modal__menu-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  text-align: center;
+}
+
+.p-modal__menu-item--micro {
+  gap: 2px;
+}
+
+.p-modal__menu-heading {
+  font-family: g.$font-jp;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: g.$text-black;
+
+  @media (min-width: 900px) {
+    font-size: 20px;
+  }
+}
+
+.p-modal__menu-text {
+  font-family: g.$font-jp;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: g.$text-black;
+
+  @media (min-width: 900px) {
+    font-size: 15px;
+  }
+}
+
+.p-modal__menu-text-break {
+  text-align: start;
+}
+
+.p-modal__image {
+  width: min(400px, 100%);
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.p-modal__image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.p-modal__close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  transition: opacity 0.3s;
+
+  @media (any-hover: hover) {
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+}
+
+// ===== Dinner Menu =====
+.p-modal--dinner {
+  @media (min-width: 900px) {
+    .p-modal__container {
+      width: min(654px, calc(100% - 28px));
+    }
+
+    .p-modal__inner {
+      padding: 80px 156px 50px;
+    }
+
+    .p-modal__menu {
+      width: 302px;
+      max-width: 100%;
+    }
+  }
+}
+
+// ===== Breakfast Menu =====
+.p-modal--breakfast {
+  @media (min-width: 900px) {
+    .p-modal__container {
+      width: min(752px, calc(100% - 28px));
+    }
+
+    .p-modal__inner {
+      padding: 80px 156px 50px;
+    }
+
+    .p-modal__menu,
+    .p-modal__image {
+      width: 400px;
+      max-width: 100%;
+    }
+  }
+
+  @media (max-width: 899px) {
+    .p-modal__inner {
+      gap: 24px;
+      padding: 30px 20px;
+    }
+
+    .p-modal__title {
+      font-size: 24px;
+      font-weight: 400;
+    }
+
+    .p-modal__menu--desktop {
+      display: none;
+    }
+
+    .p-modal__menu--mobile {
+      display: flex;
+      gap: 14px;
+    }
+
+    .p-modal__menu-heading {
+      font-size: 16px;
+      white-space: nowrap;
+    }
+
+    .p-modal__menu-text {
+      font-size: 14px;
+    }
+
+    .p-modal__image {
+      width: min(202px, 100%);
+      aspect-ratio: 202 / 135;
+    }
+
+    .p-modal__close {
+      padding: 0;
+
+      svg {
+        width: 15px;
+        height: 15px;
+      }
+    }
+  }
+}

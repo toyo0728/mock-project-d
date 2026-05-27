@@ -2,7 +2,7 @@
 
 .l-footer {
   background-color: g.$bg-main;
-  color: #FFF;
+  color: #fff;
   padding-block: 150px 100px;
 
   @media (max-width: 1100px) {
@@ -12,9 +12,6 @@
 
 .l-footer__inner {
   max-width: 1920px;
-  padding-inline: clamp(
-  40px,
-  calc(360px - (1920px - 100vw) * 0.25),
-  360px
-);
+  padding-inline: clamp(40px, calc(360px - (1920px - 100vw) * 0.25), 360px);
+  margin-inline: auto;
 }

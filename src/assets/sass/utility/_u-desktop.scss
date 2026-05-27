@@ -1,0 +1,9 @@
+@use '../global' as g;
+
+.u-desktop {
+  display: inline;
+
+  @media (max-width: 767px) {
+    display: none;
+  }
+}

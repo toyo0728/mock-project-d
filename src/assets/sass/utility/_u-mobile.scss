@@ -1,0 +1,9 @@
+@use '../global' as g;
+
+.u-mobile {
+  display: none;
+
+  @media (max-width: 767px) {
+    display: inline;
+  }
+}
