@@ -4,22 +4,50 @@
   margin-inline: auto;
   max-width: min(500px, calc(100% - 40px));
   width: 100%;
+
+  @media (min-width: 900px) {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    margin-inline: 0;
+    max-width: none;
+  }
 }
 
 .p-dining__lead {
   display: flex;
   flex-direction: column;
   gap: 40px;
+
+  @media (min-width: 900px) {
+    align-items: center;
+    flex-direction: row;
+    gap: 70px;
+  }
+
+  @media (min-width: 1200px) {
+    gap: 140px;
+  }
 }
 
 .p-dining__media {
   width: 100%;
+
+  @media (min-width: 900px) {
+    flex-shrink: 0;
+    max-width: 765px;
+    width: min(765px, 54%);
+  }
 }
 
 .p-dining__main-image {
   aspect-ratio: 325 / 190;
   overflow: hidden;
   width: 100%;
+
+  @media (min-width: 900px) {
+    aspect-ratio: 765 / 450;
+  }
 }
 
 .p-dining__main-image img {
@@ -31,17 +59,22 @@
 
 .p-dining__thumbs {
   display: flex;
+  gap: 12px;
   justify-content: space-between;
   margin-block-start: 12px;
   width: 100%;
+
+  @media (min-width: 900px) {
+    display: none;
+  }
 }
 
 .p-dining__thumbs-item {
   aspect-ratio: 100 / 74;
-  flex: 0 0 100px;
-  max-width: 100px;
+  flex: 1;
+  max-width: 140px;
+  min-width: 0;
   overflow: hidden;
-  width: 30.77%;
 }
 
 .p-dining__thumbs-item img {
@@ -57,6 +90,15 @@
   flex-direction: column;
   gap: 40px;
   width: 100%;
+
+  @media (min-width: 900px) {
+    align-items: flex-start;
+    flex: 1;
+    gap: 60px;
+    justify-content: center;
+    max-width: 542px;
+    min-width: 0;
+  }
 }
 
 .p-dining__text-block {
@@ -64,12 +106,20 @@
   flex-direction: column;
   gap: 24px;
   width: 100%;
+
+  @media (min-width: 900px) {
+    gap: 40px;
+  }
 }
 
 .p-dining__text {
   font-size: 14px;
   font-weight: 400;
   line-height: 1.5;
+
+  @media (min-width: 900px) {
+    font-size: 16px;
+  }
 }
 
 .p-dining__notes {
@@ -78,16 +128,37 @@
   font-size: 14px;
   font-weight: 400;
   line-height: 1.5;
+
+  @media (min-width: 900px) {
+    font-size: 15px;
+  }
 }
 
 .p-dining__notes li + li {
   margin-block-start: 2px;
+
+  @media (min-width: 900px) {
+    margin-block-start: 8px;
+  }
 }
 
 .p-dining__buttons {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   width: 100%;
+
+  @media (max-width: 374px) {
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 900px) {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    justify-content: flex-start;
+    width: auto;
+  }
 }
 
 .p-dining__btn {
@@ -100,9 +171,17 @@
   justify-content: center;
   letter-spacing: 0.56px;
   line-height: 1.5;
-  padding: 12px 28px;
+  padding: 12px 16px;
   transition: opacity 0.3s;
   white-space: nowrap;
+  width: 100%;
+
+  @media (min-width: 900px) {
+    font-size: 16px;
+    letter-spacing: 0.64px;
+    padding: 16px 60px;
+    width: 257px;
+  }
 }
 
 .p-dining__btn--dinner {
@@ -113,7 +192,11 @@
 .p-dining__btn--breakfast {
   background-color: #e9ddc3;
   border-color: #c8c1b4;
-  width: 157px;
+  width: 100%;
+
+  @media (min-width: 900px) {
+    width: 257px;
+  }
 }
 
 @media (any-hover: hover) {
@@ -124,106 +207,27 @@
 
 .p-dining__gallery {
   display: none;
-}
 
-// 900px以上
-
-@media (min-width: 900px) {
-
-  .p-dining__body {
-    display: flex;
-    flex-direction: column;
-    gap: 80px;
-    margin-inline: 0;
-    max-width: none;
-  }
-
-  .p-dining__lead {
-    align-items: center;
-    flex-direction: row;
-    gap: 70px;
-  }
-
-  .p-dining__media {
-    flex-shrink: 0;
-    max-width: 765px;
-    width: min(765px, 54%);
-  }
-
-  .p-dining__main-image {
-    aspect-ratio: 765 / 450;
-  }
-
-  .p-dining__thumbs {
-    display: none;
-  }
-
-  .p-dining__lead-content {
-    align-items: flex-start;
-    flex: 1;
-    gap: 60px;
-    justify-content: center;
-    max-width: 542px;
-    min-width: 0;
-  }
-
-  .p-dining__text-block {
-    gap: 40px;
-  }
-
-  .p-dining__text {
-    font-size: 16px;
-  }
-
-  .p-dining__notes {
-    font-size: 15px;
-  }
-
-  .p-dining__notes li + li {
-    margin-block-start: 8px;
-  }
-
-  .p-dining__buttons {
-    flex-direction: column;
-    gap: 32px;
-    justify-content: flex-start;
-    width: auto;
-  }
-
-  .p-dining__btn {
-    font-size: 16px;
-    letter-spacing: 0.64px;
-    padding: 16px 60px;
-    width: 257px;
-  }
-
-  .p-dining__btn--breakfast {
-    width: 257px;
-  }
-
-  .p-dining__gallery {
+  @media (min-width: 900px) {
     display: grid;
     gap: 68px;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     width: 100%;
   }
+}
 
-  .p-dining__gallery-item {
+.p-dining__gallery-item {
+  @media (min-width: 900px) {
     aspect-ratio: 515 / 360;
     overflow: hidden;
   }
+}
 
-  .p-dining__gallery-item img {
+.p-dining__gallery-item img {
+  @media (min-width: 900px) {
     display: block;
     height: 100%;
     object-fit: cover;
     width: 100%;
-  }
-}
-
-// 1200px以上
-@media (min-width: 1200px) {
-  .p-dining__lead {
-    gap: 140px;
   }
 }
