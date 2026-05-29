@@ -1,0 +1,26 @@
+@use '../global' as g;
+
+.l-local-guide {
+  background: linear-gradient(to bottom, g.$bg-white, g.$bg-color3);
+  overflow: hidden;
+  padding-block: 80px;
+  padding-inline: 25px;
+
+  @media (min-width: 900px) {
+    padding-block: 40px 150px;
+    padding-inline: 0;
+  }
+}
+
+.l-local-guide__inner {
+  margin-inline: auto;
+  max-width: 1920px;
+
+  @media (min-width: 900px) {
+    padding-inline: 60px 0;
+  }
+
+  @media (min-width: 1200px) {
+    padding-inline: 120px 0;
+  }
+}
