@@ -5,16 +5,32 @@
   overflow: hidden;
   padding-block: 80px;
   padding-inline: 25px;
+  position: relative;
 
   @media (min-width: 900px) {
     padding-block: 40px 150px;
     padding-inline: 0;
+  }
+
+  &::before {
+    background-image: url('../img/local-guide-bg.png');
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    content: '';
+    inset: 0;
+    mix-blend-mode: multiply;
+    opacity: 0.8;
+    pointer-events: none;
+    position: absolute;
   }
 }
 
 .l-local-guide__inner {
   margin-inline: auto;
   max-width: 1920px;
+  position: relative;
+  z-index: 1;
 
   @media (min-width: 900px) {
     padding-inline: 60px 0;

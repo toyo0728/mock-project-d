@@ -8,11 +8,15 @@
   display: flex;
   flex-direction: column;
   margin-inline: auto;
-  max-width: 325px;
+  max-width: min(325px, 100%);
   width: 100%;
 
+  @media (min-width: 500px) and (max-width: 899.98px) {
+    max-width: min(560px, calc(100% - 50px));
+  }
+
   @media (min-width: 900px) {
-    max-width: 1200px;
+    max-width: min(1200px, 100%);
   }
 }
 
@@ -34,9 +38,11 @@
   letter-spacing: 0.42px;
   line-height: 1.5;
   padding-block: 15px 16px;
-  padding-inline: 40px;
+  padding-inline: clamp(8px, 3vw, 40px);
   text-align: center;
-  transition: background-color 0.3s, opacity 0.3s;
+  transition:
+    background-color 0.3s,
+    opacity 0.3s;
 
   &:nth-child(3) {
     background-color: #e8e5df;
@@ -96,7 +102,8 @@
     align-items: stretch;
     flex-direction: row;
     gap: 0;
-    justify-content: space-between;
+    justify-content: center;
+    min-width: 0;
     padding-block: 0;
     padding-inline: 0;
   }
@@ -107,16 +114,21 @@
   flex-direction: column;
   gap: 24px;
   margin-inline: auto;
-  max-width: 304px;
+  max-width: min(304px, 100%);
   width: 100%;
 
+  @media (min-width: 500px) and (max-width: 899.98px) {
+    max-width: min(480px, 100%);
+  }
+
   @media (min-width: 900px) {
-    flex: 0 0 630px;
+    flex: 1 1 52.5%;
     gap: 40px;
     margin-inline: 0;
-    max-width: none;
-    padding-block: 91px 92px;
-    padding-inline: 60px;
+    max-width: 630px;
+    min-width: 0;
+    padding-block: clamp(48px, 8vw, 91px) clamp(48px, 8vw, 92px);
+    padding-inline: clamp(24px, 5vw, 60px);
   }
 }
 
@@ -248,9 +260,11 @@
   width: calc(100% + 28px);
 
   @media (min-width: 900px) {
-    flex: 0 0 570px;
+    flex: 1 1 47.5%;
     gap: 0;
     margin-inline: 0;
+    max-width: 570px;
+    min-width: 0;
     width: auto;
   }
 }
@@ -261,8 +275,9 @@
   width: 100%;
 
   @media (min-width: 900px) {
-    aspect-ratio: auto;
-    height: 600px;
+    aspect-ratio: 570 / 600;
+    height: auto;
+    max-height: 600px;
   }
 
   img {
@@ -276,6 +291,7 @@
 
 .p-villa__thumbs {
   display: flex;
+  gap: 10px;
   justify-content: space-between;
   width: 100%;
 
@@ -285,10 +301,11 @@
 }
 
 .p-villa__thumbs-item {
-  flex-shrink: 0;
-  height: 76px;
+  aspect-ratio: 100 / 76;
+  flex: 1 1 0;
+  height: auto;
   overflow: hidden;
-  width: 100px;
+  width: auto;
 
   img {
     display: block;
@@ -304,10 +321,9 @@
 
   @media (min-width: 900px) {
     display: flex;
-    gap: 45px;
-    justify-content: flex-start;
+    gap: clamp(20px, 3.75vw, 45px);
+    justify-content: center;
     padding-block: 80px 0;
-    padding-inline: 0;
     width: 100%;
   }
 }
@@ -317,6 +333,15 @@
   height: 270px;
   overflow: hidden;
   width: 370px;
+
+  @media (min-width: 900px) {
+    aspect-ratio: 370 / 270;
+    flex: 1 1 0;
+    height: auto;
+    max-width: 370px;
+    min-width: 0;
+    width: min(370px, calc((100% - clamp(40px, 7.5vw, 90px)) / 3));
+  }
 
   img {
     display: block;

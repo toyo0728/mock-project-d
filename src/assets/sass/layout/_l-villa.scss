@@ -39,6 +39,10 @@
   @media (min-width: 900px) {
     gap: 80px;
     padding-block: 150px;
+    padding-inline: clamp(25px, 5vw, 60px);
+  }
+
+  @media (min-width: 1400px) {
     padding-inline: clamp(60px, 18.75vw, 360px);
   }
 }

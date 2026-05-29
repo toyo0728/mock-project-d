@@ -215,11 +215,27 @@ body {
   overflow: hidden;
   padding-block: 80px;
   padding-inline: 25px;
+  position: relative;
+}
+
+.l-local-guide::before {
+  background-image: url("../img/local-guide-bg.png");
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  content: "";
+  inset: 0;
+  mix-blend-mode: multiply;
+  opacity: 0.8;
+  pointer-events: none;
+  position: absolute;
 }
 
 .l-local-guide__inner {
   margin-inline: auto;
   max-width: 1920px;
+  position: relative;
+  z-index: 1;
 }
 
 .l-access {
@@ -582,7 +598,7 @@ body {
   display: flex;
   flex-direction: column;
   margin-inline: auto;
-  max-width: 325px;
+  max-width: min(325px, 100%);
   width: 100%;
 }
 
@@ -604,7 +620,7 @@ body {
   letter-spacing: 0.42px;
   line-height: 1.5;
   padding-block: 15px 16px;
-  padding-inline: 40px;
+  padding-inline: clamp(8px, 3vw, 40px);
   text-align: center;
   transition: background-color 0.3s, opacity 0.3s;
 }
@@ -651,7 +667,7 @@ body {
   flex-direction: column;
   gap: 24px;
   margin-inline: auto;
-  max-width: 304px;
+  max-width: min(304px, 100%);
   width: 100%;
 }
 
@@ -751,15 +767,17 @@ body {
 
 .p-villa__thumbs {
   display: flex;
+  gap: 10px;
   justify-content: space-between;
   width: 100%;
 }
 
 .p-villa__thumbs-item {
-  flex-shrink: 0;
-  height: 76px;
+  aspect-ratio: 100/76;
+  flex: 1 1 0;
+  height: auto;
   overflow: hidden;
-  width: 100px;
+  width: auto;
 }
 
 .p-villa__thumbs-item img {
@@ -973,13 +991,15 @@ body {
 
 .p-local-guide__collage {
   aspect-ratio: 350/330;
+  margin-inline-end: -25px;
   max-width: 350px;
   position: relative;
-  width: 100%;
+  width: calc(100% + 25px);
 }
 
 .p-local-guide__image {
   overflow: hidden;
+  position: absolute;
 }
 
 .p-local-guide__image img {
@@ -1012,10 +1032,10 @@ body {
 }
 
 .p-access__content {
+  align-items: center;
   display: flex;
   flex-direction: column;
   gap: 40px;
-  width: 100%;
 }
 
 .p-access__map {
@@ -1124,7 +1144,6 @@ body {
   font-size: 16px;
   font-weight: 500;
   line-height: 1.5;
-  margin: 0 0 32px;
 }
 
 .p-access__block-body {
@@ -1699,7 +1718,7 @@ body {
   .l-villa__inner {
     gap: 80px;
     padding-block: 150px;
-    padding-inline: clamp(60px, 18.75vw, 360px);
+    padding-inline: clamp(25px, 5vw, 60px);
   }
 
   .l-dining {
@@ -1859,7 +1878,7 @@ body {
   }
 
   .p-villa__unit {
-    max-width: 1200px;
+    max-width: min(1200px, 100%);
   }
 
   .p-villa__tab {
@@ -1877,18 +1896,20 @@ body {
     align-items: stretch;
     flex-direction: row;
     gap: 0;
-    justify-content: space-between;
+    justify-content: center;
+    min-width: 0;
     padding-block: 0;
     padding-inline: 0;
   }
 
   .p-villa__info {
-    flex: 0 0 630px;
+    flex: 1 1 52.5%;
     gap: 40px;
     margin-inline: 0;
-    max-width: none;
-    padding-block: 91px 92px;
-    padding-inline: 60px;
+    max-width: 630px;
+    min-width: 0;
+    padding-block: clamp(48px, 8vw, 91px) clamp(48px, 8vw, 92px);
+    padding-inline: clamp(24px, 5vw, 60px);
   }
 
   .p-villa__name {
@@ -1934,15 +1955,18 @@ body {
   }
 
   .p-villa__visual {
-    flex: 0 0 570px;
+    flex: 1 1 47.5%;
     gap: 0;
     margin-inline: 0;
+    max-width: 570px;
+    min-width: 0;
     width: auto;
   }
 
   .p-villa__main-image {
-    aspect-ratio: auto;
-    height: 600px;
+    aspect-ratio: 570/600;
+    height: auto;
+    max-height: 600px;
   }
 
   .p-villa__thumbs {
@@ -1951,11 +1975,19 @@ body {
 
   .p-villa__gallery {
     display: flex;
-    gap: 45px;
-    justify-content: flex-start;
+    gap: clamp(20px, 3.75vw, 45px);
+    justify-content: center;
     padding-block: 80px 0;
-    padding-inline: 0;
     width: 100%;
+  }
+
+  .p-villa__gallery-item {
+    aspect-ratio: 370/270;
+    flex: 1 1 0;
+    height: auto;
+    max-width: 370px;
+    min-width: 0;
+    width: min(370px, (100% - clamp(40px, 7.5vw, 90px)) / 3);
   }
 
   .p-dining__body {
@@ -2098,7 +2130,13 @@ body {
   .p-local-guide__collage {
     aspect-ratio: auto;
     display: contents;
+    margin-inline-end: 0;
     max-width: none;
+    width: auto;
+  }
+
+  .p-local-guide__image {
+    position: absolute;
   }
 
   .p-local-guide__image--main {
@@ -2123,89 +2161,6 @@ body {
     position: absolute;
     top: 72.83%;
     width: 16.68%;
-  }
-
-  .p-access__content {
-    align-items: flex-start;
-    flex-direction: row;
-    gap: clamp(32px, 5vw, 80px);
-  }
-
-  .p-access__map {
-    aspect-ratio: 776/561;
-    flex: 1 1 0;
-    height: auto;
-    max-width: 776px;
-    min-width: 0;
-  }
-
-  .p-access__map-inner {
-    background-color: #eee;
-    height: 100%;
-  }
-
-  .p-access__map-inner a {
-    height: 100%;
-    position: static;
-    width: 100%;
-  }
-
-  .p-access__info {
-    flex: 0 1 600px;
-    max-width: 600px;
-    min-width: 0;
-  }
-
-  .p-access__row {
-    grid-template-columns: 172px 1fr;
-  }
-
-  .p-access__term {
-    font-size: 16px;
-    padding: 20px 30px;
-  }
-
-  .p-access__detail {
-    font-size: 16px;
-    padding: 20px 0;
-  }
-
-  .p-access__row--transport {
-    display: grid;
-    grid-template-columns: 172px 1fr;
-  }
-
-  .p-access__row--transport .p-access__term {
-    align-self: start;
-  }
-
-  .p-access__row--transport .p-access__detail {
-    gap: 24px;
-    max-width: 369px;
-    padding: 20px 0;
-  }
-
-  .p-access__detail-inner {
-    gap: 24px;
-  }
-
-  .p-access__block-title {
-    font-size: 17px;
-    margin: 0 0 34px;
-  }
-
-  .p-access__block-body {
-    font-size: 16px;
-    gap: 0;
-  }
-
-  .p-access__block-body p + p {
-    margin-top: 5px;
-  }
-
-  .p-access__note {
-    font-size: 15px;
-    margin-top: 3px;
   }
 
   .p-faq__list {
@@ -2440,6 +2395,89 @@ body {
     min-width: 0;
     padding-inline-start: calc(var(--header-logo-w) / 2 + var(--header-center-gap, var(--header-gap)));
   }
+
+  .p-access__content {
+    align-items: flex-start;
+    flex-direction: row;
+    gap: clamp(32px, 5vw, 80px);
+  }
+
+  .p-access__map {
+    aspect-ratio: 776/561;
+    flex: 0 0 auto;
+    height: auto;
+    max-width: 776px;
+    min-width: 0;
+    width: min(776px, 100% - 600px - clamp(32px, 5vw, 80px));
+  }
+
+  .p-access__map-inner {
+    background-color: #eee;
+    height: 100%;
+  }
+
+  .p-access__map-inner a {
+    height: 100%;
+    position: static;
+    width: 100%;
+  }
+
+  .p-access__info {
+    flex: 0 1 600px;
+    max-width: 600px;
+    min-width: 0;
+  }
+
+  .p-access__row {
+    grid-template-columns: 172px 1fr;
+  }
+
+  .p-access__term {
+    font-size: 16px;
+    padding: 20px 30px;
+  }
+
+  .p-access__detail {
+    font-size: 16px;
+    padding: 20px 0;
+  }
+
+  .p-access__row--transport {
+    display: grid;
+    grid-template-columns: 172px 1fr;
+  }
+
+  .p-access__row--transport .p-access__term {
+    align-self: start;
+  }
+
+  .p-access__row--transport .p-access__detail {
+    gap: 24px;
+    max-width: 369px;
+    padding: 20px 0;
+  }
+
+  .p-access__detail-inner {
+    gap: 24px;
+  }
+
+  .p-access__block-title {
+    font-size: 17px;
+  }
+
+  .p-access__block-body {
+    font-size: 16px;
+    gap: 0;
+  }
+
+  .p-access__block-body p + p {
+    margin-top: 5px;
+  }
+
+  .p-access__note {
+    font-size: 15px;
+    margin-top: 3px;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -2459,6 +2497,12 @@ body {
 
   .p-dining__lead {
     gap: 140px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .l-villa__inner {
+    padding-inline: clamp(60px, 18.75vw, 360px);
   }
 }
 
@@ -2533,6 +2577,14 @@ body {
     display: none;
   }
 
+  .p-access__line-break {
+    display: inline;
+  }
+
+  .p-access__line-inline {
+    display: none;
+  }
+
   .p-footer__body {
     align-items: center;
     flex-direction: column;
@@ -2576,7 +2628,6 @@ body {
     grid-template-columns: max-content max-content;
     justify-content: center;
     margin-block-start: 0;
-    margin-inline: auto;
     width: -moz-fit-content;
     width: fit-content;
   }
@@ -2604,18 +2655,6 @@ body {
 }
 
 @media (max-width: 899px) {
-  .p-local-guide__image {
-    position: absolute;
-  }
-
-  .p-access__line-break {
-    display: inline;
-  }
-
-  .p-access__line-inline {
-    display: none;
-  }
-
   .p-modal--breakfast .p-modal__inner {
     gap: 24px;
     padding: 30px 20px;
@@ -2718,6 +2757,16 @@ body {
     font-size: clamp(14px, 14px + (100vw - 1100px) * 0.003333, 16px);
     padding-block: 14px;
     padding-inline: clamp(24px, 24px + (100vw - 1100px) * 0.026667, 36px);
+  }
+}
+
+@media (min-width: 500px) and (max-width: 899.98px) {
+  .p-villa__unit {
+    max-width: min(560px, 100% - 50px);
+  }
+
+  .p-villa__info {
+    max-width: min(480px, 100%);
   }
 }
 

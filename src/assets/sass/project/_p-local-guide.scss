@@ -100,21 +100,25 @@
 
 .p-local-guide__collage {
   aspect-ratio: 350 / 330;
+  margin-inline-end: -25px;
   max-width: 350px;
   position: relative;
-  width: 100%;
+  width: calc(100% + 25px);
 
   @media (min-width: 900px) {
     aspect-ratio: auto;
     display: contents;
+    margin-inline-end: 0;
     max-width: none;
+    width: auto;
   }
 }
 
 .p-local-guide__image {
   overflow: hidden;
+  position: absolute;
 
-  @media (max-width: 899px) {
+  @media (min-width: 900px) {
     position: absolute;
   }
 }
