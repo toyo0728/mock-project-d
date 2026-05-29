@@ -7,19 +7,19 @@
 }
 
 .l-villa__bg {
+  background-image: url('../img/villa-bg-sp.webp');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   inset: 0;
+  mix-blend-mode: multiply;
   opacity: 0.4;
   pointer-events: none;
   position: absolute;
   z-index: 0;
 
-  img {
-    display: block;
-    height: 100%;
-    mix-blend-mode: multiply;
-    object-fit: cover;
-    object-position: center;
-    width: 100%;
+  @media (min-width: 900px) {
+    background-image: url('../img/villa-bg-pc.webp');
   }
 }
 

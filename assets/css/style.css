@@ -163,22 +163,16 @@ body {
 }
 
 .l-villa__bg {
+  background-image: url("../img/villa-bg-sp.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   inset: 0;
+  mix-blend-mode: multiply;
   opacity: 0.4;
   pointer-events: none;
   position: absolute;
   z-index: 0;
-}
-
-.l-villa__bg img {
-  display: block;
-  height: 100%;
-  mix-blend-mode: multiply;
-  -o-object-fit: cover;
-  object-fit: cover;
-  -o-object-position: center;
-  object-position: center;
-  width: 100%;
 }
 
 .l-villa__inner {
@@ -1713,6 +1707,10 @@ body {
   .l-concept__inner {
     padding-block: 220px 180px;
     padding-inline: 120px;
+  }
+
+  .l-villa__bg {
+    background-image: url("../img/villa-bg-pc.webp");
   }
 
   .l-villa__inner {
