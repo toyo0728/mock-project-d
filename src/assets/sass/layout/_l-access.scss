@@ -1,0 +1,30 @@
+@use '../global' as g;
+
+.l-access {
+  background-color: g.$bg-color3;
+  color: g.$text-black;
+  padding-block: 90px 60px;
+  padding-inline: 25px;
+
+  @media (min-width: 900px) {
+    padding-block: 200px 100px;
+    padding-inline: 60px;
+  }
+
+  @media (min-width: 1200px) {
+    padding-inline: 120px;
+  }
+}
+
+.l-access__inner {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+  margin-inline: auto;
+  max-width: 1920px;
+
+  @media (min-width: 900px) {
+    gap: 80px;
+  }
+}
