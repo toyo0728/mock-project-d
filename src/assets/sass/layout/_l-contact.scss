@@ -33,16 +33,11 @@
 .l-contact__inner {
   margin-inline: auto;
   max-width: 1920px;
-  padding-block: 100px;
-  padding-inline: 25px;
+  padding-block: clamp(48px, calc(48px + (100vw - 320px) * 0.0957), 180px);
+  padding-inline: clamp(16px, calc(16px + (100vw - 320px) * 0.2125), 360px);
   position: relative;
   width: 100%;
   z-index: 1;
-
-  @media (min-width: 900px) {
-    padding-block: 180px;
-    padding-inline: clamp(60px, 18.75vw, 360px);
-  }
 }
 
 .l-contact .c-section-title-en {

@@ -140,7 +140,7 @@ body {
 }
 
 .l-concept {
-  background-color: #3A4340;
+  background-color: #3a4340;
   color: #f1f6f4;
   overflow: hidden;
   position: relative;
@@ -157,7 +157,7 @@ body {
 }
 
 .l-villa {
-  background: linear-gradient(to bottom, #E7E4DE, #F0EDE5);
+  background: linear-gradient(to bottom, #e7e4de, #f0ede5);
   overflow: hidden;
   position: relative;
 }
@@ -196,7 +196,7 @@ body {
 }
 
 .l-dining {
-  background-color: #F0EDE5;
+  background-color: #f0ede5;
   color: #202524;
   padding-block: 70px;
 }
@@ -211,7 +211,7 @@ body {
 }
 
 .l-local-guide {
-  background: linear-gradient(to bottom, #F0EDE5, #E7E4DE);
+  background: linear-gradient(to bottom, #f0ede5, #e7e4de);
   overflow: hidden;
   padding-block: 80px;
   padding-inline: 25px;
@@ -223,7 +223,7 @@ body {
 }
 
 .l-access {
-  background-color: #E7E4DE;
+  background-color: #e7e4de;
   color: #202524;
   padding-block: 90px 60px;
   padding-inline: 25px;
@@ -239,7 +239,7 @@ body {
 }
 
 .l-faq {
-  background-color: #E7E4DE;
+  background-color: #e7e4de;
   color: #202524;
   padding-block: 60px 90px;
   padding-inline: 25px;
@@ -290,8 +290,8 @@ body {
 .l-contact__inner {
   margin-inline: auto;
   max-width: 1920px;
-  padding-block: 100px;
-  padding-inline: 25px;
+  padding-block: clamp(48px, 48px + (100vw - 320px) * 0.0957, 180px);
+  padding-inline: clamp(16px, 16px + (100vw - 320px) * 0.2125, 360px);
   position: relative;
   width: 100%;
   z-index: 1;
@@ -302,7 +302,7 @@ body {
 }
 
 .l-footer {
-  background-color: #3A4340;
+  background-color: #3a4340;
   color: #fff;
   padding-block: 150px 100px;
 }
@@ -336,8 +336,8 @@ body {
 }
 
 .p-header {
-  background-color: #3A4340;
-  color: #E7E4DE;
+  background-color: #3a4340;
+  color: #e7e4de;
 }
 
 .p-header__nav-list {
@@ -352,7 +352,7 @@ body {
 }
 
 .p-header__nav-list a {
-  color: #E5E7EB;
+  color: #e5e7eb;
   font-size: 17px;
   font-weight: 400;
   letter-spacing: 0.68px;
@@ -376,8 +376,8 @@ body {
 
 .p-header__cta {
   align-items: center;
-  background-color: #F0EDE5;
-  color: #3A4340;
+  background-color: #f0ede5;
+  color: #3a4340;
   display: inline-flex;
   flex-shrink: 0;
   font-size: 18px;
@@ -1257,7 +1257,7 @@ body {
 .p-contact {
   display: flex;
   flex-direction: column;
-  gap: 100px;
+  gap: clamp(48px, 48px + (100vw - 320px) * 0.0327, 100px);
   width: 100%;
 }
 
@@ -1265,9 +1265,9 @@ body {
   align-items: center;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: clamp(24px, 24px + (100vw - 320px) * 0.0098, 40px);
   margin-inline: auto;
-  max-width: 325px;
+  max-width: clamp(260px, 84vw, 325px);
   width: 100%;
 }
 
@@ -1278,21 +1278,21 @@ body {
 .p-contact__inquiry {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: clamp(24px, 24px + (100vw - 320px) * 0.0098, 40px);
   margin-inline: auto;
-  max-width: 325px;
+  max-width: clamp(260px, 84vw, 325px);
   width: 100%;
 }
 
 .p-contact__body {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: clamp(16px, 16px + (100vw - 320px) * 0.0025, 24px);
   width: 100%;
 }
 
 .p-contact__lead {
-  font-size: 14px;
+  font-size: clamp(13px, 13px + (100vw - 320px) * 0.0016, 16px);
   font-weight: 400;
   line-height: 1.5;
   text-align: center;
@@ -1312,7 +1312,7 @@ body {
   align-items: center;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: clamp(24px, 24px + (100vw - 320px) * 0.0098, 40px);
   width: 100%;
 }
 
@@ -1322,21 +1322,22 @@ body {
   border: 1px solid #3a4340;
   color: #2d2108;
   display: inline-flex;
-  font-size: 16px;
+  font-size: clamp(14px, 14px + (100vw - 320px) * 0.0049, 16px);
   font-weight: 400;
-  gap: 20px;
+  gap: clamp(12px, 4vw, 20px);
   justify-content: center;
   line-height: 1;
-  padding-block: 17px;
-  padding-inline: 41px;
+  max-width: 100%;
+  padding-block: clamp(14px, 14px + (100vw - 320px) * 0.0033, 17px);
+  padding-inline: clamp(20px, 10vw, 41px);
   transition: opacity 0.3s;
-  width: min(325px, 100%);
+  width: clamp(220px, 82vw, 325px);
 }
 
 .p-contact__reserve-btn-icon {
   flex-shrink: 0;
-  height: 16px;
-  width: 16px;
+  height: clamp(14px, 4vw, 16px);
+  width: clamp(14px, 4vw, 16px);
 }
 
 .p-contact__phone {
@@ -1344,18 +1345,18 @@ body {
   display: flex;
   flex-direction: column;
   font-weight: 400;
-  gap: 14px;
+  gap: clamp(10px, 10px + (100vw - 320px) * 0.0025, 14px);
   line-height: 1.5;
   text-align: center;
   width: 100%;
 }
 
 .p-contact__phone-label {
-  font-size: 18px;
+  font-size: clamp(16px, 16px + (100vw - 320px) * 0.0033, 18px);
 }
 
 .p-contact__phone-number {
-  font-size: 28px;
+  font-size: clamp(22px, 22px + (100vw - 320px) * 0.0065, 28px);
   line-height: 1.5;
 }
 
@@ -1365,13 +1366,13 @@ body {
 }
 
 .p-contact__phone-hours {
-  font-size: 14px;
+  font-size: clamp(12px, 12px + (100vw - 320px) * 0.0025, 14px);
 }
 
 .p-contact__form {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: clamp(16px, 16px + (100vw - 320px) * 0.0049, 24px);
   margin: 0;
   width: 100%;
 }
@@ -1384,7 +1385,7 @@ body {
 }
 
 .p-contact__label {
-  font-size: 14px;
+  font-size: clamp(13px, 13px + (100vw - 320px) * 0.0016, 16px);
   font-weight: 400;
   line-height: 1.5;
 }
@@ -1395,11 +1396,11 @@ body {
   border: 1px solid #dbdfdd;
   color: #202524;
   font-family: inherit;
-  font-size: 16px;
+  font-size: clamp(14px, 14px + (100vw - 320px) * 0.0025, 16px);
   font-weight: 400;
   line-height: 1.5;
-  padding-block: 10px;
-  padding-inline: 20px;
+  padding-block: clamp(8px, 8px + (100vw - 320px) * 0.0008, 10px);
+  padding-inline: clamp(16px, 16px + (100vw - 320px) * 0.0049, 20px);
   width: 100%;
 }
 
@@ -1414,11 +1415,11 @@ body {
 }
 
 .p-contact__input {
-  height: 44px;
+  height: clamp(40px, 40px + (100vw - 320px) * 0.0033, 44px);
 }
 
 .p-contact__textarea {
-  height: 68px;
+  height: clamp(60px, 60px + (100vw - 320px) * 0.0057, 68px);
   resize: vertical;
 }
 
@@ -1430,20 +1431,21 @@ body {
   cursor: pointer;
   display: inline-flex;
   font-family: inherit;
-  font-size: 15px;
+  font-size: clamp(14px, 14px + (100vw - 320px) * 0.0016, 15px);
   font-weight: 500;
-  gap: 20px;
+  gap: clamp(14px, 4vw, 20px);
   justify-content: center;
   line-height: 1;
-  padding-block: 17px;
+  max-width: 100%;
+  padding-block: clamp(14px, 14px + (100vw - 320px) * 0.0033, 17px);
   transition: opacity 0.3s;
-  width: 100%;
+  width: clamp(220px, 82vw, 325px);
 }
 
 .p-contact__submit-icon {
   flex-shrink: 0;
-  height: 14px;
-  width: 14px;
+  height: clamp(12px, 3.5vw, 14px);
+  width: clamp(12px, 3.5vw, 14px);
 }
 
 .p-modal {
@@ -1733,11 +1735,6 @@ body {
 
   .l-faq__inner {
     gap: 80px;
-  }
-
-  .l-contact__inner {
-    padding-block: 180px;
-    padding-inline: clamp(60px, 18.75vw, 360px);
   }
 
   .c-section-title {
@@ -2250,112 +2247,6 @@ body {
     gap: 32px;
   }
 
-  .p-contact {
-    align-items: flex-start;
-    flex-direction: row;
-    gap: 0;
-    justify-content: space-between;
-  }
-
-  .p-contact__reservation {
-    align-items: flex-start;
-    flex: 0 0 560px;
-    margin-inline: 0;
-    max-width: 560px;
-  }
-
-  .p-contact__inquiry {
-    flex: 0 0 480px;
-    margin-inline: 0;
-    max-width: 480px;
-  }
-
-  .p-contact__body {
-    gap: 20px;
-  }
-
-  .p-contact__lead {
-    font-size: 16px;
-    text-align: left;
-  }
-
-  .p-contact__lead--pc {
-    display: block;
-  }
-
-  .p-contact__lead--sp {
-    display: none;
-  }
-
-  .p-contact__actions {
-    align-items: flex-start;
-    gap: 64px;
-    max-width: 560px;
-  }
-
-  .p-contact__reserve-btn {
-    font-size: 25px;
-    gap: 40px;
-    height: 87px;
-    padding-block: 0;
-    padding-inline: 0;
-    width: 100%;
-  }
-
-  .p-contact__reserve-btn-icon {
-    height: 25px;
-    width: 25px;
-  }
-
-  .p-contact__phone {
-    gap: 24px;
-  }
-
-  .p-contact__phone-label {
-    font-size: 21px;
-  }
-
-  .p-contact__phone-number {
-    font-size: 32px;
-  }
-
-  .p-contact__phone-hours {
-    font-size: 16px;
-  }
-
-  .p-contact__form {
-    gap: 32px;
-  }
-
-  .p-contact__label {
-    font-size: 16px;
-  }
-
-  .p-contact__input,
-  .p-contact__textarea {
-    padding-block: 15px;
-    padding-inline: 24px;
-  }
-
-  .p-contact__input {
-    height: 54px;
-  }
-
-  .p-contact__textarea {
-    height: 78px;
-  }
-
-  .p-contact__submit {
-    font-size: 18px;
-    gap: 24px;
-    padding-block: 21px;
-  }
-
-  .p-contact__submit-icon {
-    height: 17px;
-    width: 17px;
-  }
-
   .p-modal__container {
     padding: 40px 20px;
   }
@@ -2398,6 +2289,111 @@ body {
   .p-modal--breakfast .p-modal__image {
     max-width: 100%;
     width: 400px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .p-contact {
+    align-items: flex-start;
+    flex-direction: row;
+    gap: clamp(40px, 5vw, 120px);
+    justify-content: space-between;
+  }
+
+  .p-contact__reservation {
+    align-items: flex-start;
+    flex: 0 1 clamp(320px, 29.17vw, 560px);
+    margin-inline: 0;
+    max-width: clamp(320px, 29.17vw, 560px);
+  }
+
+  .p-contact__inquiry {
+    flex: 0 1 clamp(280px, 25vw, 480px);
+    margin-inline: 0;
+    max-width: clamp(280px, 25vw, 480px);
+  }
+
+  .p-contact__body {
+    gap: clamp(16px, 1.25vw, 20px);
+  }
+
+  .p-contact__lead {
+    text-align: left;
+  }
+
+  .p-contact__lead--pc {
+    display: block;
+  }
+
+  .p-contact__lead--sp {
+    display: none;
+  }
+
+  .p-contact__actions {
+    align-items: flex-start;
+    gap: clamp(32px, 32px + (100vw - 1000px) * 0.0327, 64px);
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .p-contact__reserve-btn {
+    font-size: clamp(18px, 18px + (100vw - 1000px) * 0.0061, 25px);
+    gap: clamp(20px, 2.5vw, 40px);
+    height: clamp(64px, 64px + (100vw - 1000px) * 0.0239, 87px);
+    padding-block: 0;
+    padding-inline: clamp(16px, 2vw, 24px);
+    width: 100%;
+  }
+
+  .p-contact__reserve-btn-icon {
+    height: clamp(20px, 1.8vw, 25px);
+    width: clamp(20px, 1.8vw, 25px);
+  }
+
+  .p-contact__phone {
+    gap: clamp(16px, 1.5vw, 24px);
+  }
+
+  .p-contact__phone-label {
+    font-size: clamp(18px, 1.3vw, 21px);
+  }
+
+  .p-contact__phone-number {
+    font-size: clamp(26px, 2vw, 32px);
+  }
+
+  .p-contact__phone-hours {
+    font-size: clamp(14px, 1vw, 16px);
+  }
+
+  .p-contact__form {
+    gap: clamp(20px, 1.8vw, 32px);
+  }
+
+  .p-contact__input,
+  .p-contact__textarea {
+    padding-block: clamp(12px, 1vw, 15px);
+    padding-inline: clamp(18px, 1.5vw, 24px);
+  }
+
+  .p-contact__input {
+    height: clamp(48px, 3.5vw, 54px);
+  }
+
+  .p-contact__textarea {
+    height: clamp(68px, 5vw, 78px);
+  }
+
+  .p-contact__submit {
+    font-size: clamp(15px, 1.1vw, 18px);
+    gap: clamp(16px, 1.5vw, 24px);
+    padding-block: clamp(16px, 1.4vw, 21px);
+    width: 100%;
+  }
+
+  .p-contact__submit-icon {
+    height: clamp(14px, 1.1vw, 17px);
+    width: clamp(14px, 1.1vw, 17px);
   }
 }
 
