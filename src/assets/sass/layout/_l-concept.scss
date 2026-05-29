@@ -1,5 +1,7 @@
 @use '../global' as g;
 
+$concept-bp: 1000px;
+
 .l-concept {
   background-color: g.$bg-main;
   color: #f1f6f4;
@@ -16,8 +18,12 @@
   position: relative;
   width: 100%;
 
-  @media (min-width: 900px) {
+  @media (min-width: $concept-bp) {
     padding-block: 220px 180px;
+    padding-inline: 70px;
+  }
+
+  @media (min-width: 1500px) {
     padding-inline: 120px;
   }
 }

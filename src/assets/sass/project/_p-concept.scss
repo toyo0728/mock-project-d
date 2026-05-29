@@ -1,16 +1,19 @@
 @use '../global' as g;
 
 $concept-sp-width: 375;
+$concept-pc-width: 1600;
+$concept-bp: 1000px;
 
 .p-concept {
   margin-inline: auto;
-  max-width: 1680px;
+  max-width: $concept-sp-width * 1px;
   min-height: 940px;
   position: relative;
   width: 100%;
 
-  @media (min-width: 900px) {
-    min-height: 1087px;
+  @media (min-width: $concept-bp) {
+    max-width: $concept-pc-width * 1px;
+    min-height: 1227px;
   }
 }
 
@@ -36,7 +39,7 @@ $concept-sp-width: 375;
 
 // SP: セクション上端からの座標（pt 110px 分を差し引いた .p-concept 基準）
 .p-concept__img--1 {
-  height: 70px;
+  aspect-ratio: 100 / 70;
   left: calc(25 / $concept-sp-width * 100%);
   top: 138px;
   width: calc(100 / $concept-sp-width * 100%);
@@ -45,12 +48,12 @@ $concept-sp-width: 375;
     object-position: 42% 48%;
   }
 
-  @media (min-width: 900px) {
-    height: 200px;
-    left: 14.29%;
+  @media (min-width: $concept-bp) {
+    aspect-ratio: 280 / 200;
+    left: calc(240 / $concept-pc-width * 100%);
     top: 52px;
     max-width: 280px;
-    width: 16.67%;
+    width: calc(280 / $concept-pc-width * 100%);
 
     img {
       object-position: center;
@@ -59,7 +62,7 @@ $concept-sp-width: 375;
 }
 
 .p-concept__img--2 {
-  height: 78px;
+  aspect-ratio: 109 / 78;
   left: calc(266 / $concept-sp-width * 100%);
   top: 256px;
   width: calc(109 / $concept-sp-width * 100%);
@@ -68,12 +71,12 @@ $concept-sp-width: 375;
     object-position: 38% center;
   }
 
-  @media (min-width: 900px) {
-    height: 230px;
-    left: 76.19%;
+  @media (min-width: $concept-bp) {
+    aspect-ratio: 320 / 230;
+    left: calc(1280 / $concept-pc-width * 100%);
     top: 150px;
     max-width: 320px;
-    width: 19.05%;
+    width: calc(320 / $concept-pc-width * 100%);
 
     img {
       object-position: center;
@@ -82,53 +85,53 @@ $concept-sp-width: 375;
 }
 
 .p-concept__img--3 {
-  height: 117px;
+  aspect-ratio: 120 / 117;
   left: calc(43 / $concept-sp-width * 100%);
   top: 823px;
   width: calc(120 / $concept-sp-width * 100%);
 
   img {
-    object-position: 28% 42%;
+    object-position: 56% 65%;
   }
 
-  @media (min-width: 900px) {
-    height: 390px;
-    left: 20.83%;
-    top: 837px;
+  @media (min-width: $concept-bp) {
+    aspect-ratio: 400 / 390;
+    left: calc(350 / $concept-pc-width * 100%);
     max-width: 400px;
-    width: 23.81%;
+    top: 837px;
+    width: calc(400 / $concept-pc-width * 100%);
 
     img {
-      object-position: center;
+      object-position: 56% 65%;
     }
   }
 }
 
 .p-concept__img--4 {
-  height: 100px;
+  aspect-ratio: 90 / 100;
   left: 0;
   top: 421px;
   width: calc(90 / $concept-sp-width * 100%);
 
   img {
-    object-position: 40% 52%;
+    object-position: 35% 45%;
   }
 
-  @media (min-width: 900px) {
-    height: 300px;
+  @media (min-width: $concept-bp) {
+    aspect-ratio: 270 / 300;
     left: 0;
-    top: 452px;
     max-width: 270px;
-    width: 16.07%;
+    top: 452px;
+    width: calc(270 / $concept-pc-width * 100%);
 
     img {
-      object-position: center;
+      object-position: 35% 45%;
     }
   }
 }
 
 .p-concept__img--5 {
-  height: 100px;
+  aspect-ratio: 150 / 100;
   left: calc(200 / $concept-sp-width * 100%);
   top: 734px;
   width: calc(150 / $concept-sp-width * 100%);
@@ -137,12 +140,12 @@ $concept-sp-width: 375;
     object-position: 32% 42%;
   }
 
-  @media (min-width: 900px) {
-    height: 290px;
-    left: 61.9%;
+  @media (min-width: $concept-bp) {
+    aspect-ratio: 400 / 290;
+    left: calc(1040 / $concept-pc-width * 100%);
     top: 797px;
     max-width: 400px;
-    width: 23.81%;
+    width: calc(400 / $concept-pc-width * 100%);
 
     img {
       object-position: center;
@@ -162,7 +165,7 @@ $concept-sp-width: 375;
   width: 100%;
   z-index: 1;
 
-  @media (min-width: 900px) {
+  @media (min-width: $concept-bp) {
     gap: 0;
     max-width: none;
     padding-inline: 0;
@@ -178,10 +181,10 @@ $concept-sp-width: 375;
   line-height: 1.08;
   margin: 0;
 
-  @media (min-width: 900px) {
+  @media (min-width: $concept-bp) {
     font-size: clamp(36px, 2.7vw, 46px);
     gap: 40px;
-    left: 43.51%;
+    left: calc(699 / $concept-pc-width * 100%);
     position: absolute;
     top: 0;
   }
@@ -201,10 +204,10 @@ $concept-sp-width: 375;
   text-align: center;
   width: 100%;
 
-  @media (min-width: 900px) {
+  @media (min-width: $concept-bp) {
     font-size: 16px;
-    left: 38.57%;
-    max-width: calc(100% - 38.57% - 24px);
+    left: calc(648 / $concept-pc-width * 100%);
+    max-width: calc(100% - 40.5% - 24px);
     position: absolute;
     top: 330px;
     width: 384px;
@@ -216,7 +219,7 @@ $concept-sp-width: 375;
   flex-direction: column;
   width: 100%;
 
-  @media (min-width: 900px) {
+  @media (min-width: $concept-bp) {
     display: block;
 
     &:not(:last-child) {
@@ -231,7 +234,7 @@ $concept-sp-width: 375;
   white-space: nowrap;
   width: 100%;
 
-  @media (min-width: 900px) {
+  @media (min-width: $concept-bp) {
     display: inline;
     white-space: normal;
   }
@@ -243,7 +246,7 @@ $concept-sp-width: 375;
   margin: 0;
   width: 100%;
 
-  @media (min-width: 900px) {
+  @media (min-width: $concept-bp) {
     display: none;
   }
 }
