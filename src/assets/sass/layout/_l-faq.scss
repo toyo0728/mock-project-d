@@ -1,0 +1,27 @@
+@use '../global' as g;
+
+.l-faq {
+  background-color: g.$bg-color3;
+  color: g.$text-black;
+  padding-block: 60px 90px;
+  padding-inline: 25px;
+
+  @media (min-width: 900px) {
+    padding-block: 100px 150px;
+    padding-inline: clamp(60px, 18.75vw, 360px);
+  }
+}
+
+.l-faq__inner {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-inline: auto;
+  max-width: 1920px;
+  width: 100%;
+
+  @media (min-width: 900px) {
+    gap: 80px;
+  }
+}

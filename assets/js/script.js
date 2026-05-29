@@ -39,3 +39,30 @@
     if (openModal) closeModal(openModal);
   });
 })();
+
+// FAQ アコーディオン
+(() => {
+  const items = document.querySelectorAll('.p-faq__item');
+
+  if (!items.length) return;
+
+  items.forEach((item) => {
+    const trigger = item.querySelector('.p-faq__trigger');
+    if (!trigger) return;
+
+    trigger.addEventListener('click', () => {
+      const isOpen = item.classList.contains('is-open');
+
+      items.forEach((otherItem) => {
+        otherItem.classList.remove('is-open');
+        const otherTrigger = otherItem.querySelector('.p-faq__trigger');
+        if (otherTrigger) otherTrigger.setAttribute('aria-expanded', 'false');
+      });
+
+      if (!isOpen) {
+        item.classList.add('is-open');
+        trigger.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+})();
