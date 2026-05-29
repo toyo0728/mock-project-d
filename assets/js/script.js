@@ -40,6 +40,33 @@
   });
 })();
 
+// ヴィラ タブ
+(() => {
+  const tabs = document.querySelectorAll('[data-villa-tab]');
+  const panels = document.querySelectorAll('[data-villa-panel]');
+
+  if (!tabs.length || !panels.length) return;
+
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const target = tab.dataset.villaTab;
+
+      tabs.forEach((item) => {
+        const isActive = item.dataset.villaTab === target;
+        item.classList.toggle('is-active', isActive);
+        item.setAttribute('aria-selected', String(isActive));
+        item.tabIndex = isActive ? 0 : -1;
+      });
+
+      panels.forEach((panel) => {
+        const isActive = panel.dataset.villaPanel === target;
+        panel.classList.toggle('is-active', isActive);
+        panel.hidden = !isActive;
+      });
+    });
+  });
+})();
+
 // FAQ アコーディオン
 (() => {
   const items = document.querySelectorAll('.p-faq__item');

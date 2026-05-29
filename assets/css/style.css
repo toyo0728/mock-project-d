@@ -139,6 +139,45 @@ body {
   z-index: 1;
 }
 
+.l-villa {
+  background: linear-gradient(to bottom, #E7E4DE, #F0EDE5);
+  overflow: hidden;
+  position: relative;
+}
+
+.l-villa__bg {
+  inset: 0;
+  opacity: 0.4;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+}
+
+.l-villa__bg img {
+  display: block;
+  height: 100%;
+  mix-blend-mode: multiply;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: center;
+  object-position: center;
+  width: 100%;
+}
+
+.l-villa__inner {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+  margin-inline: auto;
+  max-width: 1920px;
+  padding-block: 110px 70px;
+  padding-inline: 25px;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+
 .l-dining {
   background-color: #F0EDE5;
   color: #202524;
@@ -197,6 +236,52 @@ body {
   margin-inline: auto;
   max-width: 1920px;
   width: 100%;
+}
+
+.l-contact {
+  color: #fff;
+  overflow: hidden;
+  position: relative;
+}
+
+.l-contact__bg {
+  inset: 0;
+  position: absolute;
+  z-index: 0;
+}
+
+.l-contact__bg::after {
+  background-color: rgba(58, 67, 64, 0.64);
+  content: "";
+  inset: 0;
+  position: absolute;
+  z-index: 1;
+}
+
+.l-contact__bg img {
+  display: block;
+  filter: blur(4px);
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: center;
+  object-position: center;
+  transform: scale(1.08);
+  width: 100%;
+}
+
+.l-contact__inner {
+  margin-inline: auto;
+  max-width: 1920px;
+  padding-block: 100px;
+  padding-inline: 25px;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+
+.l-contact .c-section-title-en {
+  color: #fff;
 }
 
 .l-footer {
@@ -310,6 +395,225 @@ body {
 .p-fv__image img {
   display: block;
   height: auto;
+  width: 100%;
+}
+
+.p-villa {
+  width: 100%;
+}
+
+.p-villa__unit {
+  display: flex;
+  flex-direction: column;
+  margin-inline: auto;
+  max-width: 325px;
+  width: 100%;
+}
+
+.p-villa__tabs {
+  display: flex;
+  width: 100%;
+}
+
+.p-villa__tab {
+  background-color: #e9e6df;
+  border: none;
+  border-bottom: 1px solid #c5a761;
+  color: #202524;
+  cursor: pointer;
+  flex: 1 1 0;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.42px;
+  line-height: 1.5;
+  padding-block: 15px 16px;
+  padding-inline: 40px;
+  text-align: center;
+  transition: background-color 0.3s, opacity 0.3s;
+}
+
+.p-villa__tab:nth-child(3) {
+  background-color: #e8e5df;
+}
+
+.p-villa__tab.is-active {
+  background-color: #fff;
+  border-bottom: none;
+  border-top: 1px solid #c5a761;
+  padding-block: 16px 15px;
+}
+
+.p-villa__tab.is-active:not(:first-child) {
+  border-left: 1px solid #c5a761;
+}
+
+.p-villa__tab.is-active:not(:last-child) {
+  border-right: 1px solid #c5a761;
+}
+
+.p-villa__panel {
+  background-color: #fff;
+  display: none;
+  width: 100%;
+}
+
+.p-villa__panel.is-active {
+  display: block;
+}
+
+.p-villa__panel-body {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding-block: 48px 0;
+  padding-inline: 14px;
+}
+
+.p-villa__info {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-inline: auto;
+  max-width: 304px;
+  width: 100%;
+}
+
+.p-villa__name {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1;
+  text-align: center;
+}
+
+.p-villa__desc {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.p-villa__desc-line {
+  display: block;
+}
+
+.p-villa__specs {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+}
+
+.p-villa__spec {
+  display: flex;
+  gap: 0;
+  width: 100%;
+}
+
+.p-villa__spec dt {
+  flex-shrink: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  width: 95px;
+}
+
+.p-villa__spec dd {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.p-villa__cta {
+  align-items: center;
+  align-self: center;
+  color: inherit;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 7px;
+  padding-block-start: 16px;
+  text-decoration: none;
+}
+
+.p-villa__cta-text {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.56px;
+  line-height: 1;
+}
+
+.p-villa__cta-icon {
+  display: block;
+  height: 10px;
+  width: 120px;
+}
+
+.p-villa__visual {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-inline: -14px;
+  width: calc(100% + 28px);
+}
+
+.p-villa__main-image {
+  aspect-ratio: 325/280;
+  overflow: hidden;
+  width: 100%;
+}
+
+.p-villa__main-image img {
+  display: block;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: center;
+  object-position: center;
+  width: 100%;
+}
+
+.p-villa__thumbs {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.p-villa__thumbs-item {
+  flex-shrink: 0;
+  height: 76px;
+  overflow: hidden;
+  width: 100px;
+}
+
+.p-villa__thumbs-item img {
+  display: block;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: center;
+  object-position: center;
+  width: 100%;
+}
+
+.p-villa__gallery {
+  display: none;
+}
+
+.p-villa__gallery-item {
+  flex-shrink: 0;
+  height: 270px;
+  overflow: hidden;
+  width: 370px;
+}
+
+.p-villa__gallery-item img {
+  display: block;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: center;
+  object-position: center;
   width: 100%;
 }
 
@@ -774,6 +1078,198 @@ body {
   width: 100%;
 }
 
+.p-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+  width: 100%;
+}
+
+.p-contact__reservation {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-inline: auto;
+  max-width: 325px;
+  width: 100%;
+}
+
+.p-contact__head {
+  margin-inline: auto;
+}
+
+.p-contact__inquiry {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-inline: auto;
+  max-width: 325px;
+  width: 100%;
+}
+
+.p-contact__body {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+.p-contact__lead {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
+  width: 100%;
+}
+
+.p-contact__lead--pc {
+  display: none;
+}
+
+.p-contact__lead--sp {
+  display: flex;
+  flex-direction: column;
+}
+
+.p-contact__actions {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 100%;
+}
+
+.p-contact__reserve-btn {
+  align-items: center;
+  background-color: rgba(222, 195, 141, 0.9);
+  border: 1px solid #3a4340;
+  color: #2d2108;
+  display: inline-flex;
+  font-size: 16px;
+  font-weight: 400;
+  gap: 20px;
+  justify-content: center;
+  line-height: 1;
+  padding-block: 17px;
+  padding-inline: 41px;
+  transition: opacity 0.3s;
+  width: min(325px, 100%);
+}
+
+.p-contact__reserve-btn-icon {
+  flex-shrink: 0;
+  height: 16px;
+  width: 16px;
+}
+
+.p-contact__phone {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-weight: 400;
+  gap: 14px;
+  line-height: 1.5;
+  text-align: center;
+  width: 100%;
+}
+
+.p-contact__phone-label {
+  font-size: 18px;
+}
+
+.p-contact__phone-number {
+  font-size: 28px;
+  line-height: 1.5;
+}
+
+.p-contact__phone-number a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.p-contact__phone-hours {
+  font-size: 14px;
+}
+
+.p-contact__form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin: 0;
+  width: 100%;
+}
+
+.p-contact__field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+}
+
+.p-contact__label {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.p-contact__input,
+.p-contact__textarea {
+  background-color: #fbfefd;
+  border: 1px solid #dbdfdd;
+  color: #202524;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  padding-block: 10px;
+  padding-inline: 20px;
+  width: 100%;
+}
+
+.p-contact__input::-moz-placeholder,
+.p-contact__textarea::-moz-placeholder {
+  color: #aaa;
+}
+
+.p-contact__input::placeholder,
+.p-contact__textarea::placeholder {
+  color: #aaa;
+}
+
+.p-contact__input {
+  height: 44px;
+}
+
+.p-contact__textarea {
+  height: 68px;
+  resize: vertical;
+}
+
+.p-contact__submit {
+  align-items: center;
+  background-color: rgba(58, 67, 64, 0.92);
+  border: 1px solid #3a4340;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 500;
+  gap: 20px;
+  justify-content: center;
+  line-height: 1;
+  padding-block: 17px;
+  transition: opacity 0.3s;
+  width: 100%;
+}
+
+.p-contact__submit-icon {
+  flex-shrink: 0;
+  height: 14px;
+  width: 14px;
+}
+
 .p-modal {
   align-items: center;
   display: flex;
@@ -1017,6 +1513,12 @@ body {
     padding-inline: 20px;
   }
 
+  .l-villa__inner {
+    gap: 80px;
+    padding-block: 150px;
+    padding-inline: clamp(60px, 18.75vw, 360px);
+  }
+
   .l-dining {
     padding-block: 100px 150px;
   }
@@ -1052,6 +1554,11 @@ body {
     gap: 80px;
   }
 
+  .l-contact__inner {
+    padding-block: 180px;
+    padding-inline: clamp(60px, 18.75vw, 360px);
+  }
+
   .c-section-title {
     gap: 15px;
   }
@@ -1062,6 +1569,106 @@ body {
 
   .c-section-title-en {
     font-size: 16px;
+  }
+
+  .p-villa__unit {
+    max-width: 1200px;
+  }
+
+  .p-villa__tab {
+    font-size: 18px;
+    letter-spacing: 0.54px;
+    min-height: 70px;
+    padding-block: 20px 21px;
+  }
+
+  .p-villa__tab.is-active {
+    padding-block: 21px 20px;
+  }
+
+  .p-villa__panel-body {
+    align-items: stretch;
+    flex-direction: row;
+    gap: 0;
+    justify-content: space-between;
+    padding-block: 0;
+    padding-inline: 0;
+  }
+
+  .p-villa__info {
+    flex: 0 0 630px;
+    gap: 40px;
+    margin-inline: 0;
+    max-width: none;
+    padding-block: 91px 92px;
+    padding-inline: 60px;
+  }
+
+  .p-villa__name {
+    font-size: 28px;
+    text-align: left;
+  }
+
+  .p-villa__desc {
+    font-size: 16px;
+    text-align: left;
+  }
+
+  .p-villa__facilities br {
+    display: none;
+  }
+
+  .p-villa__specs {
+    gap: 20px;
+  }
+
+  .p-villa__spec dt {
+    font-size: 16px;
+    width: 100px;
+  }
+
+  .p-villa__spec dd {
+    font-size: 16px;
+  }
+
+  .p-villa__cta {
+    align-self: flex-start;
+    gap: 14px;
+  }
+
+  .p-villa__cta-text {
+    font-size: 18px;
+    letter-spacing: 0.72px;
+  }
+
+  .p-villa__cta-icon {
+    height: 15px;
+    width: 180px;
+  }
+
+  .p-villa__visual {
+    flex: 0 0 570px;
+    gap: 0;
+    margin-inline: 0;
+    width: auto;
+  }
+
+  .p-villa__main-image {
+    aspect-ratio: auto;
+    height: 600px;
+  }
+
+  .p-villa__thumbs {
+    display: none;
+  }
+
+  .p-villa__gallery {
+    display: flex;
+    gap: 45px;
+    justify-content: flex-start;
+    padding-block: 80px 0;
+    padding-inline: 0;
+    width: 100%;
   }
 
   .p-dining__body {
@@ -1351,6 +1958,112 @@ body {
 
   .p-faq__item.is-open .p-faq__content {
     gap: 32px;
+  }
+
+  .p-contact {
+    align-items: flex-start;
+    flex-direction: row;
+    gap: 0;
+    justify-content: space-between;
+  }
+
+  .p-contact__reservation {
+    align-items: flex-start;
+    flex: 0 0 560px;
+    margin-inline: 0;
+    max-width: 560px;
+  }
+
+  .p-contact__inquiry {
+    flex: 0 0 480px;
+    margin-inline: 0;
+    max-width: 480px;
+  }
+
+  .p-contact__body {
+    gap: 20px;
+  }
+
+  .p-contact__lead {
+    font-size: 16px;
+    text-align: left;
+  }
+
+  .p-contact__lead--pc {
+    display: block;
+  }
+
+  .p-contact__lead--sp {
+    display: none;
+  }
+
+  .p-contact__actions {
+    align-items: flex-start;
+    gap: 64px;
+    max-width: 560px;
+  }
+
+  .p-contact__reserve-btn {
+    font-size: 25px;
+    gap: 40px;
+    height: 87px;
+    padding-block: 0;
+    padding-inline: 0;
+    width: 100%;
+  }
+
+  .p-contact__reserve-btn-icon {
+    height: 25px;
+    width: 25px;
+  }
+
+  .p-contact__phone {
+    gap: 24px;
+  }
+
+  .p-contact__phone-label {
+    font-size: 21px;
+  }
+
+  .p-contact__phone-number {
+    font-size: 32px;
+  }
+
+  .p-contact__phone-hours {
+    font-size: 16px;
+  }
+
+  .p-contact__form {
+    gap: 32px;
+  }
+
+  .p-contact__label {
+    font-size: 16px;
+  }
+
+  .p-contact__input,
+  .p-contact__textarea {
+    padding-block: 15px;
+    padding-inline: 24px;
+  }
+
+  .p-contact__input {
+    height: 54px;
+  }
+
+  .p-contact__textarea {
+    height: 78px;
+  }
+
+  .p-contact__submit {
+    font-size: 18px;
+    gap: 24px;
+    padding-block: 21px;
+  }
+
+  .p-contact__submit-icon {
+    height: 17px;
+    width: 17px;
   }
 
   .p-modal__container {
@@ -1731,6 +2444,14 @@ body {
     opacity: 0.85;
   }
 
+  .p-villa__tab:not(.is-active):hover {
+    opacity: 0.85;
+  }
+
+  .p-villa__cta:hover {
+    opacity: 0.85;
+  }
+
   .p-dining__btn:hover {
     opacity: 0.85;
   }
@@ -1741,6 +2462,18 @@ body {
 
   .p-faq__trigger:hover {
     opacity: 0.7;
+  }
+
+  .p-contact__reserve-btn:hover {
+    opacity: 0.85;
+  }
+
+  .p-contact__phone-number a:hover {
+    opacity: 0.7;
+  }
+
+  .p-contact__submit:hover {
+    opacity: 0.85;
   }
 
   .p-modal__close:hover {

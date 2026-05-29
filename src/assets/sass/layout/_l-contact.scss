@@ -1,0 +1,50 @@
+@use '../global' as g;
+
+.l-contact {
+  color: #fff;
+  overflow: hidden;
+  position: relative;
+}
+
+.l-contact__bg {
+  inset: 0;
+  position: absolute;
+  z-index: 0;
+
+  &::after {
+    background-color: rgba(58, 67, 64, 0.64);
+    content: '';
+    inset: 0;
+    position: absolute;
+    z-index: 1;
+  }
+
+  img {
+    display: block;
+    filter: blur(4px);
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transform: scale(1.08);
+    width: 100%;
+  }
+}
+
+.l-contact__inner {
+  margin-inline: auto;
+  max-width: 1920px;
+  padding-block: 100px;
+  padding-inline: 25px;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+
+  @media (min-width: 900px) {
+    padding-block: 180px;
+    padding-inline: clamp(60px, 18.75vw, 360px);
+  }
+}
+
+.l-contact .c-section-title-en {
+  color: #fff;
+}
