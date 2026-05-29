@@ -1,13 +1,13 @@
 @use '../global' as g;
 
 .p-fv {
-   position: relative;
+  position: relative;
 }
 
 .p-fv__image {
-    width: 100%;
-    aspect-ratio: 1920 / 860;
-    margin-inline: auto;
+  width: 100%;
+  aspect-ratio: 1920 / 860;
+  margin-inline: auto;
 }
 
 .p-fv__image picture {
@@ -18,4 +18,16 @@
   width: 100%;
   height: auto;
   display: block;
+}
+
+.p-fv__line {
+  background-color: #fff;
+  bottom: 0;
+  height: 300px;
+  left: 50%;
+  pointer-events: none;
+  position: absolute;
+  transform: translateX(-50%);
+  width: 1px;
+  z-index: 2;
 }
