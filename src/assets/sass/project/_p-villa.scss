@@ -1,0 +1,328 @@
+@use '../global' as g;
+
+.p-villa {
+  width: 100%;
+}
+
+.p-villa__unit {
+  display: flex;
+  flex-direction: column;
+  margin-inline: auto;
+  max-width: 325px;
+  width: 100%;
+
+  @media (min-width: 900px) {
+    max-width: 1200px;
+  }
+}
+
+.p-villa__tabs {
+  display: flex;
+  width: 100%;
+}
+
+.p-villa__tab {
+  background-color: #e9e6df;
+  border: none;
+  border-bottom: 1px solid #c5a761;
+  color: g.$text-black;
+  cursor: pointer;
+  flex: 1 1 0;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.42px;
+  line-height: 1.5;
+  padding-block: 15px 16px;
+  padding-inline: 40px;
+  text-align: center;
+  transition: background-color 0.3s, opacity 0.3s;
+
+  &:nth-child(3) {
+    background-color: #e8e5df;
+  }
+
+  @media (min-width: 900px) {
+    font-size: 18px;
+    letter-spacing: 0.54px;
+    min-height: 70px;
+    padding-block: 20px 21px;
+  }
+
+  &.is-active {
+    background-color: #fff;
+    border-bottom: none;
+    border-top: 1px solid #c5a761;
+    padding-block: 16px 15px;
+
+    @media (min-width: 900px) {
+      padding-block: 21px 20px;
+    }
+  }
+
+  &.is-active:not(:first-child) {
+    border-left: 1px solid #c5a761;
+  }
+
+  &.is-active:not(:last-child) {
+    border-right: 1px solid #c5a761;
+  }
+
+  @media (any-hover: hover) {
+    &:not(.is-active):hover {
+      opacity: 0.85;
+    }
+  }
+}
+
+.p-villa__panel {
+  background-color: #fff;
+  display: none;
+  width: 100%;
+
+  &.is-active {
+    display: block;
+  }
+}
+
+.p-villa__panel-body {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding-block: 48px 0;
+  padding-inline: 14px;
+
+  @media (min-width: 900px) {
+    align-items: stretch;
+    flex-direction: row;
+    gap: 0;
+    justify-content: space-between;
+    padding-block: 0;
+    padding-inline: 0;
+  }
+}
+
+.p-villa__info {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-inline: auto;
+  max-width: 304px;
+  width: 100%;
+
+  @media (min-width: 900px) {
+    flex: 0 0 630px;
+    gap: 40px;
+    margin-inline: 0;
+    max-width: none;
+    padding-block: 91px 92px;
+    padding-inline: 60px;
+  }
+}
+
+.p-villa__name {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1;
+  text-align: center;
+
+  @media (min-width: 900px) {
+    font-size: 28px;
+    text-align: left;
+  }
+}
+
+.p-villa__desc {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
+
+  @media (min-width: 900px) {
+    font-size: 16px;
+    text-align: left;
+  }
+}
+
+.p-villa__desc-line {
+  display: block;
+}
+
+.p-villa__facilities br {
+  @media (min-width: 900px) {
+    display: none;
+  }
+}
+
+.p-villa__specs {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+
+  @media (min-width: 900px) {
+    gap: 20px;
+  }
+}
+
+.p-villa__spec {
+  display: flex;
+  gap: 0;
+  width: 100%;
+}
+
+.p-villa__spec dt {
+  flex-shrink: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  width: 95px;
+
+  @media (min-width: 900px) {
+    font-size: 16px;
+    width: 100px;
+  }
+}
+
+.p-villa__spec dd {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+
+  @media (min-width: 900px) {
+    font-size: 16px;
+  }
+}
+
+.p-villa__cta {
+  align-items: center;
+  align-self: center;
+  color: inherit;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 7px;
+  padding-block-start: 16px;
+  text-decoration: none;
+
+  @media (min-width: 900px) {
+    align-self: flex-start;
+    gap: 14px;
+  }
+
+  @media (any-hover: hover) {
+    &:hover {
+      opacity: 0.85;
+    }
+  }
+}
+
+.p-villa__cta-text {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.56px;
+  line-height: 1;
+
+  @media (min-width: 900px) {
+    font-size: 18px;
+    letter-spacing: 0.72px;
+  }
+}
+
+.p-villa__cta-icon {
+  display: block;
+  height: 10px;
+  width: 120px;
+
+  @media (min-width: 900px) {
+    height: 15px;
+    width: 180px;
+  }
+}
+
+.p-villa__visual {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-inline: -14px;
+  width: calc(100% + 28px);
+
+  @media (min-width: 900px) {
+    flex: 0 0 570px;
+    gap: 0;
+    margin-inline: 0;
+    width: auto;
+  }
+}
+
+.p-villa__main-image {
+  aspect-ratio: 325 / 280;
+  overflow: hidden;
+  width: 100%;
+
+  @media (min-width: 900px) {
+    aspect-ratio: auto;
+    height: 600px;
+  }
+
+  img {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+  }
+}
+
+.p-villa__thumbs {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  @media (min-width: 900px) {
+    display: none;
+  }
+}
+
+.p-villa__thumbs-item {
+  flex-shrink: 0;
+  height: 76px;
+  overflow: hidden;
+  width: 100px;
+
+  img {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+  }
+}
+
+.p-villa__gallery {
+  display: none;
+
+  @media (min-width: 900px) {
+    display: flex;
+    gap: 45px;
+    justify-content: flex-start;
+    padding-block: 80px 0;
+    padding-inline: 0;
+    width: 100%;
+  }
+}
+
+.p-villa__gallery-item {
+  flex-shrink: 0;
+  height: 270px;
+  overflow: hidden;
+  width: 370px;
+
+  img {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+  }
+}
