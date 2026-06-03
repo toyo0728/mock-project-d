@@ -1,0 +1,278 @@
+@use '../global' as g;
+
+.p-cta-bar {
+  background-color: rgba(227, 219, 203, 0.9);
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  position: fixed;
+  right: 0;
+  transform: translateY(100%);
+  transition:
+    opacity 0.3s,
+    transform 0.3s,
+    visibility 0.3s;
+  visibility: hidden;
+  width: 100%;
+  z-index: 90;
+
+  @media (min-width: 1101px) {
+    display: none;
+  }
+
+  &.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+  }
+}
+
+.p-cta-bar__inner {
+  align-items: center;
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-inline: auto;
+  max-width: 1920px;
+  padding-block: 7px;
+  padding-inline: 25px;
+}
+
+.p-cta-bar__reserve {
+  align-items: center;
+  background-color: g.$bg-color3;
+  border: 1px solid #6a6251;
+  color: g.$text-black;
+  display: inline-flex;
+  flex-shrink: 0;
+  font-size: 15px;
+  font-weight: 500;
+  gap: 10px;
+  letter-spacing: 0.6px;
+  line-height: 1.08;
+  padding-block: 15px;
+  padding-inline: 40px 36px;
+  transition: opacity 0.3s;
+  white-space: nowrap;
+
+  @media (any-hover: hover) {
+    &:hover {
+      opacity: 0.85;
+    }
+  }
+}
+
+.p-cta-bar__reserve-icon {
+  flex-shrink: 0;
+  height: 17px;
+  width: 17px;
+}
+
+.p-cta-bar__tel {
+  display: block;
+  flex-shrink: 0;
+  height: 36px;
+  transition: opacity 0.3s;
+  width: 36px;
+
+  @media (any-hover: hover) {
+    &:hover {
+      opacity: 0.85;
+    }
+  }
+}
+
+.p-cta-bar__tel-icon {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.p-cta-bar__menu {
+  align-items: center;
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  flex-shrink: 0;
+  height: 48px;
+  justify-content: center;
+  padding: 0;
+  transition: opacity 0.3s;
+  width: 48px;
+
+  @media (any-hover: hover) {
+    &:hover {
+      opacity: 0.85;
+    }
+  }
+}
+
+.p-cta-bar__menu-icon {
+  display: block;
+  height: 4px;
+  width: 24px;
+}
+
+.p-sp-nav {
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: fixed;
+  transition: opacity 0.3s, visibility 0.3s;
+  visibility: hidden;
+  z-index: 200;
+
+  @media (min-width: 1101px) {
+    display: none;
+  }
+
+  &.is-open {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+  }
+}
+
+.p-sp-nav__inner {
+  background-color: rgba(58, 67, 64, 0.9);
+  box-sizing: border-box;
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.p-sp-nav__body {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  height: 100%;
+  overflow-y: auto;
+  padding-block: 70px 40px;
+  padding-inline: 25px;
+  width: 100%;
+}
+
+.p-sp-nav__logo {
+  display: block;
+  flex-shrink: 0;
+  width: 80px;
+
+  img {
+    display: block;
+    height: auto;
+    width: 100%;
+  }
+}
+
+.p-sp-nav__nav {
+  width: 100%;
+}
+
+.p-sp-nav__list {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.p-sp-nav__list a {
+  color: g.$text-white;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1;
+  transition: opacity 0.3s;
+  white-space: nowrap;
+
+  @media (any-hover: hover) {
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
+.p-sp-nav__footer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.p-sp-nav__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 200px;
+}
+
+.p-sp-nav__reserve,
+.p-sp-nav__tel {
+  align-items: center;
+  border: 1px solid #6a6251;
+  box-sizing: border-box;
+  color: g.$text-black;
+  display: inline-flex;
+  font-size: 15px;
+  font-weight: 500;
+  gap: 10px;
+  height: 48px;
+  justify-content: center;
+  letter-spacing: 0.6px;
+  line-height: 1;
+  padding-block: 0;
+  padding-inline: 16px;
+  transition: opacity 0.3s;
+  width: 200px;
+
+  @media (any-hover: hover) {
+    &:hover {
+      opacity: 0.85;
+    }
+  }
+}
+
+.p-sp-nav__reserve {
+  background-color: rgba(222, 195, 141, 0.9);
+}
+
+.p-sp-nav__tel {
+  background-color: g.$bg-color3;
+}
+
+.p-sp-nav__reserve-icon,
+.p-sp-nav__tel-icon {
+  flex-shrink: 0;
+  height: 14px;
+  width: 14px;
+}
+
+.p-sp-nav__close {
+  background: none;
+  border: none;
+  bottom: 40px;
+  cursor: pointer;
+  padding: 0;
+  position: absolute;
+  right: 25px;
+  transition: opacity 0.3s;
+  z-index: 1;
+
+  @media (any-hover: hover) {
+    &:hover {
+      opacity: 0.85;
+    }
+  }
+
+  svg {
+    display: block;
+    height: 48px;
+    width: 48px;
+  }
+}
+
+@media (max-width: 1100px) {
+  body.is-cta-visible {
+    padding-bottom: 10px;
+  }
+}

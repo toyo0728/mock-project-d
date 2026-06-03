@@ -1,3 +1,61 @@
+// CTAバー（FV通過後に表示）
+(() => {
+  const fv = document.querySelector('.p-fv');
+  const ctaBar = document.querySelector('.p-cta-bar');
+  if (!fv || !ctaBar) return;
+
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      const show = !entry.isIntersecting;
+      ctaBar.classList.toggle('is-visible', show);
+      ctaBar.setAttribute('aria-hidden', String(!show));
+      document.body.classList.toggle('is-cta-visible', show);
+    },
+    { threshold: 0 }
+  );
+
+  observer.observe(fv);
+})();
+
+// モバイルメニュー
+(() => {
+  const spNav = document.getElementById('sp-nav');
+  const openBtn = document.querySelector('[data-sp-nav-open]');
+  const closeTriggers = document.querySelectorAll('[data-sp-nav-close]');
+
+  if (!spNav || !openBtn) return;
+
+  function openSpNav() {
+    spNav.classList.add('is-open');
+    spNav.setAttribute('aria-hidden', 'false');
+    openBtn.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeSpNav() {
+    spNav.classList.remove('is-open');
+    spNav.setAttribute('aria-hidden', 'true');
+    openBtn.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  openBtn.addEventListener('click', openSpNav);
+
+  closeTriggers.forEach((trigger) => {
+    trigger.addEventListener('click', closeSpNav);
+  });
+
+  spNav.querySelectorAll('.p-sp-nav__list a, .p-sp-nav__logo').forEach((link) => {
+    link.addEventListener('click', closeSpNav);
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && spNav.classList.contains('is-open')) {
+      closeSpNav();
+    }
+  });
+})();
+
 // dining モーダル
 (() => {
   const openBtns = document.querySelectorAll('[data-modal-open]');
