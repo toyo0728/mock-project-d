@@ -278,11 +278,16 @@ body {
 }
 
 .l-contact__bg::after {
-  background-color: rgba(58, 67, 64, 0.64);
   content: "";
   inset: 0;
   position: absolute;
   z-index: 1;
+}
+
+.l-contact__bg picture {
+  display: block;
+  height: 100%;
+  width: 100%;
 }
 
 .l-contact__bg img {
@@ -300,8 +305,8 @@ body {
 .l-contact__inner {
   margin-inline: auto;
   max-width: 1920px;
-  padding-block: clamp(48px, 48px + (100vw - 320px) * 0.0957, 180px);
-  padding-inline: clamp(16px, 16px + (100vw - 320px) * 0.2125, 360px);
+  padding-block: 100px;
+  padding-inline: 25px;
   position: relative;
   width: 100%;
   z-index: 1;
@@ -1270,7 +1275,7 @@ body {
 .p-contact {
   display: flex;
   flex-direction: column;
-  gap: clamp(48px, 48px + (100vw - 320px) * 0.0327, 100px);
+  gap: 100px;
   width: 100%;
 }
 
@@ -2142,6 +2147,35 @@ body {
     padding-inline: 70px;
   }
 
+  .l-contact {
+    min-height: 1028px;
+  }
+
+  .l-contact__bg {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    width: 100vw;
+  }
+
+  .l-contact__bg::after {
+    background-color: rgba(58, 67, 64, 0.64);
+  }
+
+  .l-contact__bg img {
+    height: 131.15%;
+    left: -4.69%;
+    position: absolute;
+    top: -28.21%;
+    transform: none;
+    width: 105.2%;
+  }
+
+  .l-contact__inner {
+    padding-block: clamp(100px, 100px + (100vw - 1000px) * 0.1, 180px);
+    padding-inline: clamp(25px, 25px + (100vw - 1000px) * 0.389, 360px);
+  }
+
   .p-concept {
     max-width: 1600px;
     min-height: 1227px;
@@ -2255,21 +2289,27 @@ body {
   .p-contact {
     align-items: flex-start;
     flex-direction: row;
-    gap: clamp(40px, 5vw, 120px);
+    gap: 160px;
     justify-content: space-between;
   }
 
   .p-contact__reservation {
     align-items: flex-start;
-    flex: 0 1 clamp(320px, 29.17vw, 560px);
+    flex: 0 0 560px;
     margin-inline: 0;
-    max-width: clamp(320px, 29.17vw, 560px);
+    max-width: 560px;
+    width: 560px;
+  }
+
+  .p-contact__head {
+    width: 100%;
   }
 
   .p-contact__inquiry {
-    flex: 0 1 clamp(280px, 25vw, 480px);
+    flex: 0 0 480px;
     margin-inline: 0;
-    max-width: clamp(280px, 25vw, 480px);
+    max-width: 480px;
+    width: 480px;
   }
 
   .p-contact__body {
@@ -2550,6 +2590,19 @@ body {
 @media (min-width: 1500px) {
   .l-concept__inner {
     padding-inline: 120px;
+  }
+}
+
+@media (min-width: 2560px) {
+  .l-contact__bg img {
+    height: 100%;
+    left: 0;
+    -o-object-fit: cover;
+    object-fit: cover;
+    -o-object-position: center;
+    object-position: center;
+    top: 0;
+    width: 100%;
   }
 }
 

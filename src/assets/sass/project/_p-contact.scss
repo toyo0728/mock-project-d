@@ -3,13 +3,13 @@
 .p-contact {
   display: flex;
   flex-direction: column;
-  gap: clamp(48px, calc(48px + (100vw - 320px) * 0.0327), 100px);
+  gap: 100px;
   width: 100%;
 
   @media (min-width: 1000px) {
     align-items: flex-start;
     flex-direction: row;
-    gap: clamp(40px, 5vw, 120px);
+    gap: 160px;
     justify-content: space-between;
   }
 }
@@ -25,14 +25,19 @@
 
   @media (min-width: 1000px) {
     align-items: flex-start;
-    flex: 0 1 clamp(320px, 29.17vw, 560px);
+    flex: 0 0 560px;
     margin-inline: 0;
-    max-width: clamp(320px, 29.17vw, 560px);
+    max-width: 560px;
+    width: 560px;
   }
 }
 
 .p-contact__head {
   margin-inline: auto;
+
+  @media (min-width: 1000px) {
+    width: 100%;
+  }
 }
 
 .p-contact__inquiry {
@@ -44,9 +49,10 @@
   width: 100%;
 
   @media (min-width: 1000px) {
-    flex: 0 1 clamp(280px, 25vw, 480px);
+    flex: 0 0 480px;
     margin-inline: 0;
-    max-width: clamp(280px, 25vw, 480px);
+    max-width: 480px;
+    width: 480px;
   }
 }
 

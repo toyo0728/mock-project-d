@@ -4,6 +4,10 @@
   color: #fff;
   overflow: hidden;
   position: relative;
+
+  @media (min-width: 1000px) {
+    min-height: 1028px;
+  }
 }
 
 .l-contact__bg {
@@ -11,12 +15,28 @@
   position: absolute;
   z-index: 0;
 
+  @media (min-width: 1000px) {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    width: 100vw;
+  }
+
   &::after {
-    background-color: rgba(58, 67, 64, 0.64);
     content: '';
     inset: 0;
     position: absolute;
     z-index: 1;
+
+    @media (min-width: 1000px) {
+      background-color: rgba(58, 67, 64, 0.64);
+    }
+  }
+
+  picture {
+    display: block;
+    height: 100%;
+    width: 100%;
   }
 
   img {
@@ -27,17 +47,40 @@
     object-position: center;
     transform: scale(1.08);
     width: 100%;
+
+    @media (min-width: 1000px) {
+      height: 131.15%;
+      left: -4.69%;
+      position: absolute;
+      top: -28.21%;
+      transform: none;
+      width: 105.2%;
+    }
+
+    @media (min-width: 2560px) {
+      height: 100%;
+      left: 0;
+      object-fit: cover;
+      object-position: center;
+      top: 0;
+      width: 100%;
+    }
   }
 }
 
 .l-contact__inner {
   margin-inline: auto;
   max-width: 1920px;
-  padding-block: clamp(48px, calc(48px + (100vw - 320px) * 0.0957), 180px);
-  padding-inline: clamp(16px, calc(16px + (100vw - 320px) * 0.2125), 360px);
+  padding-block: 100px;
+  padding-inline: 25px;
   position: relative;
   width: 100%;
   z-index: 1;
+
+  @media (min-width: 1000px) {
+    padding-block: clamp(100px, calc(100px + (100vw - 1000px) * 0.1), 180px);
+    padding-inline: clamp(25px, calc(25px + (100vw - 1000px) * 0.389), 360px);
+  }
 }
 
 .l-contact .c-section-title-en {

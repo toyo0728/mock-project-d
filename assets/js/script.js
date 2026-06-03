@@ -9,14 +9,24 @@
     modal.setAttribute('aria-hidden', 'false');
     modal.classList.add('is-open');
     document.body.style.overflow = 'hidden';
-    const firstFocusable = modal.querySelector('button, [href], input, [tabindex]:not([tabindex="-1"])');
-    if (firstFocusable) firstFocusable.focus();
+
+    const container = modal.querySelector('.p-modal__container');
+    if (container) container.scrollTop = 0;
+
+    const focusTarget = modal.querySelector('.p-modal__title');
+    if (focusTarget) {
+      focusTarget.setAttribute('tabindex', '-1');
+      focusTarget.focus({ preventScroll: true });
+    }
   }
 
   function closeModal(modal) {
     modal.setAttribute('aria-hidden', 'true');
     modal.classList.remove('is-open');
     document.body.style.overflow = '';
+
+    const container = modal.querySelector('.p-modal__container');
+    if (container) container.scrollTop = 0;
   }
 
   openBtns.forEach((btn) => {
