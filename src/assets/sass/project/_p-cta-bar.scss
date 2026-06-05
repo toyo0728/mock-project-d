@@ -119,7 +119,9 @@
   opacity: 0;
   pointer-events: none;
   position: fixed;
-  transition: opacity 0.3s, visibility 0.3s;
+  transition:
+    opacity 0.3s,
+    visibility 0.3s;
   visibility: hidden;
   z-index: 200;
 
@@ -143,6 +145,7 @@
 }
 
 .p-sp-nav__body {
+  position: relative;
   align-items: center;
   box-sizing: border-box;
   display: flex;
@@ -196,6 +199,7 @@
 .p-sp-nav__footer {
   display: flex;
   justify-content: center;
+  position: relative;
   width: 100%;
 }
 
@@ -203,6 +207,7 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
+  position: relative;
   width: 200px;
 }
 
@@ -248,15 +253,16 @@
 }
 
 .p-sp-nav__close {
+  position: absolute;
+  left: calc(100% + 18px);
+  bottom: 0;
   background: none;
   border: none;
-  bottom: 40px;
-  cursor: pointer;
   padding: 0;
-  position: absolute;
-  right: 25px;
-  transition: opacity 0.3s;
+  width: 48px;
+  height: 48px;
   z-index: 1;
+  transition: opacity 0.3s;
 
   @media (any-hover: hover) {
     &:hover {

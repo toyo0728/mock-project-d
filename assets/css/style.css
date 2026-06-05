@@ -565,6 +565,7 @@ body {
   overflow-y: auto;
   padding-block: 70px 40px;
   padding-inline: 25px;
+  position: relative;
   width: 100%;
 }
 
@@ -603,6 +604,7 @@ body {
 .p-sp-nav__footer {
   display: flex;
   justify-content: center;
+  position: relative;
   width: 100%;
 }
 
@@ -610,6 +612,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 24px;
+  position: relative;
   width: 200px;
 }
 
@@ -651,12 +654,13 @@ body {
 .p-sp-nav__close {
   background: none;
   border: none;
-  bottom: 40px;
-  cursor: pointer;
+  bottom: 0;
+  height: 48px;
+  left: calc(100% + 18px);
   padding: 0;
   position: absolute;
-  right: 25px;
   transition: opacity 0.3s;
+  width: 48px;
   z-index: 1;
 }
 
