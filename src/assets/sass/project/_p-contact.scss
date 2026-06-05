@@ -1,6 +1,7 @@
 @use '../global' as g;
 
 .p-contact {
+  align-items: center;
   display: flex;
   flex-direction: column;
   gap: 100px;
@@ -9,8 +10,11 @@
   @media (min-width: 1000px) {
     align-items: flex-start;
     flex-direction: row;
-    gap: 160px;
-    justify-content: space-between;
+    gap: clamp(24px, calc(24px + (100vw - 1000px) * 0.148), 160px);
+    justify-content: center;
+    margin-inline: auto;
+    max-width: 1200px;
+    width: 100%;
   }
 }
 
@@ -25,10 +29,11 @@
 
   @media (min-width: 1000px) {
     align-items: flex-start;
-    flex: 0 0 560px;
+    flex: 560 1 0;
     margin-inline: 0;
     max-width: 560px;
-    width: 560px;
+    min-width: 0;
+    width: auto;
   }
 }
 
@@ -49,10 +54,11 @@
   width: 100%;
 
   @media (min-width: 1000px) {
-    flex: 0 0 480px;
+    flex: 480 1 0;
     margin-inline: 0;
     max-width: 480px;
-    width: 480px;
+    min-width: 0;
+    width: auto;
   }
 }
 
@@ -129,11 +135,12 @@
   width: clamp(220px, 82vw, 325px);
 
   @media (min-width: 1000px) {
-    font-size: clamp(18px, calc(18px + (100vw - 1000px) * 0.0061), 25px);
-    gap: clamp(20px, 2.5vw, 40px);
-    height: clamp(64px, calc(64px + (100vw - 1000px) * 0.0239), 87px);
+    font-size: clamp(16px, calc(16px + (100vw - 1000px) * 0.0098), 25px);
+    gap: clamp(16px, calc(16px + (100vw - 1000px) * 0.0261), 40px);
+    height: clamp(56px, calc(56px + (100vw - 1000px) * 0.0337), 87px);
+    max-width: 560px;
     padding-block: 0;
-    padding-inline: clamp(16px, 2vw, 24px);
+    padding-inline: clamp(12px, calc(12px + (100vw - 1000px) * 0.013), 24px);
     width: 100%;
   }
 
@@ -150,8 +157,8 @@
   width: clamp(14px, 4vw, 16px);
 
   @media (min-width: 1000px) {
-    height: clamp(20px, 1.8vw, 25px);
-    width: clamp(20px, 1.8vw, 25px);
+    height: clamp(18px, calc(18px + (100vw - 1000px) * 0.0076), 25px);
+    width: clamp(18px, calc(18px + (100vw - 1000px) * 0.0076), 25px);
   }
 }
 

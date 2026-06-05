@@ -78,8 +78,14 @@
   z-index: 1;
 
   @media (min-width: 1000px) {
-    padding-block: clamp(100px, calc(100px + (100vw - 1000px) * 0.1), 180px);
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 1028px;
+    padding-block: 0;
     padding-inline: clamp(25px, calc(25px + (100vw - 1000px) * 0.389), 360px);
+    width: min(100%, 1920px);
   }
 }
 
