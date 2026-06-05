@@ -166,9 +166,12 @@ $concept-bp: 1000px;
   z-index: 1;
 
   @media (min-width: $concept-bp) {
+    align-items: center;
     gap: 0;
     max-width: none;
+    min-height: 750px;
     padding-inline: 0;
+    width: 100%;
   }
 }
 
@@ -184,9 +187,10 @@ $concept-bp: 1000px;
   @media (min-width: $concept-bp) {
     font-size: clamp(36px, 2.7vw, 46px);
     gap: 40px;
-    left: calc(699 / $concept-pc-width * 100%);
+    left: 50%;
     position: absolute;
     top: 0;
+    transform: translateX(-50%);
   }
 }
 
@@ -206,10 +210,11 @@ $concept-bp: 1000px;
 
   @media (min-width: $concept-bp) {
     font-size: 16px;
-    left: calc(648 / $concept-pc-width * 100%);
-    max-width: calc(100% - 40.5% - 24px);
+    left: 50%;
+    max-width: min(384px, calc(100% - 48px));
     position: absolute;
     top: 330px;
+    transform: translateX(-50%);
     width: 384px;
   }
 }

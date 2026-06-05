@@ -2471,25 +2471,30 @@ body {
   }
 
   .p-concept__content {
+    align-items: center;
     gap: 0;
     max-width: none;
+    min-height: 750px;
     padding-inline: 0;
+    width: 100%;
   }
 
   .p-concept__title {
     font-size: clamp(36px, 2.7vw, 46px);
     gap: 40px;
-    left: 43.6875%;
+    left: 50%;
     position: absolute;
     top: 0;
+    transform: translateX(-50%);
   }
 
   .p-concept__body {
     font-size: 16px;
-    left: 40.5%;
-    max-width: calc(59.5% - 24px);
+    left: 50%;
+    max-width: min(384px, 100% - 48px);
     position: absolute;
     top: 330px;
+    transform: translateX(-50%);
     width: 384px;
   }
 
