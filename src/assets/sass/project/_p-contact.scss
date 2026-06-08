@@ -131,7 +131,9 @@
   max-width: 100%;
   padding-block: clamp(14px, calc(14px + (100vw - 320px) * 0.0033), 17px);
   padding-inline: clamp(20px, 10vw, 41px);
-  transition: opacity 0.3s;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
   width: clamp(220px, 82vw, 325px);
 
   @media (min-width: 1000px) {
@@ -146,14 +148,21 @@
 
   @media (any-hover: hover) {
     &:hover {
-      opacity: 0.85;
+      background-color: #3a4340;
+      color: #e2c998;
+
+      .p-contact__reserve-btn-icon {
+        color: #e2c998;
+      }
     }
   }
 }
 
 .p-contact__reserve-btn-icon {
+  color: #2d2108;
   flex-shrink: 0;
   height: clamp(14px, 4vw, 16px);
+  transition: color 0.3s;
   width: clamp(14px, 4vw, 16px);
 
   @media (min-width: 1000px) {
