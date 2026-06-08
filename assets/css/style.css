@@ -1279,34 +1279,20 @@ body {
   display: flex;
   flex-direction: column;
   gap: 40px;
+  max-width: 450px;
+  width: 100%;
 }
 
 .p-access__map {
-  height: 235px;
+  aspect-ratio: 325/235;
   overflow: hidden;
   width: 100%;
 }
 
-.p-access__map-inner {
-  height: 100%;
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-}
-
-.p-access__map-inner a {
+.p-access__map iframe {
+  border: 0;
   display: block;
   height: 100%;
-  width: 100%;
-}
-
-.p-access__map img {
-  display: block;
-  height: 100%;
-  -o-object-fit: cover;
-  object-fit: cover;
-  -o-object-position: center;
-  object-position: center;
   width: 100%;
 }
 
@@ -2721,26 +2707,27 @@ body {
     align-items: flex-start;
     flex-direction: row;
     gap: clamp(32px, 5vw, 80px);
+    max-width: none;
+    width: auto;
   }
 
   .p-access__map {
     aspect-ratio: 776/561;
     flex: 0 0 auto;
-    height: auto;
+    height: 29.21875vw;
+    max-height: 561px;
     max-width: 776px;
     min-width: 0;
-    width: min(776px, 100% - 600px - clamp(32px, 5vw, 80px));
+    width: 40.4166666667vw;
   }
 
-  .p-access__map-inner {
-    background-color: #eee;
-    height: 100%;
+  .p-access__map iframe {
+    filter: grayscale(100%);
+    transition: filter 0.4s ease;
   }
 
-  .p-access__map-inner a {
-    height: 100%;
-    position: static;
-    width: 100%;
+  .p-access__map:hover iframe {
+    filter: grayscale(0);
   }
 
   .p-access__info {
