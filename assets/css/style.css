@@ -1267,6 +1267,13 @@ body {
   width: 34.29%;
 }
 
+.p-parallax {
+  background-image: url("../img/parallax-image.webp");
+  background-position: center;
+  background-size: cover;
+  height: 36.5333333333vw;
+}
+
 .p-access__content {
   align-items: center;
   display: flex;
@@ -1940,6 +1947,13 @@ body {
 
 .u-mobile {
   display: none;
+}
+
+@media (min-width: 768px) {
+  .p-parallax {
+    background-attachment: fixed;
+    height: min(36.6666666667vw, 704px);
+  }
 }
 
 @media (min-width: 900px) {

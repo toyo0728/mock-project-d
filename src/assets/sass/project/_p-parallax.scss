@@ -1,1 +1,13 @@
 @use '../global' as g;
+
+.p-parallax {
+  background-image: url('../img/parallax-image.webp');
+  background-size: cover;
+  background-position: center;
+  height: calc(137 / 375 * 100vw);
+
+  @media (min-width: 768px) {
+    background-attachment: fixed;
+    height: min(calc(704 / 1920 * 100vw), 704px);
+  }
+}
