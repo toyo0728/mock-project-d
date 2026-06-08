@@ -1,11 +1,28 @@
 @use "../global" as g;
 
-.l-inner {
-  width: min(1720px, 100%);
+@mixin base {
   margin-inline: auto;
-  padding-inline: 25px;
+  max-width: 1920px;
+  width: 100%;
+}
 
-  @media (min-width: 900px) {
-    padding-inline: 20px;
+@mixin column($gap: 56px, $gap-md: 80px, $gap-bp: 900px) {
+  @include base;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: $gap;
+
+  @media (min-width: $gap-bp) {
+    gap: $gap-md;
   }
+}
+
+@mixin stacked {
+  position: relative;
+  z-index: 1;
+}
+
+.l-inner {
+  @include base;
 }

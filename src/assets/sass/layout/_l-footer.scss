@@ -1,4 +1,5 @@
 @use '../global' as g;
+@use 'l-inner' as inner;
 
 .l-footer {
   background-color: g.$bg-main;
@@ -11,7 +12,6 @@
 }
 
 .l-footer__inner {
-  max-width: 1920px;
+  @include inner.base;
   padding-inline: clamp(40px, calc(360px - (1920px - 100vw) * 0.25), 360px);
-  margin-inline: auto;
 }

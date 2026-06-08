@@ -116,8 +116,8 @@ body {
 
 .l-inner {
   margin-inline: auto;
-  padding-inline: 25px;
-  width: min(1720px, 100%);
+  max-width: 1920px;
+  width: 100%;
 }
 
 .l-header {
@@ -131,6 +131,7 @@ body {
   justify-content: space-between;
   margin-inline: auto;
   max-width: 1920px;
+  width: 100%;
 }
 
 .l-header__logo {
@@ -154,6 +155,7 @@ body {
   padding-inline: 0;
   position: relative;
   width: 100%;
+  z-index: 1;
 }
 
 .l-villa {
@@ -182,10 +184,13 @@ body {
   gap: 56px;
   margin-inline: auto;
   max-width: 1920px;
+  width: 100%;
+}
+
+.l-villa__inner {
   padding-block: 110px 70px;
   padding-inline: 25px;
   position: relative;
-  width: 100%;
   z-index: 1;
 }
 
@@ -202,6 +207,7 @@ body {
   gap: 56px;
   margin-inline: auto;
   max-width: 1920px;
+  width: 100%;
 }
 
 .l-local-guide {
@@ -229,6 +235,7 @@ body {
   margin-inline: auto;
   max-width: 1920px;
   position: relative;
+  width: 100%;
   z-index: 1;
 }
 
@@ -246,6 +253,7 @@ body {
   gap: 56px;
   margin-inline: auto;
   max-width: 1920px;
+  width: 100%;
 }
 
 .l-faq {
@@ -326,6 +334,7 @@ body {
   margin-inline: auto;
   max-width: 1920px;
   padding-inline: clamp(40px, 360px - (1920px - 100vw) * 0.25, 360px);
+  width: 100%;
 }
 
 .c-section-title {
@@ -1934,12 +1943,12 @@ body {
 }
 
 @media (min-width: 900px) {
-  .l-inner {
-    padding-inline: 20px;
-  }
-
   .l-villa__bg {
     background-image: url("../img/villa-bg-pc.webp");
+  }
+
+  .l-villa__inner {
+    gap: 80px;
   }
 
   .l-villa__inner {
@@ -2779,6 +2788,10 @@ body {
 }
 
 @media (min-width: 1200px) {
+  .l-dining__inner {
+    gap: 80px;
+  }
+
   .l-dining__inner {
     gap: 80px;
     padding-block: 100px 150px;

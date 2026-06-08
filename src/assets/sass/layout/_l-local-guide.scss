@@ -1,4 +1,5 @@
 @use '../global' as g;
+@use 'l-inner' as inner;
 
 .l-local-guide {
   background: linear-gradient(to bottom, g.$bg-white, g.$bg-color3);
@@ -27,10 +28,8 @@
 }
 
 .l-local-guide__inner {
-  margin-inline: auto;
-  max-width: 1920px;
-  position: relative;
-  z-index: 1;
+  @include inner.base;
+  @include inner.stacked;
 
   @media (min-width: 900px) {
     padding-inline: 60px 0;

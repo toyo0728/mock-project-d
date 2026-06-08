@@ -1,4 +1,5 @@
 @use '../global' as g;
+@use 'l-inner' as inner;
 
 .l-header {
   position: relative;
@@ -6,11 +7,10 @@
 }
 
 .l-header__inner {
+  @include inner.base;
   align-items: center;
   display: flex;
   justify-content: space-between;
-  margin-inline: auto;
-  max-width: 1920px;
 
   @media (min-width: 1101px) {
     display: grid;

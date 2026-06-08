@@ -1,4 +1,5 @@
 @use '../global' as g;
+@use 'l-inner' as inner;
 
 .l-contact {
   color: #fff;
@@ -69,13 +70,10 @@
 }
 
 .l-contact__inner {
-  margin-inline: auto;
-  max-width: 1920px;
+  @include inner.base;
+  @include inner.stacked;
   padding-block: 100px;
   padding-inline: 25px;
-  position: relative;
-  width: 100%;
-  z-index: 1;
 
   @media (min-width: 1000px) {
     align-items: center;

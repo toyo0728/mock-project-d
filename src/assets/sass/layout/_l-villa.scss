@@ -1,4 +1,5 @@
 @use '../global' as g;
+@use 'l-inner' as inner;
 
 .l-villa {
   background: linear-gradient(to bottom, g.$bg-color3, g.$bg-white);
@@ -24,17 +25,10 @@
 }
 
 .l-villa__inner {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  gap: 56px;
-  margin-inline: auto;
-  max-width: 1920px;
+  @include inner.column;
+  @include inner.stacked;
   padding-block: 110px 70px;
   padding-inline: 25px;
-  position: relative;
-  width: 100%;
-  z-index: 1;
 
   @media (min-width: 900px) {
     gap: 80px;

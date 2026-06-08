@@ -1,4 +1,5 @@
 @use '../global' as g;
+@use 'l-inner' as inner;
 
 .l-faq {
   background-color: g.$bg-color3;
@@ -13,15 +14,5 @@
 }
 
 .l-faq__inner {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  margin-inline: auto;
-  max-width: 1920px;
-  width: 100%;
-
-  @media (min-width: 900px) {
-    gap: 80px;
-  }
+  @include inner.column(40px);
 }

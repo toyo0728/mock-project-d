@@ -1,4 +1,5 @@
 @use '../global' as g;
+@use 'l-inner' as inner;
 
 .l-dining {
   background-color: g.$bg-white;
@@ -11,12 +12,7 @@
 }
 
 .l-dining__inner {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  gap: 56px;
-  margin-inline: auto;
-  max-width: 1920px;
+  @include inner.column(56px, 80px, 1200px);
 
   @media (min-width: 1200px) {
     gap: 80px;

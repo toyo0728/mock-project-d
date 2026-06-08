@@ -1,4 +1,5 @@
 @use '../global' as g;
+@use 'l-inner' as inner;
 
 $concept-bp: 1000px;
 
@@ -11,12 +12,10 @@ $concept-bp: 1000px;
 }
 
 .l-concept__inner {
-  margin-inline: auto;
-  max-width: 1920px;
+  @include inner.base;
+  @include inner.stacked;
   padding-block: 110px 104px;
   padding-inline: 0;
-  position: relative;
-  width: 100%;
 
   @media (min-width: $concept-bp) {
     padding-block: 220px 180px;
