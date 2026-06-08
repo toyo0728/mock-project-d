@@ -135,28 +135,56 @@
   });
 })();
 
-// FAQ アコーディオン
+// FAQ
 (() => {
-  const items = document.querySelectorAll('.p-faq__item');
+  const faqItems = document.querySelectorAll('.p-faq__item');
 
-  if (!items.length) return;
+  faqItems.forEach((item) => {
+    const summary = item.querySelector('.p-faq__trigger');
+    const answer = item.querySelector('.p-faq__answer');
 
-  items.forEach((item) => {
-    const trigger = item.querySelector('.p-faq__trigger');
-    if (!trigger) return;
+    if (!summary || !answer) return;
 
-    trigger.addEventListener('click', () => {
-      const isOpen = item.classList.contains('is-open');
+    summary.addEventListener('click', (e) => {
+      e.preventDefault();
 
-      items.forEach((otherItem) => {
-        otherItem.classList.remove('is-open');
-        const otherTrigger = otherItem.querySelector('.p-faq__trigger');
-        if (otherTrigger) otherTrigger.setAttribute('aria-expanded', 'false');
-      });
+      const isOpen = item.open;
 
-      if (!isOpen) {
-        item.classList.add('is-open');
-        trigger.setAttribute('aria-expanded', 'true');
+      // アニメーション中の状態をリセット
+      answer.style.height = `${answer.scrollHeight}px`;
+
+      if (isOpen) {
+        requestAnimationFrame(() => {
+          answer.style.height = '0px';
+        });
+
+        answer.addEventListener(
+          'transitionend',
+          (event) => {
+            if (event.propertyName !== 'height') return;
+
+            item.removeAttribute('open');
+          },
+          { once: true }
+        );
+      } else {
+        item.setAttribute('open', '');
+
+        answer.style.height = '0px';
+
+        requestAnimationFrame(() => {
+          answer.style.height = `${answer.scrollHeight}px`;
+        });
+
+        answer.addEventListener(
+          'transitionend',
+          (event) => {
+            if (event.propertyName !== 'height') return;
+
+            answer.style.height = 'auto';
+          },
+          { once: true }
+        );
       }
     });
   });

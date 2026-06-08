@@ -1413,54 +1413,42 @@ body {
 .p-faq__item {
   border-bottom: 1px solid #c3c0b9;
   margin: 0;
-  padding: 0;
+  padding-inline: 14px;
   width: 100%;
 }
 
-.p-faq__item.is-open .p-faq__trigger {
-  align-items: flex-start;
-}
-
-.p-faq__item.is-open .p-faq__content {
-  gap: 24px;
-}
-
-.p-faq__item.is-open .p-faq__answer {
-  display: block;
-}
-
-.p-faq__item.is-open .p-faq__icon {
+.p-faq__item[open] .p-faq__icon {
   transform: rotate(180deg);
 }
 
 .p-faq__trigger {
   align-items: center;
-  background: none;
-  border: none;
-  color: inherit;
   cursor: pointer;
   display: flex;
-  font-family: inherit;
-  gap: 16px;
   justify-content: space-between;
+  list-style: none;
   margin: 0;
-  padding: 18px 14px;
+  padding-block: 18px;
+  padding-inline: 0;
   text-align: left;
   width: 100%;
 }
 
-.p-faq__content {
-  display: flex;
-  flex: 1 1 auto;
-  flex-direction: column;
-  gap: 0;
-  min-width: 0;
+.p-faq__trigger::-webkit-details-marker {
+  display: none;
+}
+
+.p-faq__trigger::marker {
+  content: "";
 }
 
 .p-faq__question {
+  flex: 1 1 auto;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.5;
+  min-width: 0;
+  padding-right: 16px;
 }
 
 .p-faq__question--pc {
@@ -1473,7 +1461,9 @@ body {
 }
 
 .p-faq__answer {
-  display: none;
+  height: 0;
+  overflow: hidden;
+  transition: height 0.3s ease;
 }
 
 .p-faq__answer-text {
@@ -1483,6 +1473,7 @@ body {
   font-weight: 400;
   gap: 0;
   line-height: 1.5;
+  margin-block-end: 18px;
 }
 
 .p-faq__answer-text span {
@@ -2302,16 +2293,19 @@ body {
     max-width: 1200px;
   }
 
+  .p-faq__item {
+    padding-inline: 48px;
+  }
+
   .p-faq__trigger {
     align-items: flex-start;
-    gap: 24px;
-    padding: 40px 48px;
+    padding-block: 40px;
   }
 
   .p-faq__question {
     font-size: 18px;
     font-weight: 500;
-    line-height: 1.5;
+    padding-right: 24px;
   }
 
   .p-faq__question--pc {
@@ -2324,16 +2318,12 @@ body {
 
   .p-faq__answer-text {
     font-size: 16px;
-    gap: 0;
+    margin-block-end: 40px;
   }
 
   .p-faq__icon {
     height: 30px;
     width: 30px;
-  }
-
-  .p-faq__item.is-open .p-faq__content {
-    gap: 32px;
   }
 
   .p-modal__container {
