@@ -11,7 +11,7 @@
   max-width: min(325px, 100%);
   width: 100%;
 
-  @media (min-width: 500px) and (max-width: 899.98px) {
+  @media (min-width: 500px) and (max-width: 899px) {
     max-width: min(560px, calc(100% - 50px));
   }
 
@@ -117,7 +117,7 @@
   max-width: min(304px, 100%);
   width: 100%;
 
-  @media (min-width: 500px) and (max-width: 899.98px) {
+  @media (min-width: 500px) and (max-width: 899px) {
     max-width: min(480px, 100%);
   }
 
@@ -224,7 +224,9 @@
 
   @media (any-hover: hover) {
     &:hover {
-      opacity: 0.85;
+      .p-villa__cta-icon {
+        transform: translateX(24px);
+      }
     }
   }
 }
@@ -244,6 +246,7 @@
 .p-villa__cta-icon {
   display: block;
   height: 10px;
+  transition: transform 0.3s;
   width: 120px;
 
   @media (min-width: 900px) {
@@ -272,6 +275,7 @@
 .p-villa__main-image {
   aspect-ratio: 325 / 280;
   overflow: hidden;
+  position: relative;
   width: 100%;
 
   @media (min-width: 900px) {
@@ -285,7 +289,22 @@
     height: 100%;
     object-fit: cover;
     object-position: center;
+    transition: opacity 0.4s ease;
     width: 100%;
+
+    &.is-entering,
+    &.is-leaving {
+      inset: 0;
+      position: absolute;
+    }
+
+    &.is-entering {
+      opacity: 0;
+    }
+
+    &.is-leaving {
+      opacity: 0;
+    }
   }
 }
 
@@ -329,9 +348,11 @@
 }
 
 .p-villa__gallery-item {
+  cursor: pointer;
   flex-shrink: 0;
   height: 270px;
   overflow: hidden;
+  transition: opacity 0.3s;
   width: 370px;
 
   @media (min-width: 900px) {
@@ -341,6 +362,17 @@
     max-width: 370px;
     min-width: 0;
     width: min(370px, calc((100% - clamp(40px, 7.5vw, 90px)) / 3));
+  }
+
+  &.is-active {
+    outline: 1px solid #c5a761;
+    outline-offset: -1px;
+  }
+
+  @media (any-hover: hover) {
+    &:not(.is-active):hover {
+      opacity: 0.85;
+    }
   }
 
   img {

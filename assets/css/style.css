@@ -974,6 +974,7 @@ body {
 .p-villa__cta-icon {
   display: block;
   height: 10px;
+  transition: transform 0.3s;
   width: 120px;
 }
 
@@ -988,6 +989,7 @@ body {
 .p-villa__main-image {
   aspect-ratio: 325/280;
   overflow: hidden;
+  position: relative;
   width: 100%;
 }
 
@@ -998,7 +1000,22 @@ body {
   object-fit: cover;
   -o-object-position: center;
   object-position: center;
+  transition: opacity 0.4s ease;
   width: 100%;
+}
+
+.p-villa__main-image img.is-entering,
+.p-villa__main-image img.is-leaving {
+  inset: 0;
+  position: absolute;
+}
+
+.p-villa__main-image img.is-entering {
+  opacity: 0;
+}
+
+.p-villa__main-image img.is-leaving {
+  opacity: 0;
 }
 
 .p-villa__thumbs {
@@ -1031,10 +1048,17 @@ body {
 }
 
 .p-villa__gallery-item {
+  cursor: pointer;
   flex-shrink: 0;
   height: 270px;
   overflow: hidden;
+  transition: opacity 0.3s;
   width: 370px;
+}
+
+.p-villa__gallery-item.is-active {
+  outline: 1px solid #c5a761;
+  outline-offset: -1px;
 }
 
 .p-villa__gallery-item img {
@@ -1066,6 +1090,7 @@ body {
 .p-dining__main-image {
   aspect-ratio: 325/190;
   overflow: hidden;
+  position: relative;
   width: 100%;
 }
 
@@ -1074,7 +1099,24 @@ body {
   height: 100%;
   -o-object-fit: cover;
   object-fit: cover;
+  -o-object-position: center;
+  object-position: center;
+  transition: opacity 0.4s ease;
   width: 100%;
+}
+
+.p-dining__main-image img.is-entering,
+.p-dining__main-image img.is-leaving {
+  inset: 0;
+  position: absolute;
+}
+
+.p-dining__main-image img.is-entering {
+  opacity: 0;
+}
+
+.p-dining__main-image img.is-leaving {
+  opacity: 0;
 }
 
 .p-dining__thumbs {
@@ -1087,10 +1129,17 @@ body {
 
 .p-dining__thumbs-item {
   aspect-ratio: 100/74;
+  cursor: pointer;
   flex: 1;
   max-width: 140px;
   min-width: 0;
   overflow: hidden;
+  transition: opacity 0.3s;
+}
+
+.p-dining__thumbs-item.is-active {
+  outline: 1px solid #c5a761;
+  outline-offset: -1px;
 }
 
 .p-dining__thumbs-item img {
@@ -2196,7 +2245,14 @@ body {
 
   .p-dining__gallery-item {
     aspect-ratio: 515/360;
+    cursor: pointer;
     overflow: hidden;
+    transition: opacity 0.3s;
+  }
+
+  .p-dining__gallery-item.is-active {
+    outline: 1px solid #c5a761;
+    outline-offset: -1px;
   }
 
   .p-dining__gallery-item img {
@@ -2368,6 +2424,12 @@ body {
   .p-modal--breakfast .p-modal__image {
     max-width: 100%;
     width: 400px;
+  }
+}
+
+@media (min-width: 900px) and (any-hover: hover) {
+  .p-dining__gallery-item:not(.is-active):hover {
+    opacity: 0.85;
   }
 }
 
@@ -2804,12 +2866,6 @@ body {
   }
 }
 
-@media (min-width: 1400px) {
-  .l-villa__inner {
-    padding-inline: clamp(60px, 18.75vw, 360px);
-  }
-}
-
 @media (min-width: 1401px) {
   .l-header__inner {
     --header-p-start: clamp(
@@ -2844,6 +2900,12 @@ body {
     font-size: clamp(16px, 16px + (100vw - 1400px) * 0.003846, 18px);
     padding-block: clamp(14px, 14px + (100vw - 1400px) * 0.003846, 16px);
     padding-inline: clamp(36px, 36px + (100vw - 1400px) * 0.026923, 50px);
+  }
+}
+
+@media (min-width: 1441px) {
+  .l-villa__inner {
+    padding-inline: clamp(60px, 18.75vw, 360px);
   }
 }
 
@@ -3087,7 +3149,7 @@ body {
   }
 }
 
-@media (min-width: 500px) and (max-width: 899.98px) {
+@media (min-width: 500px) and (max-width: 899px) {
   .p-villa__unit {
     max-width: min(560px, 100% - 50px);
   }
@@ -3135,7 +3197,15 @@ body {
     opacity: 0.85;
   }
 
-  .p-villa__cta:hover {
+  .p-villa__cta:hover .p-villa__cta-icon {
+    transform: translateX(24px);
+  }
+
+  .p-villa__gallery-item:not(.is-active):hover {
+    opacity: 0.85;
+  }
+
+  .p-dining__thumbs-item:not(.is-active):hover {
     opacity: 0.85;
   }
 

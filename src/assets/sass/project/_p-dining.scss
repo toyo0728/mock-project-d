@@ -43,18 +43,35 @@
 .p-dining__main-image {
   aspect-ratio: 325 / 190;
   overflow: hidden;
+  position: relative;
   width: 100%;
 
   @media (min-width: 900px) {
     aspect-ratio: 765 / 450;
   }
-}
 
-.p-dining__main-image img {
-  display: block;
-  height: 100%;
-  object-fit: cover;
-  width: 100%;
+  img {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: opacity 0.4s ease;
+    width: 100%;
+
+    &.is-entering,
+    &.is-leaving {
+      inset: 0;
+      position: absolute;
+    }
+
+    &.is-entering {
+      opacity: 0;
+    }
+
+    &.is-leaving {
+      opacity: 0;
+    }
+  }
 }
 
 .p-dining__thumbs {
@@ -71,10 +88,23 @@
 
 .p-dining__thumbs-item {
   aspect-ratio: 100 / 74;
+  cursor: pointer;
   flex: 1;
   max-width: 140px;
   min-width: 0;
   overflow: hidden;
+  transition: opacity 0.3s;
+
+  &.is-active {
+    outline: 1px solid #c5a761;
+    outline-offset: -1px;
+  }
+
+  @media (any-hover: hover) {
+    &:not(.is-active):hover {
+      opacity: 0.85;
+    }
+  }
 }
 
 .p-dining__thumbs-item img {
@@ -219,7 +249,20 @@
 .p-dining__gallery-item {
   @media (min-width: 900px) {
     aspect-ratio: 515 / 360;
+    cursor: pointer;
     overflow: hidden;
+    transition: opacity 0.3s;
+
+    &.is-active {
+      outline: 1px solid #c5a761;
+      outline-offset: -1px;
+    }
+
+    @media (any-hover: hover) {
+      &:not(.is-active):hover {
+        opacity: 0.85;
+      }
+    }
   }
 }
 

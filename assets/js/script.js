@@ -135,6 +135,167 @@
   });
 })();
 
+// ギャラリー画像切り替え（ヴィラ・ダイニング共通）
+(() => {
+  function getImageData(img) {
+    return {
+      src: img.getAttribute('src') || '',
+      alt: img.getAttribute('alt') || '',
+      width: img.getAttribute('width'),
+      height: img.getAttribute('height'),
+    };
+  }
+
+  function createImage(data) {
+    const img = document.createElement('img');
+    img.src = data.src;
+    img.alt = data.alt;
+    if (data.width) img.setAttribute('width', data.width);
+    if (data.height) img.setAttribute('height', data.height);
+    img.decoding = 'async';
+    return img;
+  }
+
+  function getCurrentImg(mainImage) {
+    return mainImage.querySelector('img:last-child');
+  }
+
+  function switchMainImage(mainImage, targetData) {
+    if (mainImage.classList.contains('is-switching')) return;
+
+    const currentImg = getCurrentImg(mainImage);
+    if (!currentImg || currentImg.getAttribute('src') === targetData.src) return;
+
+    const nextImg = createImage(targetData);
+    nextImg.classList.add('is-entering');
+    mainImage.classList.add('is-switching');
+    mainImage.appendChild(nextImg);
+
+    const startTransition = () => {
+      requestAnimationFrame(() => {
+        currentImg.classList.add('is-leaving');
+        nextImg.classList.remove('is-entering');
+      });
+    };
+
+    if (nextImg.complete) {
+      startTransition();
+    } else {
+      nextImg.addEventListener('load', startTransition, { once: true });
+      nextImg.addEventListener('error', startTransition, { once: true });
+    }
+
+    let ended = 0;
+
+    function onTransitionEnd(event) {
+      if (event.propertyName !== 'opacity') return;
+
+      ended += 1;
+      if (ended < 2) return;
+
+      currentImg.removeEventListener('transitionend', onTransitionEnd);
+      nextImg.removeEventListener('transitionend', onTransitionEnd);
+      currentImg.remove();
+      nextImg.classList.remove('is-leaving', 'is-entering');
+      mainImage.classList.remove('is-switching');
+    }
+
+    currentImg.addEventListener('transitionend', onTransitionEnd);
+    nextImg.addEventListener('transitionend', onTransitionEnd);
+  }
+
+  function initImageGallery({ containers, mainImageSelector, itemSelector, mainItemAttr }) {
+    containers.forEach((container) => {
+      const mainImage = container.querySelector(mainImageSelector);
+      const galleryItems = container.querySelectorAll(itemSelector);
+      const defaultImg = mainImage?.querySelector('img');
+
+      if (!mainImage || !defaultImg || !galleryItems.length) return;
+
+      const defaultData = getImageData(defaultImg);
+      const displaySize = {
+        width: defaultData.width,
+        height: defaultData.height,
+      };
+
+      const clearActive = () => {
+        galleryItems.forEach((galleryItem) => {
+          galleryItem.classList.remove('is-active');
+        });
+      };
+
+      const setActiveBySrc = (src) => {
+        galleryItems.forEach((galleryItem) => {
+          const itemSrc = galleryItem.querySelector('img')?.getAttribute('src') || '';
+          galleryItem.classList.toggle('is-active', itemSrc === src);
+        });
+      };
+
+      galleryItems.forEach((item) => {
+        const galleryImg = item.querySelector('img');
+        if (!galleryImg) return;
+
+        const galleryData = {
+          src: galleryImg.getAttribute('src') || '',
+          alt: galleryImg.getAttribute('alt') || '',
+          ...displaySize,
+        };
+
+        item.setAttribute('role', 'button');
+        item.tabIndex = 0;
+
+        const isMainItem = item.hasAttribute(mainItemAttr);
+
+        const activate = () => {
+          const currentSrc = getCurrentImg(mainImage)?.getAttribute('src') || '';
+
+          if (isMainItem) {
+            if (currentSrc === defaultData.src) return;
+
+            clearActive();
+            switchMainImage(mainImage, defaultData);
+            return;
+          }
+
+          if (currentSrc === galleryData.src) {
+            clearActive();
+            switchMainImage(mainImage, defaultData);
+            return;
+          }
+
+          setActiveBySrc(galleryData.src);
+          switchMainImage(mainImage, galleryData);
+        };
+
+        item.addEventListener('click', activate);
+        item.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            activate();
+          }
+        });
+      });
+    });
+  }
+
+  initImageGallery({
+    containers: document.querySelectorAll('.p-villa__panel'),
+    mainImageSelector: '.p-villa__main-image',
+    itemSelector: '.p-villa__gallery-item',
+    mainItemAttr: 'data-villa-main',
+  });
+
+  const diningBody = document.querySelector('.p-dining__body');
+  if (diningBody) {
+    initImageGallery({
+      containers: [diningBody],
+      mainImageSelector: '.p-dining__main-image',
+      itemSelector: '.p-dining__gallery-item, .p-dining__thumbs-item',
+      mainItemAttr: 'data-gallery-main',
+    });
+  }
+})();
+
 // FAQ
 (() => {
   const faqItems = document.querySelectorAll('.p-faq__item');
