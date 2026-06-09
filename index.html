@@ -243,12 +243,14 @@
                   AKARI
                 </button>
               </div>
+              <div class="p-villa__panels">
               <div
                 id="villa-panel-mori"
                 class="p-villa__panel is-active"
                 role="tabpanel"
                 aria-labelledby="villa-tab-mori"
                 data-villa-panel="mori"
+                aria-hidden="false"
               >
                 <div class="p-villa__panel-body">
                   <div class="p-villa__info">
@@ -379,7 +381,8 @@
                 role="tabpanel"
                 aria-labelledby="villa-tab-mizu"
                 data-villa-panel="mizu"
-                hidden
+                aria-hidden="true"
+                inert
               >
                 <div class="p-villa__panel-body">
                   <div class="p-villa__info">
@@ -510,7 +513,8 @@
                 role="tabpanel"
                 aria-labelledby="villa-tab-akari"
                 data-villa-panel="akari"
-                hidden
+                aria-hidden="true"
+                inert
               >
                 <div class="p-villa__panel-body">
                   <div class="p-villa__info">
@@ -634,6 +638,7 @@
                     />
                   </li>
                 </ul>
+              </div>
               </div>
             </div>
           </div>

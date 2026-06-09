@@ -29,6 +29,9 @@
   background-color: #e9e6df;
   border: none;
   border-bottom: 1px solid #c5a761;
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
+  border-top: 1px solid transparent;
   color: g.$text-black;
   cursor: pointer;
   flex: 1 1 0;
@@ -41,8 +44,9 @@
   padding-inline: clamp(8px, 3vw, 40px);
   text-align: center;
   transition:
-    background-color 0.3s,
-    opacity 0.3s;
+    background-color 0.5s ease,
+    border-color 0.5s ease,
+    opacity 0.5s ease;
 
   &:nth-child(3) {
     background-color: #e8e5df;
@@ -81,13 +85,35 @@
   }
 }
 
+.p-villa__panels {
+  display: grid;
+  width: 100%;
+}
+
 .p-villa__panel {
   background-color: #fff;
-  display: none;
+  grid-area: 1 / 1;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease,
+    visibility 0.5s ease;
+  visibility: hidden;
   width: 100%;
 
   &.is-active {
-    display: block;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+    visibility: visible;
+    z-index: 1;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transform: none;
+    transition: none;
   }
 }
 

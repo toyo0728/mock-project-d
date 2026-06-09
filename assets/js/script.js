@@ -111,13 +111,30 @@
 // ヴィラ タブ
 (() => {
   const tabs = document.querySelectorAll('[data-villa-tab]');
+  const panelsWrap = document.querySelector('.p-villa__panels');
   const panels = document.querySelectorAll('[data-villa-panel]');
+  const TRANSITION_MS = 450;
 
-  if (!tabs.length || !panels.length) return;
+  if (!tabs.length || !panels.length || !panelsWrap) return;
+
+  let isSwitching = false;
+
+  function setPanelState(panel, isActive) {
+    panel.classList.toggle('is-active', isActive);
+    panel.setAttribute('aria-hidden', String(!isActive));
+    panel.inert = !isActive;
+  }
 
   tabs.forEach((tab) => {
     tab.addEventListener('click', () => {
       const target = tab.dataset.villaTab;
+      const currentPanel = panelsWrap.querySelector('.p-villa__panel.is-active');
+      const nextPanel = panelsWrap.querySelector(`[data-villa-panel="${target}"]`);
+
+      if (!nextPanel || currentPanel === nextPanel || isSwitching) return;
+
+      isSwitching = true;
+      panelsWrap.classList.add('is-switching');
 
       tabs.forEach((item) => {
         const isActive = item.dataset.villaTab === target;
@@ -126,11 +143,13 @@
         item.tabIndex = isActive ? 0 : -1;
       });
 
-      panels.forEach((panel) => {
-        const isActive = panel.dataset.villaPanel === target;
-        panel.classList.toggle('is-active', isActive);
-        panel.hidden = !isActive;
-      });
+      setPanelState(currentPanel, false);
+      setPanelState(nextPanel, true);
+
+      window.setTimeout(() => {
+        isSwitching = false;
+        panelsWrap.classList.remove('is-switching');
+      }, TRANSITION_MS);
     });
   });
 })();
