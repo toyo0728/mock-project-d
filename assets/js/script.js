@@ -1,34 +1,51 @@
-// スティッキーヘッダー（FV通過後〜FAQ通過前に表示 / PCのみ）
+// スティッキーヘッダー & ページトップボタン（FV通過後〜FAQ通過前に表示）
 (() => {
   const header = document.querySelector('.l-header');
   const headerSpacer = document.querySelector('.l-header-spacer');
+  const toTop = document.querySelector('.p-to-top');
   const fv = document.querySelector('.p-fv');
   const faq = document.querySelector('#faq');
-  if (!header || !headerSpacer || !fv || !faq) return;
+  if (!fv || !faq) return;
 
   const desktopMq = window.matchMedia('(min-width: 1101px)');
   let pastFv = false;
   let pastFaq = false;
 
+  function updateToTop() {
+    if (!toTop) return;
+
+    const show = desktopMq.matches && pastFv && !pastFaq;
+    toTop.classList.toggle('is-visible', show);
+    toTop.setAttribute('aria-hidden', String(!show));
+  }
+
   function showStickyHeader() {
+    header.classList.remove('is-sticky-visible');
+    void header.offsetHeight;
+
     requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        header.classList.add('is-sticky-visible');
-      });
+      header.classList.add('is-sticky-visible');
     });
   }
 
   function deactivateSticky() {
+    if (!header || !headerSpacer) return;
+
     header.classList.remove('is-sticky', 'is-sticky-visible', 'is-hidden');
     headerSpacer.classList.remove('is-active');
     headerSpacer.style.removeProperty('--header-spacer-height');
   }
 
   function activateSticky() {
-    if (!header.classList.contains('is-sticky')) {
+    if (!header || !headerSpacer) return;
+
+    const isFirstSticky = !header.classList.contains('is-sticky');
+
+    if (isFirstSticky) {
       headerSpacer.style.setProperty('--header-spacer-height', `${header.offsetHeight}px`);
       headerSpacer.classList.add('is-active');
       header.classList.add('is-sticky');
+      void header.offsetHeight;
     }
 
     if (pastFaq) {
@@ -39,13 +56,13 @@
 
     header.classList.remove('is-hidden');
 
-    if (!header.classList.contains('is-sticky-visible')) {
+    if (isFirstSticky || !header.classList.contains('is-sticky-visible')) {
       showStickyHeader();
     }
   }
 
   function updateHeader() {
-    if (!desktopMq.matches || !pastFv) {
+    if (!header || !headerSpacer || !desktopMq.matches || !pastFv) {
       deactivateSticky();
       return;
     }
@@ -53,10 +70,15 @@
     activateSticky();
   }
 
+  function updateVisibility() {
+    updateHeader();
+    updateToTop();
+  }
+
   const fvObserver = new IntersectionObserver(
     ([entry]) => {
       pastFv = !entry.isIntersecting;
-      updateHeader();
+      updateVisibility();
     },
     { threshold: 0 }
   );
@@ -64,14 +86,20 @@
   const faqObserver = new IntersectionObserver(
     ([entry]) => {
       pastFaq = !entry.isIntersecting && entry.boundingClientRect.top < 0;
-      updateHeader();
+      updateVisibility();
     },
     { threshold: 0 }
   );
 
   fvObserver.observe(fv);
   faqObserver.observe(faq);
-  desktopMq.addEventListener('change', updateHeader);
+  desktopMq.addEventListener('change', updateVisibility);
+
+  if (toTop) {
+    toTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
 })();
 
 // CTAバー（FV通過後に表示）

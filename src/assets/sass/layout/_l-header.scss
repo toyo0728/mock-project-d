@@ -21,22 +21,21 @@
     &.is-sticky {
       background-color: rgba(58, 67, 64, 0.9);
       left: 0;
-      opacity: 0;
       position: fixed;
       right: 0;
       top: 0;
-      transform: translateY(-100%);
-      transition:
-        opacity 0.6s ease,
-        transform 0.6s ease,
-        visibility 0.6s;
+
+      &:not(.is-sticky-visible) {
+        opacity: 0;
+        transform: translateY(-100%);
+      }
 
       &.is-sticky-visible:not(.is-hidden) {
-        opacity: 1;
-        transform: translateY(0);
+        animation: l-header-slide-down 0.7s ease-out forwards;
       }
 
       &.is-hidden {
+        animation: none;
         opacity: 0;
         pointer-events: none;
         transform: translateY(-100%);
@@ -71,6 +70,18 @@
       }
     }
 
+  }
+}
+
+@keyframes l-header-slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 

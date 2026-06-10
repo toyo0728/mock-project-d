@@ -1,0 +1,63 @@
+@use '../global' as g;
+
+.p-to-top {
+  display: none;
+
+  @media (min-width: 1101px) {
+    align-items: center;
+    background-color: #0b291f;
+    border: none;
+    bottom: 70px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-flex;
+    flex-direction: column;
+    font-family: g.$font-jp;
+    gap: 10px;
+    opacity: 0;
+    padding-block: 40px;
+    padding-inline: 32px;
+    pointer-events: none;
+    position: fixed;
+    right: 0;
+    transition:
+      opacity 0.4s ease,
+      transform 0.4s ease,
+      visibility 0.4s;
+    visibility: hidden;
+    z-index: 90;
+
+    &.is-visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateX(0);
+      visibility: visible;
+    }
+
+    &:not(.is-visible) {
+      transform: translateX(100%);
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        opacity: 0.85;
+      }
+    }
+  }
+}
+
+.p-to-top__icon {
+  display: block;
+  flex-shrink: 0;
+  height: 15px;
+  width: 13.5px;
+}
+
+.p-to-top__text {
+  font-feature-settings: 'vert' 1;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.64px;
+  line-height: 1.08;
+  writing-mode: vertical-rl;
+}
