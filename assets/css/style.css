@@ -447,29 +447,71 @@ body {
 .p-fv__image {
   aspect-ratio: 1920/860;
   margin-inline: auto;
+  overflow: hidden;
   width: 100%;
 }
 
 .p-fv__image picture {
   display: block;
+  height: 120%;
+  width: 100%;
+  will-change: transform;
 }
 
 .p-fv__image img {
   display: block;
-  height: auto;
+  height: 100%;
   width: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: center;
+  object-position: center;
 }
 
 .p-fv__line {
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.3);
   bottom: -80px;
   height: 150px;
   left: 50%;
+  overflow: hidden;
   pointer-events: none;
   position: absolute;
   transform: translateX(-50%);
   width: 1px;
   z-index: 2;
+}
+
+.p-fv__line::after {
+  animation: p-fv-scroll-line 2.5s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+  background-color: #fff;
+  content: "";
+  height: 33%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  will-change: top, opacity;
+}
+
+@keyframes p-fv-scroll-line {
+  0% {
+    opacity: 0;
+    top: 0;
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 1;
+    top: 67%;
+  }
+
+  100% {
+    opacity: 0;
+    top: 67%;
+  }
 }
 
 .p-cta-bar {
@@ -2817,11 +2859,7 @@ body {
   .l-header__inner {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    --header-p-block: clamp(
-      48px,
-      calc(48px + (100vw - 1100px) * 0.014634),
-      60px
-    );
+    --header-p-block: clamp(48px, calc(48px + (100vw - 1100px) * 0.014634), 60px);
     padding-block: var(--header-p-block);
     padding-inline: var(--header-p-start) var(--header-p-end);
   }
@@ -3035,26 +3073,10 @@ body {
 
 @media (min-width: 1401px) {
   .l-header__inner {
-    --header-p-start: clamp(
-      80px,
-      calc(80px + (100vw - 1400px) * 0.538462),
-      360px
-    );
-    --header-p-end: clamp(
-      40px,
-      calc(40px + (100vw - 1400px) * 0.153846),
-      120px
-    );
-    --header-gap: clamp(
-      28px,
-      calc(28px + (100vw - 1400px) * 0.023077),
-      40px
-    );
-    --header-logo-w: clamp(
-      130px,
-      calc(130px + (100vw - 1400px) * 0.080769),
-      172px
-    );
+    --header-p-start: clamp(80px, calc(80px + (100vw - 1400px) * 0.538462), 360px);
+    --header-p-end: clamp(40px, calc(40px + (100vw - 1400px) * 0.153846), 120px);
+    --header-gap: clamp(28px, calc(28px + (100vw - 1400px) * 0.023077), 40px);
+    --header-logo-w: clamp(130px, calc(130px + (100vw - 1400px) * 0.080769), 172px);
     --header-center-gap: var(--header-gap);
   }
 
@@ -3276,31 +3298,11 @@ body {
 
 @media (min-width: 1101px) and (max-width: 1400px) {
   .l-header__inner {
-    --header-p-start: clamp(
-      40px,
-      calc(40px + (100vw - 1100px) * 0.133333),
-      80px
-    );
-    --header-p-end: clamp(
-      16px,
-      calc(16px + (100vw - 1100px) * 0.08),
-      40px
-    );
-    --header-gap: clamp(
-      16px,
-      calc(16px + (100vw - 1100px) * 0.04),
-      28px
-    );
-    --header-logo-w: clamp(
-      110px,
-      calc(110px + (100vw - 1100px) * 0.066667),
-      130px
-    );
-    --header-center-gap: clamp(
-      28px,
-      calc(28px + (100vw - 1100px) * 0.053333),
-      40px
-    );
+    --header-p-start: clamp(40px, calc(40px + (100vw - 1100px) * 0.133333), 80px);
+    --header-p-end: clamp(16px, calc(16px + (100vw - 1100px) * 0.08), 40px);
+    --header-gap: clamp(16px, calc(16px + (100vw - 1100px) * 0.04), 28px);
+    --header-logo-w: clamp(110px, calc(110px + (100vw - 1100px) * 0.066667), 130px);
+    --header-center-gap: clamp(28px, calc(28px + (100vw - 1100px) * 0.053333), 40px);
   }
 
   .p-header__nav-list a {
@@ -3419,6 +3421,12 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .p-fv__line::after {
+    animation: none;
+    opacity: 1;
+    top: 33.5%;
+  }
+
   .p-villa__panel {
     transform: none;
     transition: none;

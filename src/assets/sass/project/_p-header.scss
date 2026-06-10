@@ -33,7 +33,9 @@
   @media (min-width: 1101px) {
     display: flex;
     min-width: 0;
-    padding-inline-end: calc(var(--header-logo-w) / 2 + var(--header-center-gap, var(--header-gap)));
+    padding-inline-end: calc(
+      var(--header-logo-w) / 2 + var(--header-center-gap, var(--header-gap))
+    );
   }
 
   @media (max-width: 1500px) {
@@ -77,21 +79,13 @@
   transition: opacity 0.3s;
 
   @media (min-width: 1101px) and (max-width: 1400px) {
-    font-size: clamp(
-      14px,
-      calc(14px + (100vw - 1100px) * 0.003333),
-      16px
-    );
+    font-size: clamp(14px, calc(14px + (100vw - 1100px) * 0.003333), 16px);
     letter-spacing: 0.04em;
     white-space: nowrap;
   }
 
   @media (min-width: 1401px) {
-    font-size: clamp(
-      16px,
-      calc(16px + (100vw - 1400px) * 0.001923),
-      17px
-    );
+    font-size: clamp(16px, calc(16px + (100vw - 1400px) * 0.001923), 17px);
     white-space: nowrap;
   }
 }
@@ -128,7 +122,9 @@
     gap: var(--header-gap);
     justify-self: end;
     min-width: 0;
-    padding-inline-start: calc(var(--header-logo-w) / 2 + var(--header-center-gap, var(--header-gap)));
+    padding-inline-start: calc(
+      var(--header-logo-w) / 2 + var(--header-center-gap, var(--header-gap))
+    );
   }
 }
 
@@ -147,35 +143,15 @@
   transition: opacity 0.3s;
 
   @media (min-width: 1101px) and (max-width: 1400px) {
-    font-size: clamp(
-      14px,
-      calc(14px + (100vw - 1100px) * 0.003333),
-      16px
-    );
+    font-size: clamp(14px, calc(14px + (100vw - 1100px) * 0.003333), 16px);
     padding-block: 14px;
-    padding-inline: clamp(
-      24px,
-      calc(24px + (100vw - 1100px) * 0.026667),
-      36px
-    );
+    padding-inline: clamp(24px, calc(24px + (100vw - 1100px) * 0.026667), 36px);
   }
 
   @media (min-width: 1401px) {
-    font-size: clamp(
-      16px,
-      calc(16px + (100vw - 1400px) * 0.003846),
-      18px
-    );
-    padding-block: clamp(
-      14px,
-      calc(14px + (100vw - 1400px) * 0.003846),
-      16px
-    );
-    padding-inline: clamp(
-      36px,
-      calc(36px + (100vw - 1400px) * 0.026923),
-      50px
-    );
+    font-size: clamp(16px, calc(16px + (100vw - 1400px) * 0.003846), 18px);
+    padding-block: clamp(14px, calc(14px + (100vw - 1400px) * 0.003846), 16px);
+    padding-inline: clamp(36px, calc(36px + (100vw - 1400px) * 0.026923), 50px);
   }
 
   @media (max-width: 1100px) {

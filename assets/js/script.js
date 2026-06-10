@@ -265,7 +265,7 @@
       src: img.getAttribute('src') || '',
       alt: img.getAttribute('alt') || '',
       width: img.getAttribute('width'),
-      height: img.getAttribute('height'),
+      height: img.getAttribute('height')
     };
   }
 
@@ -338,7 +338,7 @@
       const defaultData = getImageData(defaultImg);
       const displaySize = {
         width: defaultData.width,
-        height: defaultData.height,
+        height: defaultData.height
       };
 
       const clearActive = () => {
@@ -361,7 +361,7 @@
         const galleryData = {
           src: galleryImg.getAttribute('src') || '',
           alt: galleryImg.getAttribute('alt') || '',
-          ...displaySize,
+          ...displaySize
         };
 
         item.setAttribute('role', 'button');
@@ -405,7 +405,7 @@
     containers: document.querySelectorAll('.p-villa__panel'),
     mainImageSelector: '.p-villa__main-image',
     itemSelector: '.p-villa__gallery-item',
-    mainItemAttr: 'data-villa-main',
+    mainItemAttr: 'data-villa-main'
   });
 
   const diningBody = document.querySelector('.p-dining__body');
@@ -414,7 +414,7 @@
       containers: [diningBody],
       mainImageSelector: '.p-dining__main-image',
       itemSelector: '.p-dining__gallery-item, .p-dining__thumbs-item',
-      mainItemAttr: 'data-gallery-main',
+      mainItemAttr: 'data-gallery-main'
     });
   }
 })();
