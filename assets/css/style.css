@@ -120,6 +120,11 @@ body {
   width: 100%;
 }
 
+.l-header-spacer {
+  display: none;
+  width: 100%;
+}
+
 .l-header {
   position: relative;
   z-index: 100;
@@ -362,6 +367,10 @@ body {
 .p-header {
   background-color: #3a4340;
   color: #e7e4de;
+}
+
+.p-header__nav {
+  padding-block: 37px;
 }
 
 .p-header__nav-list {
@@ -2723,6 +2732,54 @@ body {
 }
 
 @media (min-width: 1101px) {
+  .l-header-spacer.is-active {
+    display: block;
+    height: var(--header-spacer-height, 0px);
+  }
+
+  .l-header.is-sticky {
+    background-color: rgba(58, 67, 64, 0.9);
+    left: 0;
+    opacity: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    transform: translateY(-100%);
+    transition: opacity 0.6s ease, transform 0.6s ease, visibility 0.6s;
+  }
+
+  .l-header.is-sticky.is-sticky-visible:not(.is-hidden) {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .l-header.is-sticky.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-100%);
+    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+    visibility: hidden;
+  }
+
+  .l-header.is-sticky .l-header__inner {
+    align-items: center;
+    display: flex;
+    gap: 40px;
+    grid-template-columns: unset;
+    justify-content: center;
+    padding-block: 20px;
+    padding-inline: clamp(40px, 40px + (100vw - 1100px) * 0.133333, 360px);
+  }
+
+  .l-header.is-sticky .l-header__logo {
+    display: none;
+  }
+
+  .l-header.is-sticky .p-header__left,
+  .l-header.is-sticky .p-header__right {
+    display: contents;
+  }
+
   .l-header__inner {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -2739,6 +2796,26 @@ body {
     bottom: 0;
     top: auto;
     transform: translate(-50%, 50%);
+  }
+
+  .p-header.is-sticky .p-header__left,
+  .p-header.is-sticky .p-header__right {
+    min-width: 0;
+    padding-inline: 0;
+  }
+
+  .p-header.is-sticky .p-header__nav {
+    padding-block: 0;
+  }
+
+  .p-header.is-sticky .p-header__nav-list {
+    gap: 40px;
+  }
+
+  .p-header.is-sticky .p-header__cta {
+    background-color: #e7e4de;
+    border: 1px solid #3a4340;
+    color: #202524;
   }
 
   .p-header__left {

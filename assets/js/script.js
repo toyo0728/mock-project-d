@@ -1,3 +1,79 @@
+// スティッキーヘッダー（FV通過後〜FAQ通過前に表示 / PCのみ）
+(() => {
+  const header = document.querySelector('.l-header');
+  const headerSpacer = document.querySelector('.l-header-spacer');
+  const fv = document.querySelector('.p-fv');
+  const faq = document.querySelector('#faq');
+  if (!header || !headerSpacer || !fv || !faq) return;
+
+  const desktopMq = window.matchMedia('(min-width: 1101px)');
+  let pastFv = false;
+  let pastFaq = false;
+
+  function showStickyHeader() {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        header.classList.add('is-sticky-visible');
+      });
+    });
+  }
+
+  function deactivateSticky() {
+    header.classList.remove('is-sticky', 'is-sticky-visible', 'is-hidden');
+    headerSpacer.classList.remove('is-active');
+    headerSpacer.style.removeProperty('--header-spacer-height');
+  }
+
+  function activateSticky() {
+    if (!header.classList.contains('is-sticky')) {
+      headerSpacer.style.setProperty('--header-spacer-height', `${header.offsetHeight}px`);
+      headerSpacer.classList.add('is-active');
+      header.classList.add('is-sticky');
+    }
+
+    if (pastFaq) {
+      header.classList.remove('is-sticky-visible');
+      header.classList.add('is-hidden');
+      return;
+    }
+
+    header.classList.remove('is-hidden');
+
+    if (!header.classList.contains('is-sticky-visible')) {
+      showStickyHeader();
+    }
+  }
+
+  function updateHeader() {
+    if (!desktopMq.matches || !pastFv) {
+      deactivateSticky();
+      return;
+    }
+
+    activateSticky();
+  }
+
+  const fvObserver = new IntersectionObserver(
+    ([entry]) => {
+      pastFv = !entry.isIntersecting;
+      updateHeader();
+    },
+    { threshold: 0 }
+  );
+
+  const faqObserver = new IntersectionObserver(
+    ([entry]) => {
+      pastFaq = !entry.isIntersecting && entry.boundingClientRect.top < 0;
+      updateHeader();
+    },
+    { threshold: 0 }
+  );
+
+  fvObserver.observe(fv);
+  faqObserver.observe(faq);
+  desktopMq.addEventListener('change', updateHeader);
+})();
+
 // CTAバー（FV通過後に表示）
 (() => {
   const fv = document.querySelector('.p-fv');
