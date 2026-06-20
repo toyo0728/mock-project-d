@@ -125,9 +125,20 @@
 
 .p-local-guide__image img {
   display: block;
-  height: 100%;
+  height: 140%;
+  left: 0;
   object-fit: cover;
+  position: absolute;
+  top: -20%;
   width: 100%;
+  will-change: transform;
+
+  @media (prefers-reduced-motion: reduce) {
+    height: 100%;
+    position: static;
+    top: auto;
+    will-change: auto;
+  }
 }
 
 .p-local-guide__image--main {

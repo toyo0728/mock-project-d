@@ -227,6 +227,53 @@
   updateConceptImages();
 })();
 
+// local-guide 画像パララックス（スクロールより遅く上方向へ移動）
+(() => {
+  const section = document.querySelector('[data-local-guide]');
+  if (!section) return;
+
+  const images = section.querySelectorAll('.p-local-guide__image img');
+  if (!images.length) return;
+
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reducedMotion) return;
+
+  const SPEED = 0.45;
+  let ticking = false;
+
+  function updateLocalGuideParallax() {
+    const scrollY = window.scrollY;
+    const viewportCenter = scrollY + window.innerHeight / 2;
+
+    images.forEach((img) => {
+      const figure = img.closest('.p-local-guide__image');
+      if (!figure) return;
+
+      const rect = figure.getBoundingClientRect();
+      const elementCenter = scrollY + rect.top + rect.height / 2;
+      const distance = viewportCenter - elementCenter;
+      const maxOffset = rect.height * 0.18;
+      const offset = Math.max(-maxOffset, Math.min(maxOffset, distance * SPEED));
+
+      img.style.transform = `translate3d(0, ${offset}px, 0)`;
+    });
+  }
+
+  function onLocalGuideScroll() {
+    if (ticking) return;
+
+    ticking = true;
+    requestAnimationFrame(() => {
+      updateLocalGuideParallax();
+      ticking = false;
+    });
+  }
+
+  window.addEventListener('scroll', onLocalGuideScroll, { passive: true });
+  window.addEventListener('resize', onLocalGuideScroll, { passive: true });
+  updateLocalGuideParallax();
+})();
+
 // dining モーダル
 (() => {
   const openBtns = document.querySelectorAll('[data-modal-open]');
