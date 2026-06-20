@@ -52,7 +52,10 @@
         gap: 40px;
         grid-template-columns: unset;
         justify-content: center;
-        padding-block: 20px;
+        --sticky-header-p-block: clamp(16px, calc(16px + (100vw - 1100px) * 0.003659), 20px);
+        --sticky-header-content-h: clamp(42px, calc(42px + (100vw - 1100px) * 0.008535), 51px);
+        min-height: calc(var(--sticky-header-content-h) + var(--sticky-header-p-block) * 2);
+        padding-block: var(--sticky-header-p-block);
         padding-inline: clamp(40px, calc(40px + (100vw - 1100px) * 0.133333), 360px);
       }
 
@@ -87,9 +90,12 @@
   justify-content: space-between;
 
   @media (min-width: 1101px) {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     --header-p-block: clamp(48px, calc(48px + (100vw - 1100px) * 0.014634), 60px);
+    --header-content-h: clamp(80px, calc(80px + (100vw - 1100px) * 0.02439), 100px);
+    min-height: calc(var(--header-content-h) + var(--header-p-block) * 2);
     padding-block: var(--header-p-block);
     padding-inline: var(--header-p-start) var(--header-p-end);
   }
@@ -100,7 +106,6 @@
     --header-p-end: clamp(16px, calc(16px + (100vw - 1100px) * 0.08), 40px);
     --header-gap: clamp(16px, calc(16px + (100vw - 1100px) * 0.04), 28px);
     --header-logo-w: clamp(110px, calc(110px + (100vw - 1100px) * 0.066667), 130px);
-    --header-center-gap: clamp(28px, calc(28px + (100vw - 1100px) * 0.053333), 40px);
   }
 
   // 1401px〜1920px：デザイン最大値へ
@@ -109,7 +114,6 @@
     --header-p-end: clamp(40px, calc(40px + (100vw - 1400px) * 0.153846), 120px);
     --header-gap: clamp(28px, calc(28px + (100vw - 1400px) * 0.023077), 40px);
     --header-logo-w: clamp(130px, calc(130px + (100vw - 1400px) * 0.080769), 172px);
-    --header-center-gap: var(--header-gap);
   }
 
   @media (max-width: 1100px) {
