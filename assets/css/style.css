@@ -213,7 +213,6 @@ body {
 .l-dining {
   background-color: #f0ede5;
   color: #202524;
-  padding-block: 70px;
 }
 
 .l-dining__inner {
@@ -2150,10 +2149,6 @@ body {
     padding-inline: clamp(25px, 5vw, 60px);
   }
 
-  .l-dining {
-    padding-block: 100px 150px;
-  }
-
   .l-dining__inner {
     padding-inline: 60px;
   }
@@ -3139,13 +3134,6 @@ body {
 }
 
 @media (min-width: 1401px) {
-  .l-header__inner {
-    --header-p-start: clamp(80px, calc(80px + (100vw - 1400px) * 0.538462), 360px);
-    --header-p-end: clamp(40px, calc(40px + (100vw - 1400px) * 0.153846), 120px);
-    --header-gap: clamp(28px, calc(28px + (100vw - 1400px) * 0.023077), 40px);
-    --header-logo-w: clamp(130px, calc(130px + (100vw - 1400px) * 0.080769), 172px);
-  }
-
   .p-header__nav-link {
     font-size: clamp(16px, 16px + (100vw - 1400px) * 0.001923, 17px);
     white-space: nowrap;
@@ -3159,6 +3147,13 @@ body {
 }
 
 @media (min-width: 1441px) {
+  .l-header__inner {
+    --header-p-start: clamp(108px, calc(108px + (100vw - 1440px) * 0.480769), 360px);
+    --header-p-end: clamp(40px, calc(40px + (100vw - 1440px) * 0.153846), 120px);
+    --header-gap: clamp(28px, calc(28px + (100vw - 1440px) * 0.023077), 40px);
+    --header-logo-w: clamp(130px, calc(130px + (100vw - 1440px) * 0.080769), 172px);
+  }
+
   .l-villa__inner {
     padding-inline: clamp(60px, 18.75vw, 360px);
   }
@@ -3356,14 +3351,16 @@ body {
   }
 }
 
-@media (min-width: 1101px) and (max-width: 1400px) {
+@media (min-width: 1101px) and (max-width: 1440px) {
   .l-header__inner {
-    --header-p-start: clamp(40px, calc(40px + (100vw - 1100px) * 0.133333), 80px);
+    --header-p-start: clamp(48px, calc(48px + (100vw - 1100px) * 0.176471), 108px);
     --header-p-end: clamp(16px, calc(16px + (100vw - 1100px) * 0.08), 40px);
     --header-gap: clamp(16px, calc(16px + (100vw - 1100px) * 0.04), 28px);
     --header-logo-w: clamp(110px, calc(110px + (100vw - 1100px) * 0.066667), 130px);
   }
+}
 
+@media (min-width: 1101px) and (max-width: 1400px) {
   .p-header__nav-link {
     font-size: clamp(14px, 14px + (100vw - 1100px) * 0.003333, 16px);
     letter-spacing: 0.04em;

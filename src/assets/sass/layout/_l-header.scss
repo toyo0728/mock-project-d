@@ -100,20 +100,20 @@
     padding-inline: var(--header-p-start) var(--header-p-end);
   }
 
-  // 1101px〜1400px：左右余白を抑えてナビ領域を確保
-  @media (min-width: 1101px) and (max-width: 1400px) {
-    --header-p-start: clamp(40px, calc(40px + (100vw - 1100px) * 0.133333), 80px);
+  // 1101px〜1440px：左ナビを中央ロゴ寄りにしつつナビ領域を確保
+  @media (min-width: 1101px) and (max-width: 1440px) {
+    --header-p-start: clamp(48px, calc(48px + (100vw - 1100px) * 0.176471), 108px);
     --header-p-end: clamp(16px, calc(16px + (100vw - 1100px) * 0.08), 40px);
     --header-gap: clamp(16px, calc(16px + (100vw - 1100px) * 0.04), 28px);
     --header-logo-w: clamp(110px, calc(110px + (100vw - 1100px) * 0.066667), 130px);
   }
 
-  // 1401px〜1920px：デザイン最大値へ
-  @media (min-width: 1401px) {
-    --header-p-start: clamp(80px, calc(80px + (100vw - 1400px) * 0.538462), 360px);
-    --header-p-end: clamp(40px, calc(40px + (100vw - 1400px) * 0.153846), 120px);
-    --header-gap: clamp(28px, calc(28px + (100vw - 1400px) * 0.023077), 40px);
-    --header-logo-w: clamp(130px, calc(130px + (100vw - 1400px) * 0.080769), 172px);
+  // 1441px〜1920px：デザイン最大値へ
+  @media (min-width: 1441px) {
+    --header-p-start: clamp(108px, calc(108px + (100vw - 1440px) * 0.480769), 360px);
+    --header-p-end: clamp(40px, calc(40px + (100vw - 1440px) * 0.153846), 120px);
+    --header-gap: clamp(28px, calc(28px + (100vw - 1440px) * 0.023077), 40px);
+    --header-logo-w: clamp(130px, calc(130px + (100vw - 1440px) * 0.080769), 172px);
   }
 
   @media (max-width: 1100px) {

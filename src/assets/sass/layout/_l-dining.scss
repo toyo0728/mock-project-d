@@ -4,11 +4,6 @@
 .l-dining {
   background-color: g.$bg-white;
   color: g.$text-black;
-  padding-block: 70px;
-
-  @media (min-width: 900px) {
-    padding-block: 100px 150px;
-  }
 }
 
 .l-dining__inner {
