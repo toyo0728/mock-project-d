@@ -762,11 +762,12 @@ body {
 
 .p-concept {
   --concept-image-count: 5;
-  --concept-pin-height: max(940px, 100svh);
+  --concept-canvas: min(100vw, 900px);
+  --concept-pin-height: max(calc(2.5066666667 * min(100vw, 900px)), 100svh);
   --concept-step-size: 28vh;
   height: calc(var(--concept-pin-height) + var(--concept-step-size) * var(--concept-image-count));
   margin-inline: auto;
-  max-width: 375px;
+  max-width: 900px;
   position: relative;
   width: 100%;
 }
@@ -820,7 +821,7 @@ body {
 .p-concept__img--1 {
   aspect-ratio: 100/70;
   left: 6.6666666667%;
-  top: 138px;
+  top: calc(0.368 * min(100vw, 900px));
   width: 26.6666666667%;
 }
 
@@ -832,7 +833,7 @@ body {
 .p-concept__img--2 {
   aspect-ratio: 109/78;
   left: 70.9333333333%;
-  top: 256px;
+  top: calc(0.6826666667 * min(100vw, 900px));
   width: 29.0666666667%;
 }
 
@@ -844,7 +845,7 @@ body {
 .p-concept__img--3 {
   aspect-ratio: 120/117;
   left: 11.4666666667%;
-  top: 823px;
+  top: calc(2.1946666667 * min(100vw, 900px));
   width: 32%;
 }
 
@@ -856,7 +857,7 @@ body {
 .p-concept__img--4 {
   aspect-ratio: 90/100;
   left: 0;
-  top: 421px;
+  top: calc(1.1226666667 * min(100vw, 900px));
   width: 24%;
 }
 
@@ -868,7 +869,7 @@ body {
 .p-concept__img--5 {
   aspect-ratio: 150/100;
   left: 53.3333333333%;
-  top: 734px;
+  top: calc(1.9573333333 * min(100vw, 900px));
   width: 40%;
 }
 
@@ -2895,11 +2896,11 @@ body {
     gap: 40px;
     grid-template-columns: unset;
     justify-content: center;
-    --sticky-header-p-block: clamp(16px, calc(16px + (100vw - 1100px) * 0.003659), 20px);
-    --sticky-header-content-h: clamp(42px, calc(42px + (100vw - 1100px) * 0.008535), 51px);
+    --sticky-header-p-block: clamp(16px, 16px + (100vw - 1100px) * 4 / 820, 20px);
+    --sticky-header-content-h: clamp(42px, 42px + (100vw - 1100px) * 9 / 820, 51px);
     min-height: calc(var(--sticky-header-content-h) + var(--sticky-header-p-block) * 2);
     padding-block: var(--sticky-header-p-block);
-    padding-inline: clamp(40px, 40px + (100vw - 1100px) * 0.133333, 360px);
+    padding-inline: clamp(40px, 40px + (100vw - 1100px) * 320 / 820, 360px);
   }
 
   .l-header.is-sticky .l-header__logo {
@@ -2915,8 +2916,8 @@ body {
     align-items: center;
     display: flex;
     justify-content: space-between;
-    --header-p-block: clamp(48px, calc(48px + (100vw - 1100px) * 0.014634), 60px);
-    --header-content-h: clamp(80px, calc(80px + (100vw - 1100px) * 0.02439), 100px);
+    --header-p-block: clamp(48px, 48px + (100vw - 1100px) * 12 / 820, 60px);
+    --header-content-h: clamp(80px, 80px + (100vw - 1100px) * 20 / 820, 100px);
     min-height: calc(var(--header-content-h) + var(--header-p-block) * 2);
     padding-block: var(--header-p-block);
     padding-inline: var(--header-p-start) var(--header-p-end);
@@ -2943,7 +2944,7 @@ body {
   }
 
   .p-header.is-sticky .p-header__nav-link {
-    font-size: clamp(14px, 14px + (100vw - 1100px) * 0.003333, 17px);
+    font-size: clamp(14px, 14px + (100vw - 1100px) * 3 / 820, 17px);
     letter-spacing: 0.68px;
   }
 
@@ -2951,9 +2952,9 @@ body {
     background-color: #e7e4de;
     border: 1px solid #3a4340;
     color: #202524;
-    font-size: clamp(14px, 14px + (100vw - 1100px) * 0.004878, 18px);
-    padding-block: clamp(12px, 12px + (100vw - 1100px) * 0.003659, 16px);
-    padding-inline: clamp(24px, 24px + (100vw - 1100px) * 0.026829, 50px);
+    font-size: clamp(14px, 14px + (100vw - 1100px) * 4 / 820, 18px);
+    padding-block: clamp(12px, 12px + (100vw - 1100px) * 4 / 820, 16px);
+    padding-inline: clamp(24px, 24px + (100vw - 1100px) * 26 / 820, 50px);
   }
 
   .p-header__left {
@@ -3135,23 +3136,23 @@ body {
 
 @media (min-width: 1401px) {
   .p-header__nav-link {
-    font-size: clamp(16px, 16px + (100vw - 1400px) * 0.001923, 17px);
+    font-size: clamp(16px, 16px + (100vw - 1400px) * 1 / 520, 17px);
     white-space: nowrap;
   }
 
   .p-header__cta {
-    font-size: clamp(16px, 16px + (100vw - 1400px) * 0.003846, 18px);
-    padding-block: clamp(14px, 14px + (100vw - 1400px) * 0.003846, 16px);
-    padding-inline: clamp(36px, 36px + (100vw - 1400px) * 0.026923, 50px);
+    font-size: clamp(16px, 16px + (100vw - 1400px) * 2 / 520, 18px);
+    padding-block: clamp(14px, 14px + (100vw - 1400px) * 2 / 520, 16px);
+    padding-inline: clamp(36px, 36px + (100vw - 1400px) * 14 / 520, 50px);
   }
 }
 
 @media (min-width: 1441px) {
   .l-header__inner {
-    --header-p-start: clamp(108px, calc(108px + (100vw - 1440px) * 0.480769), 360px);
-    --header-p-end: clamp(40px, calc(40px + (100vw - 1440px) * 0.153846), 120px);
-    --header-gap: clamp(28px, calc(28px + (100vw - 1440px) * 0.023077), 40px);
-    --header-logo-w: clamp(130px, calc(130px + (100vw - 1440px) * 0.080769), 172px);
+    --header-p-start: clamp(108px, 108px + (100vw - 1440px) * 252 / 480, 360px);
+    --header-p-end: clamp(40px, 40px + (100vw - 1440px) * 80 / 480, 120px);
+    --header-gap: clamp(28px, 28px + (100vw - 1440px) * 12 / 480, 40px);
+    --header-logo-w: clamp(130px, 130px + (100vw - 1440px) * 42 / 480, 172px);
   }
 
   .l-villa__inner {
@@ -3353,24 +3354,24 @@ body {
 
 @media (min-width: 1101px) and (max-width: 1440px) {
   .l-header__inner {
-    --header-p-start: clamp(48px, calc(48px + (100vw - 1100px) * 0.176471), 108px);
-    --header-p-end: clamp(16px, calc(16px + (100vw - 1100px) * 0.08), 40px);
-    --header-gap: clamp(16px, calc(16px + (100vw - 1100px) * 0.04), 28px);
-    --header-logo-w: clamp(110px, calc(110px + (100vw - 1100px) * 0.066667), 130px);
+    --header-p-start: clamp(48px, 48px + (100vw - 1100px) * 60 / 340, 108px);
+    --header-p-end: clamp(16px, 16px + (100vw - 1100px) * 24 / 340, 40px);
+    --header-gap: clamp(16px, 16px + (100vw - 1100px) * 12 / 340, 28px);
+    --header-logo-w: clamp(110px, 110px + (100vw - 1100px) * 20 / 340, 130px);
   }
 }
 
 @media (min-width: 1101px) and (max-width: 1400px) {
   .p-header__nav-link {
-    font-size: clamp(14px, 14px + (100vw - 1100px) * 0.003333, 16px);
+    font-size: clamp(14px, 14px + (100vw - 1100px) * 2 / 300, 16px);
     letter-spacing: 0.04em;
     white-space: nowrap;
   }
 
   .p-header__cta {
-    font-size: clamp(14px, 14px + (100vw - 1100px) * 0.003333, 16px);
+    font-size: clamp(14px, 14px + (100vw - 1100px) * 2 / 300, 16px);
     padding-block: 14px;
-    padding-inline: clamp(24px, 24px + (100vw - 1100px) * 0.026667, 36px);
+    padding-inline: clamp(24px, 24px + (100vw - 1100px) * 12 / 300, 36px);
   }
 }
 

@@ -1,2 +1,19 @@
 @use "sass:map";
+@use "sass:math";
 @use "./variables" as v;
+
+/// min〜max を min-vw〜max-vw の間で線形補間（係数は分数表記で出力）
+@function fluid($min, $max, $min-vw, $max-vw) {
+  $min-num: math.div($min, 1px);
+  $max-num: math.div($max, 1px);
+  $min-vw-num: math.div($min-vw, 1px);
+  $max-vw-num: math.div($max-vw, 1px);
+  $delta: $max-num - $min-num;
+  $range: $max-vw-num - $min-vw-num;
+
+  @return clamp(
+    $min,
+    calc(#{$min} + (100vw - #{$min-vw}) * #{$delta} / #{$range}),
+    $max
+  );
+}

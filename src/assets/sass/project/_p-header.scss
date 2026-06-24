@@ -21,7 +21,7 @@
       }
 
       .p-header__nav-link {
-        font-size: clamp(14px, calc(14px + (100vw - 1100px) * 0.003333), 17px);
+        font-size: #{g.fluid(14px, 17px, 1100px, 1920px)};
         letter-spacing: 0.68px;
       }
 
@@ -29,9 +29,9 @@
         background-color: g.$bg-color3;
         border: 1px solid g.$bg-main;
         color: g.$text-black;
-        font-size: clamp(14px, calc(14px + (100vw - 1100px) * 0.004878), 18px);
-        padding-block: clamp(12px, calc(12px + (100vw - 1100px) * 0.003659), 16px);
-        padding-inline: clamp(24px, calc(24px + (100vw - 1100px) * 0.026829), 50px);
+        font-size: #{g.fluid(14px, 18px, 1100px, 1920px)};
+        padding-block: #{g.fluid(12px, 16px, 1100px, 1920px)};
+        padding-inline: #{g.fluid(24px, 50px, 1100px, 1920px)};
       }
     }
   }
@@ -79,13 +79,13 @@
   vertical-align: top;
 
   @media (min-width: 1101px) and (max-width: 1400px) {
-    font-size: clamp(14px, calc(14px + (100vw - 1100px) * 0.003333), 16px);
+    font-size: #{g.fluid(14px, 16px, 1100px, 1400px)};
     letter-spacing: 0.04em;
     white-space: nowrap;
   }
 
   @media (min-width: 1401px) {
-    font-size: clamp(16px, calc(16px + (100vw - 1400px) * 0.001923), 17px);
+    font-size: #{g.fluid(16px, 17px, 1400px, 1920px)};
     white-space: nowrap;
   }
 }
@@ -164,15 +164,15 @@
     color 0.3s;
 
   @media (min-width: 1101px) and (max-width: 1400px) {
-    font-size: clamp(14px, calc(14px + (100vw - 1100px) * 0.003333), 16px);
+    font-size: #{g.fluid(14px, 16px, 1100px, 1400px)};
     padding-block: 14px;
-    padding-inline: clamp(24px, calc(24px + (100vw - 1100px) * 0.026667), 36px);
+    padding-inline: #{g.fluid(24px, 36px, 1100px, 1400px)};
   }
 
   @media (min-width: 1401px) {
-    font-size: clamp(16px, calc(16px + (100vw - 1400px) * 0.003846), 18px);
-    padding-block: clamp(14px, calc(14px + (100vw - 1400px) * 0.003846), 16px);
-    padding-inline: clamp(36px, calc(36px + (100vw - 1400px) * 0.026923), 50px);
+    font-size: #{g.fluid(16px, 18px, 1400px, 1920px)};
+    padding-block: #{g.fluid(14px, 16px, 1400px, 1920px)};
+    padding-inline: #{g.fluid(36px, 50px, 1400px, 1920px)};
   }
 
   @media (max-width: 1100px) {

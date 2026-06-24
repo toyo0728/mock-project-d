@@ -1,16 +1,24 @@
 @use '../global' as g;
+@use 'sass:math';
 
 $concept-sp-width: 375;
 $concept-pc-width: 1600;
+$concept-tablet-max: 900px;
 $concept-bp: 1000px;
+
+// SP: 375px基準の値を min(100vw, 900px) に合わせてスケール（375px時はFigma寸法と一致）
+@function concept-sp-scale($px) {
+  @return calc(#{math.div($px, $concept-sp-width)} * min(100vw, #{$concept-tablet-max}));
+}
 
 .p-concept {
   --concept-image-count: 5;
-  --concept-pin-height: max(940px, 100svh);
+  --concept-canvas: min(100vw, #{$concept-tablet-max});
+  --concept-pin-height: max(#{concept-sp-scale(940)}, 100svh);
   --concept-step-size: 28vh;
   height: calc(var(--concept-pin-height) + var(--concept-step-size) * var(--concept-image-count));
   margin-inline: auto;
-  max-width: $concept-sp-width * 1px;
+  max-width: $concept-tablet-max;
   position: relative;
   width: 100%;
 
@@ -98,7 +106,7 @@ $concept-bp: 1000px;
 .p-concept__img--1 {
   aspect-ratio: 100 / 70;
   left: calc(25 / $concept-sp-width * 100%);
-  top: 138px;
+  top: concept-sp-scale(138);
   width: calc(100 / $concept-sp-width * 100%);
 
   img {
@@ -121,7 +129,7 @@ $concept-bp: 1000px;
 .p-concept__img--2 {
   aspect-ratio: 109 / 78;
   left: calc(266 / $concept-sp-width * 100%);
-  top: 256px;
+  top: concept-sp-scale(256);
   width: calc(109 / $concept-sp-width * 100%);
 
   img {
@@ -144,7 +152,7 @@ $concept-bp: 1000px;
 .p-concept__img--3 {
   aspect-ratio: 120 / 117;
   left: calc(43 / $concept-sp-width * 100%);
-  top: 823px;
+  top: concept-sp-scale(823);
   width: calc(120 / $concept-sp-width * 100%);
 
   img {
@@ -167,7 +175,7 @@ $concept-bp: 1000px;
 .p-concept__img--4 {
   aspect-ratio: 90 / 100;
   left: 0;
-  top: 421px;
+  top: concept-sp-scale(421);
   width: calc(90 / $concept-sp-width * 100%);
 
   img {
@@ -190,7 +198,7 @@ $concept-bp: 1000px;
 .p-concept__img--5 {
   aspect-ratio: 150 / 100;
   left: calc(200 / $concept-sp-width * 100%);
-  top: 734px;
+  top: concept-sp-scale(734);
   width: calc(150 / $concept-sp-width * 100%);
 
   img {
