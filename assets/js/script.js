@@ -160,23 +160,22 @@
   });
 })();
 
-// conceptセクション（テキスト固定・スクロール連動で画像を順番に表示）
+// conceptセクション（スクロール連動で画像をフェード表示）
 (() => {
   const concept = document.querySelector('[data-concept]');
   if (!concept) return;
 
-  const stage = concept.querySelector('.p-concept__stage');
   const revealOrder = [
-    '.p-concept__img--1',
-    '.p-concept__img--2',
-    '.p-concept__img--4',
-    '.p-concept__img--3',
-    '.p-concept__img--5',
+    '.p-concept__image--01',
+    '.p-concept__image--02',
+    '.p-concept__image--04',
+    '.p-concept__image--05',
+    '.p-concept__image--03',
   ]
     .map((selector) => concept.querySelector(selector))
     .filter(Boolean);
 
-  if (!stage || !revealOrder.length) return;
+  if (!revealOrder.length) return;
 
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -189,26 +188,30 @@
 
   function updateConceptImages() {
     const rect = concept.getBoundingClientRect();
-    const scrollRange = concept.offsetHeight - stage.offsetHeight;
-    const count = revealOrder.length;
+    const viewportHeight = window.innerHeight;
+    const scrollRange = concept.offsetHeight - viewportHeight;
 
     if (scrollRange <= 0) {
       revealOrder.forEach((img) => img.classList.add('is-visible'));
       return;
     }
 
-    // ピンが始まる前（セクション上端がビューポート内）では画像を非表示
-    if (rect.top > 0) {
+    const progressStart = viewportHeight;
+    const progressEnd = -scrollRange;
+
+    if (rect.top > progressStart) {
       revealOrder.forEach((img) => img.classList.remove('is-visible'));
       return;
     }
 
-    const scrolled = Math.max(0, Math.min(scrollRange, -rect.top));
-    const progress = scrolled / scrollRange;
+    const progress = Math.max(
+      0,
+      Math.min(1, (progressStart - rect.top) / (progressStart - progressEnd))
+    );
+    const revealPoints = [0.04, 0.18, 0.36, 0.54, 0.72];
 
     revealOrder.forEach((img, index) => {
-      const revealAt = (index + 1) / (count + 1);
-      img.classList.toggle('is-visible', progress >= revealAt);
+      img.classList.toggle('is-visible', progress >= revealPoints[index]);
     });
   }
 

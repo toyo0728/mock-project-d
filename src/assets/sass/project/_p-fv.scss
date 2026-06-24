@@ -1,7 +1,9 @@
 @use '../global' as g;
 
 .p-fv {
+  background-color: g.$bg-main;
   position: relative;
+  z-index: 1;
 }
 
 .p-fv__image {

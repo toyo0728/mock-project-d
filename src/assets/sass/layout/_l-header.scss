@@ -1,6 +1,12 @@
 @use '../global' as g;
 @use 'l-inner' as inner;
 
+:root {
+  @media (min-width: 1101px) {
+    --sticky-header-height: #{g.fluid(74px, 91px, 1100px, 1920px)};
+  }
+}
+
 .l-header-spacer {
   display: none;
   width: 100%;
